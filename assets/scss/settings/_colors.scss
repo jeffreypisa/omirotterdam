@@ -1,0 +1,53 @@
+$enable-gradients: true;
+
+// Color system
+$dark: #000;
+$greylight: #ECECEC;
+$orange: #FC471F;
+$blue: #6A95B0;
+
+// Create your own map
+$custom-colors: (
+  "primary":        $orange,
+  "secondary":      $blue,
+  "success":        $blue,
+  "info":           $blue,
+  "warning":        $orange,
+  "danger":         $orange,
+  "light":          $light,
+  "dark":           $dark,
+  "greylight":      $greylight,
+  "blue":           $blue,
+  "orange":         $orange
+);
+
+// Merge the maps
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+// Background colors
+@each $key, $val in $custom-colors {
+  .bg-#{$key} {
+    background-color: #{$val} !important;
+    color: color-contrast($val);
+  }
+}
+
+// Text colors
+@each $key, $val in $custom-colors {
+  .text-#{$key} {
+    color: #{$val} !important;
+  }
+}
+
+// Gradient
+//
+// The gradient which is added to components if `$enable-gradients` is `true`
+// This gradient is also added to elements with `.bg-gradient`
+// scss-docs-start variable-gradient
+
+
+
+// $gradient: linear-gradient(180deg, $greenlight 0%, $greendark 74.48%);
+// $gradient-hover: linear-gradient(180deg, $greenlight 0%, $greendark 74.48%);
+
+// scss-docs-end variable-gradient

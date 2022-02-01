@@ -1,0 +1,63 @@
+section {
+	padding: 60px 0;
+	&:first-child {
+		padding-top: 30px;
+	}
+}
+
+section.bg-transparent + section.bg-transparent,
+section.bg-white + section.bg-white,
+section.bg-greylight + section.bg-greylight,
+section.bg-orange + section.bg-orange {
+	padding-top: 0 !important;
+	margin-top: -40px;
+}
+
+
+@include media-breakpoint-up(md) {
+	section {
+		padding: 50px 0;
+	}
+	section.bg-transparent + section.bg-transparent,
+	section.bg-white + section.bg-white,
+	section.bg-greylight + section.bg-greylight,
+	section.bg-orange + section.bg-orange {
+		margin-top: -50px;
+	}
+}
+
+@include media-breakpoint-up(lg) {
+	section {
+		padding: 60px 0;
+	}
+	section.bg-transparent + section.bg-transparent,
+	section.bg-white + section.bg-white,
+	section.bg-greylight + section.bg-greylight,
+	section.bg-orange + section.bg-orange {
+		margin-top: -60px;
+	}
+}
+
+@include media-breakpoint-up(xl) {
+	section {
+		padding: 70px 0;
+	}
+	section.bg-transparent + section.bg-transparent,
+	section.bg-white + section.bg-white,
+	section.bg-greylight + section.bg-greylight,
+	section.bg-orange + section.bg-orange {
+		margin-top: -70px;
+	}
+}
+
+@include media-breakpoint-up(xxl) {
+	section {
+		padding: 80px 0;
+	}
+	section.bg-transparent + section.bg-transparent,
+	section.bg-white + section.bg-white,
+	section.bg-greylight + section.bg-greylight,
+	section.bg-orange + section.bg-orange {
+		margin-top: -80px;
+	}
+}

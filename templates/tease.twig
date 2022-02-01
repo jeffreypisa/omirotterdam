@@ -1,0 +1,8 @@
+<a href="{{ item.link }}" target="{{ item.link.target}}" class="tease tease-{{ item.post_type }} noline">
+	<div class="item">
+		<div class="image-holder ratio-4x3 mb-30 mb-md-0">
+			<div class="image" style="background-image: url({{ Image(item.thumbnail).src }})"></div>
+		</div>
+		<h3>{{ item.title }}</h3>
+	</div>
+</a>

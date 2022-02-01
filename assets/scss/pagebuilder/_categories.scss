@@ -1,0 +1,30 @@
+.mod-categories {
+	.holder {
+		.container {
+			a:hover {
+				color: $green;
+			}
+			a.btn-primary {
+				pointer-events: none;
+			}
+		}
+	}
+}
+
+@include media-breakpoint-down(md) {
+	.mod-categories {
+		overflow: hidden;
+		.holder {
+			overflow-y: auto;
+			-ms-overflow-style: none;  /* IE and Edge */
+			scrollbar-width: none;  /* Firefox */
+			padding-right: 30px;
+			&::-webkit-scrollbar {
+			  display: none;
+			}
+			.container {
+				white-space: nowrap;
+			}
+		}
+	}
+}

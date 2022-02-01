@@ -1,0 +1,14 @@
+<section id="section{{ sectionno }}" class="mod-video {{ item.achtergrond }}" data-scroll-section>
+	<div class="container anime-fadein">
+		{% if item.screenshot %}
+			<a class="videotile noline" href="{{ item.video }}&amp;rel=0&modestbranding=1" data-lity>
+	      		<div class="image-holder">
+	      			<i></i>
+	      			<div class="image ratio-16x9" style="background-image: url({{ Image(item.screenshot)|resize(1024) }}"></div>
+	      		</div>
+			</a>
+		{% else %}
+			{{ item.video }}
+		{% endif %}
+	</div>
+</section>

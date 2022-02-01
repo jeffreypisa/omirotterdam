@@ -1,0 +1,86 @@
+body {
+	padding-top: 60px;
+}
+
+header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 100;
+	transition: 1s $ease;
+	height: 60px;
+	padding: 10px 0;
+	.header-brand {
+		display: block;
+		background: url($logo_sm_color);
+		height: 38px;
+		width: 108px;
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+	ul {
+		list-style-type: none;
+		li {
+			display: inline-block;
+			margin-left: 0;
+			a {
+				text-decoration: none;
+				font-size: 18px;
+				font-weight: 600;
+			}
+		}
+	}
+}
+
+@include media-breakpoint-down(lg) {
+	header {
+		position: absolute !important;
+	}
+}
+
+
+@include media-breakpoint-up(lg) {
+	header {
+		position: fixed;
+		&.nav-up {
+			transform: translateY(-60px);
+			transition-delay: color .6s;
+			.header-brand {
+				transition-delay: background .6s;
+			}
+		}
+		&.nav-down {
+			transform: translateY(0);
+			transition-delay: background .6s;
+		}
+		&.nav-up, &.nav-down {
+			background: $white;
+			.header-brand {
+				display: block;
+			}
+		}
+		&.nav-down {
+			box-shadow: $box-shadow;
+		}
+		ul {
+			list-style-type: none;
+			li {
+				display: inline-block;
+				margin-left: 5px;
+				a {
+					&:hover, &:focus {
+
+					}
+				}
+				&.current-menu-item,
+				&.current-menu-item:hover {
+					a {
+						position: relative;
+						color: $orange;
+					}
+				}
+			}
+		}
+	}
+}

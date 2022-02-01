@@ -1,0 +1,20 @@
+.dropdown {
+	.dropdown-menu {
+		background: transparent;
+		padding: 0;
+		.nav-item {
+			opacity: 0;
+			transform: translateX(10px);
+			transition: 0.2s ease-in;
+		}
+	}
+	a:hover + .dropdown-menu,
+	.dropdown-menu:hover {
+		opacity: 1;
+		display: block;
+		.nav-item {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+}

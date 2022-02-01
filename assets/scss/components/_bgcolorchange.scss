@@ -1,0 +1,19 @@
+body {
+	transition: background 3s $ease;
+	&.bg-bluedark {
+		color: #fff;
+		muted {
+			opacity: 0.4;
+		}
+		h1, h2, h3, h4, h5, h6,
+		.h1, .h2, .h3, .h4, .h5, .h6,
+		a {
+			color: #fff;
+		}
+		a {
+			&:hover {
+				color: $orange;
+			}
+		}
+	}
+}

@@ -1,0 +1,13 @@
+.socialmedia {
+	list-style-type: none;
+	margin: 0;
+	li {
+		display: inline-block;
+		margin: 10px;
+		a {
+			transition: 0.6s $ease;
+			color: #fff;
+			font-size: 21px;
+		}
+	}
+}

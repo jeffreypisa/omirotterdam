@@ -1,0 +1,24 @@
+.text-white {
+	color: #fff;
+	muted {
+		opacity: 0.4;
+	}
+	h1, h2, h3, h4, h5, h6,
+	.h1, .h2, .h3, .h4, .h5, .h6,
+	a {
+		color: #fff;
+	}
+	a {
+		&:hover {
+			color: $orange;
+		}
+	}
+}
+
+.bg-greylight, .bg-white {
+	color: $dark;
+}
+
+@include media-breakpoint-up(lg) {
+
+}

@@ -1,0 +1,91 @@
+.bg-green {
+	.btn-link {
+		&:hover {
+			color: #fff;
+			&:after {
+				color: #fff;
+			}
+		}
+	}
+}
+
+.btn {
+	font-weight: 600;
+	line-height: 48px;
+	color: #fff;
+	transition: .4s $ease;
+	border-radius: 30px;
+	padding: 0 30px;
+	&.btn-light {
+		background: #fff;
+		color: $orange;
+		&:hover, &:focus, &:target {
+			background: $dark;
+			color: #fff !important;
+		}
+	}
+	&.btn-dark {
+		background: $dark;
+		color: #fff;
+		&:hover, &:focus, &:target {
+			background: $orange;
+		}
+	}
+	&.btn-primary {
+		background: $orange;
+		color: #fff;
+		&:hover, &:focus, &:target {
+			background: $dark;
+			color: #fff !important;
+		}
+	}
+}
+
+.btn-link {
+	text-decoration: none;
+	text-transform: uppercase;
+	color: $dark;
+	font-weight: 400;
+	font-size: 14px;
+	letter-spacing: 1px;
+	&:after {
+		display: inline-block;
+		font-style: normal;
+		font-variant: normal;
+		text-rendering: auto;
+		-webkit-font-smoothing: antialiased;
+		font-family: "Font Awesome 5 Pro";
+		font-weight: 700;
+		content: "\f054";
+		font-size: 16px;
+		transition: 0.2s $ease;
+		margin-left: 16px;
+		transform: translateY(1px);
+		color: $green;
+	}
+	&.prev {
+		&:after {
+			float:left;
+			line-height: 30px;
+			content: "\f053";
+			margin-left: auto;
+			margin-right: 10px;
+			transform: translateY(-1px) translateX(0px);
+		}
+	}
+	&:hover {
+		text-decoration: none;
+		color: $green;
+	}
+	&:not(:hover) {
+		&:after {
+			color: $dark;
+			margin-left: 10px;
+		}
+		&.prev:after {
+			color: $dark;
+			margin-left: 0;
+			transform: translateY(-1px)  translateX(3px);
+		}
+	}
+}

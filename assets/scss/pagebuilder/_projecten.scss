@@ -1,0 +1,168 @@
+.mod-projecten {
+	position: relative;
+	.content {
+		position: relative;
+		.index {
+			font-size: 12px;
+			color: $dark;
+			position: absolute;
+			bottom: 0;
+			right: 14px;
+		}
+	}
+}
+
+.js-slick-projecten {
+	margin-top: 30px;
+	.slick-arrow {
+		width: 20px;
+		height: 20px;
+	}
+	.slick-arrow {
+		&.slick-prev {
+			left: 0;
+			bottom: 0;
+			top: auto;
+			transform: none;
+		}
+		&.slick-next {
+			right: auto;
+			left: 40px;
+			bottom: 1px;
+			top: auto;
+		}
+	}
+	.slick-list {
+		overflow: visible;
+	}
+	.slick-slide {
+		.item {
+			.image {
+				.ratio-4x3 {
+					position: relative;
+					transition: 1s $ease;
+					overflow: hidden;
+					.bg-cover {
+						position: absolute;
+						top: -10px;
+						left: -10px;
+						right: -10px;
+						bottom: -10px;
+						opacity: .2;
+						opacity: 0;
+						filter: blur(2px);	
+						transition: 1s $ease;
+					}
+				}
+			}
+			.content {
+				padding-bottom: 50px;
+				opacity: 0;
+				transition: 1s $ease;
+				transition-delay: 0s;
+				.inside {
+					opacity: 0;
+					transition: 1s $ease;
+					transition-delay: 0s;
+				}
+			}
+		}
+	}
+	.slick-slide.slick-active {
+		.item {
+			.image {
+				.ratio-4x3 {
+					.bg-cover {
+						opacity: 1;
+						filter: blur(0px);
+					}
+				}
+			}
+			.content {
+				opacity: 1;
+				.inside {
+					opacity: 1;
+				}
+			}
+		}
+	}
+}
+
+@include media-breakpoint-up(md) {
+	.js-slick-projecten {
+		margin-top: 0;
+		.slick-slide {
+			.item {
+				.image {
+					.ratio-4x3 {
+						position: relative;
+						background: $dark;
+						transition: 1s $ease;
+						overflow: hidden;
+						.bg-cover {
+							position: absolute;
+							top: -10px;
+							left: -10px;
+							right: -10px;
+							bottom: -10px;
+							opacity: .2;
+							filter: blur(2px);	
+							transition: 1s $ease;
+							transition-delay: 0s;
+						}
+					}
+				}
+				.content {
+					width: 0;
+					opacity: 0;
+					transition: 1s $ease;
+					transition-delay: 0s;
+					.inside {
+						opacity: 0;
+						transition: 1s $ease;
+						transition-delay: 0s;
+					}
+				}
+			}
+		}
+		.slick-slide.slick-active {
+			.item {
+				.image {
+					.ratio-4x3 {
+						.bg-cover {
+							opacity: 1;
+							filter: blur(0px);
+							transition-delay: 1s;
+						}
+					}
+				}
+				.content {
+					width: 25%;
+					opacity: 1;
+					.inside {
+						opacity: 1;
+						transition-delay: 1.5s;
+					}
+				}
+			}
+		}
+	}
+  .mod-projecten {
+		.item {
+			.inside {
+				min-width: 150px;
+			}
+			.theimage {
+				margin: 0;
+				width: 100%;
+				padding-top: 100%;
+			}
+		}
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .mod-projecten {
+
+  }
+}

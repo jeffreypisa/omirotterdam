@@ -1,0 +1,29 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="content-wrapper">
+		<article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
+			
+			<section class="mod-content bg-transparent" data-scroll-section>
+				<div class="container">
+					<h1> {{ post.title }} </h1>
+				</div>
+			</section>
+			
+			{% for item in post.get_field('contentblokken') %}
+			
+				{% if item.acf_fc_layout == 'text' %}
+					{% include 'partial/tekst.twig' %}	
+					
+				{% elseif item.acf_fc_layout == 'afbeelding' %}
+					{% include 'partial/afbeelding.twig' %}	
+				
+				{% elseif item.acf_fc_layout == 'video' %}
+					{% include 'partial/video.twig' %}
+					
+				{% endif %}
+				
+			{% endfor %}
+		</article>
+	</div><!-- /content-wrapper -->
+{% endblock %}

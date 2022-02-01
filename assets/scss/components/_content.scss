@@ -1,0 +1,41 @@
+.content-styling {
+	* + h1,
+	* + h2,
+	* + h3,
+	* + h4,
+	* + h5,
+	* + h6,
+	* + img {
+		margin-top: 2rem;
+	}
+	h5,h6 {
+		margin-bottom: 8px;
+	}
+}
+
+.mod-content {
+	ul {
+		list-style-type: none;
+		padding-left: 2rem;
+		li {
+			position: relative;
+			padding-left: 0;
+			margin-left: 0;
+			&:after {
+				position: absolute;
+				top: 7px;
+				left: -2rem;
+				width: 8px;
+				height: 8px;
+				content: '';
+				background: $green;
+				border-radius: 30px;
+			}
+		}
+	}
+}
+
+@include media-breakpoint-up(lg) {
+	.mod-content {
+	}
+}

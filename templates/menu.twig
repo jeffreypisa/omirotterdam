@@ -1,0 +1,21 @@
+{% if menu %}
+	<ul class="nav">
+	{% for item in items %}
+		<li class="nav-item{% if item.children %} dropdown{% endif %}{{ item.classes | join(' ') }}">
+			<a class="nav-link" target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>
+			{% if item.children %}
+				<ul class="dropdown-menu">
+					{% for item in item.children %}
+						<li class="nav-item {{ item.classes | join(' ') }}">
+							<a class="dropdown-item btn-sm" target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>
+							{% if item.children %}
+								{% include "menu.twig" with {'items': item.children} %}
+							{% endif %}
+						</li>
+					{% endfor %}
+				</ul>
+			{% endif %}
+		</li>
+	{% endfor %}
+	</ul>
+{% endif %}

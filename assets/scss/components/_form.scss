@@ -1,0 +1,21 @@
+body .nf-form-content button, 
+body .nf-form-content input[type=button], 
+body .nf-form-content input[type=submit] {
+	@extend .btn;
+	@extend .btn-primary;
+	height: auto;
+}
+
+body .nf-form-content .list-select-wrap .nf-field-element>div, 
+body .nf-form-content input:not([type=button]), 
+body .nf-form-content textarea {
+	background: $greylight;
+	border-color: $greylight;
+}
+
+body .nf-form-content label {
+	font-size: 14px;
+	line-height: 16px;
+	font-weight: 400; 
+	color: $dark;
+} 

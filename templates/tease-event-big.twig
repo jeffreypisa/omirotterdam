@@ -1,0 +1,12 @@
+<a href="{{ item.link }}" target="{{ item.link.target}}" class="tease tease-event-big noline anime-fadein">
+	<div class="item">
+		<div class="image-holder overlay-gradient ratio-16x9 mb-30">
+			<div class="image" style="background-image: url({{ Image(item.thumbnail).src }})"></div>
+			<div class="content">
+				<h3 class="h1 mb-2">{{ item.title }}</h3>
+				<h3> {{ item.date }} </h3>
+				<div class="read-more h4 mb-0">Lees meer <i class="fas fa-arrow-right"></i></div>
+			</div>
+		</div>
+	</div>
+</a>

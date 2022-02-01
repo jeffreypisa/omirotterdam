@@ -1,0 +1,32 @@
+{# This file demonstrates using most of the index.twig template and modifying 
+   just a small part. See `search.twig` for an example of another approach #}
+
+{% extends "base.twig" %}
+
+{% block content %}
+  <article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
+    <section class="mod-archive bg-greylight" data-scroll-section>
+      <div class="container-fluid">
+        <h1 class="h2 mb-4 text-center">Past Stories</h1>
+        {% if categories %}
+          <div class="mod-categories mb-5">
+              <div class="container text-center">
+                <a href="/past-stories" class="{% if current_category == '' %} text-underline {% endif %}"> alle </a>
+                {% for item in categories %}
+                  <span> | </span> <a href="{{ item.link }}" class="{% if item.id == current_category %} text-underline {% endif %}">{{ item.title|lower }}</a>
+                {% endfor %}
+              </div>
+          </div>
+        {% endif %}
+          <div class="row anime-fadein">
+            {% for item in posts %}
+              <div class="col-6 col-md-6">
+                {% include ['tease-event.twig'] %}
+              </div>
+            {% endfor %}
+          </div>
+          {% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+      </div>
+    </section>
+  </article>
+{% endblock %}

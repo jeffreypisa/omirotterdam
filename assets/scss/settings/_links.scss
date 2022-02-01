@@ -1,0 +1,16 @@
+// Links
+//
+// Style anchor elements.
+
+$link-color:                              $orange;
+$link-decoration:                         underline !default;
+$link-shade-percentage:                   20% !default;
+$link-hover-color:                        lighten($orange, 15%);
+$link-hover-decoration:                   null !default;
+
+$stretched-link-pseudo-element:           after !default;
+$stretched-link-z-index:                  1 !default;
+
+a {
+	transition: 0.3s ease-in-out;
+}

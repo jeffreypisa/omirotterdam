@@ -1,0 +1,92 @@
+.blockcontainer {
+	max-width: 1140px;
+	margin-right: auto;
+	margin-left: auto;
+	width: 100%;
+}
+.mod-blocklinks {
+	.blocklinks {
+		margin-top: 40px;
+		margin-left: -25px;
+	}
+	.item {
+		padding: 0 15px;
+		margin-bottom: 30px;
+		.card {
+			padding-top: 166%;
+			overflow: hidden;
+			position: relative;
+			transition: 0.6s all $ease;
+			background: $greylight;
+			color: #fff;
+			border: 0;
+			border-radius: 0;
+			text-decoration: none;
+			.bg {
+				position: absolute;
+				top: 0;
+				left: -10px;
+				right: -10px;
+				bottom: -10px;
+				z-index: -10px;
+				background-size: cover;
+				background-position: center center;
+				transition: 5s all $ease;
+			}
+			.card-body {
+				z-index: 1;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				padding: 2rem;
+				&:after {
+					content: '';
+					position: absolute;
+					z-index: -1;
+					content: "";
+					left: 0;
+					right: 0;
+					bottom: 0;
+					top: -2rem;
+					background: $green;
+					transform: translateY(100%);
+					opacity: 0.9;
+					transition: 0.6s all $ease;
+					clip-path: polygon(0 20%, 100% 0%, 100% 100%, 0% 100%);
+				}
+			}
+			&:hover {
+				box-shadow: 0 18px 36px 0 rgba($dark, 0.7);
+				.bg {
+					filter: blur(2px);
+					transform: scale(1.1);
+				}
+				.card-body:after{
+					transform: translateY(0);
+				}
+			}
+		}
+	}
+	.slick-list {
+		padding: 0 10px;
+		overflow: visible;
+	}
+}
+
+@include media-breakpoint-up(md) {
+	.mod-blocklinks {
+		.blocklinks {
+			margin-left: 0;
+			margin-top: 100px;
+		}
+	}
+}
+
+@include media-breakpoint-up(lg) {
+	.mod-blocklinks {
+		.blocklinks {
+			margin: 60px auto 0;
+		}
+	}
+}

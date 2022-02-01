@@ -1,0 +1,103 @@
+.image-normal {
+	width: 80%;
+	margin: 0 auto;
+	height: auto;	
+}
+
+.image-holder {
+	position: relative;
+	&.overlay-gradient:after {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		content: '';
+		z-index: -1;
+		background: linear-gradient(180deg, rgba(0, 0, 0, 0.62) 0%, rgba(196, 196, 196, 0) 100%);
+	}
+	.image {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: -2;
+		width: 100%;
+		background-size: cover;
+		background-position: center center;
+	}
+	.content {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 0;
+		padding: 15px;
+	}
+}
+
+.anime-fadein {
+	opacity: 0;
+	transform: translateY(60px);
+	transition: 2s $ease;
+	&.visible {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.anime-reveal {
+	position: relative;
+	width: 100%;
+	padding-top: 75%;
+	height: auto;
+	overflow: hidden;
+	.bg-cover {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		opacity: 0; 
+		transform: scale(1.3);
+		transition: 3s $ease;
+	}
+	&.visible {
+		.bg-cover {
+			animation: pic 2s;
+			animation-fill-mode: forwards;
+			animation-timing-function: $ease;
+			transform: scale(1);
+			animation-delay: 0.3s;
+		}
+	}
+}
+
+@include media-breakpoint-up(md) {
+	.image-normal {
+		width: 100%;
+		height: auto;	
+	}
+	.image-holder {
+		.content {
+			padding: 30px;
+		}
+	}
+}
+@keyframes pic {
+	0% { 
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		opacity: 0; 
+		clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%) 
+	}
+	50% { opacity: 1; }
+	51% { opacity: 1; }
+	100% { 
+		opacity: 1; 
+		clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); 
+	}
+}

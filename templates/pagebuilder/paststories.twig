@@ -1,0 +1,25 @@
+<section id="section{{ sectionno }}" class="mod-paststories {{ item.achtergrond }} {% if item.achtergrond == 'bg-orange' %}text-white{% endif %}" data-scroll-section>
+	<div class="container anime-fadein">
+		<div class="row">
+			<div class="col-md-10 offset-md-1 text-center">
+				{% if item.titel %}
+					<h2> {{ item.titel }} </h2>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+	{% if item.artikelen %}
+		<div class="container-fluid">
+			<div class="row">
+				{% for item in item.artikelen|slice(0,2) %}				
+					<div class="col-md-6">
+						{% include ['tease-event.twig'] %}
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	{% endif %}  
+	<div class="text-center mt-4">
+		<a href="{{ site.link }}/events" class="btn btn-light"> Meer stories </a>
+	</div>
+</section>

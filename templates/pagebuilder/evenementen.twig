@@ -1,0 +1,31 @@
+<section id="section{{ sectionno }}" class="mod-evenementen {{ item.achtergrond }} {% if item.achtergrond == 'bg-orange' %}text-white{% endif %}" data-scroll-section>
+	{% if item.titel %}
+		<div class="container anime-fadein">
+			<div class="row">
+				<div class="col-md-10 offset-md-1 text-center">
+					<h2> {{ item.titel }} </h2>
+				</div>
+			</div>
+		</div>
+	{% endif %}
+	{% if item.evenementen %}
+		<div class="container-fluid">
+			<div class="row">
+				{% for item in item.evenementen|slice(0,3) %}
+					{% if loop.first %}
+						<div class="col-12">
+							{% include ['tease-event-big.twig'] %}
+						</div>
+					{% else %}
+						<div class="d-none d-lg-block col-lg-6">
+							{% include ['tease-event.twig'] %}
+						</div>
+					{% endif %}
+				{% endfor %}
+			</div>
+		</div>
+	{% endif %}  
+	<div class="text-center mt-4">
+		<a href="{{ site.link }}/events" class="btn btn-primary"> Meer events </a>
+	</div>
+</section>

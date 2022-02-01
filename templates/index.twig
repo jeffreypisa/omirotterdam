@@ -1,0 +1,17 @@
+{% extends "base.twig" %}
+
+{% block content %}
+  <article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
+	<section class="mod-archive" data-scroll-section>
+		<div class="row">
+		  {% set stilo = 0 %}
+		  {% for item in posts %}
+			<div class="col-md-4">
+			  {% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+			</div>
+		  {% endfor %}
+		</div>
+		{% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+	</section>
+  </article>
+{% endblock %}

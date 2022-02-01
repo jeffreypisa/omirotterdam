@@ -1,0 +1,31 @@
+{# This file demonstrates using most of the index.twig template and modifying 
+   just a small part. See `search.twig` for an example of another approach #}
+
+{% extends "base.twig" %}
+
+{% block content %}
+    <article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
+        <section class="mod-archive" data-scroll-section>
+            <div class="container-fluid">
+                <h1 class="h2 mb-5 text-center">Blog overzicht</h1>
+                <div class="row anime-fadein">
+                    {% for item in posts %}
+                        {% if loop.first %}
+                            <div class="col-12 d-none d-md-block">
+                                {% include ['tease-blog-big.twig'] %}
+                            </div>
+                            <div class="col-6 col-md-4 d-md-none">
+                                {% include ['tease-blog.twig'] %}
+                            </div>
+                        {% else %}
+                            <div class="col-6 col-md-4">
+                                {% include ['tease-blog.twig'] %}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                {% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+            </div>
+        </section>
+    </article>
+{% endblock %}

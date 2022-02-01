@@ -1,0 +1,27 @@
+<section id="section{{ sectionno }}" class="mod-banner text-white {% if item.xl %} xl custom-cursor {% endif %}"  data-scroll-section>
+	{% if item.xl %} <div class="js-scrolltonextsection d-flex align-items-center"> {% endif %}
+		{% if item.achtergrond == 'video' %}
+			<div class="vimeo-wrapper">
+				<iframe src="https://player.vimeo.com/video/{{ item.video }}?background=1" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+			</div>
+		{% else %}
+			<div class="bg {% if item.xl %} {% else %} parallax-background {% endif %}" style="background-image: url({{ Image(item.afbeelding).src }})" data-scroll data-scroll-speed="-3"></div>
+		{% endif %}
+		<div class="content w-100">
+	    <div class="container">
+	      <div class="row">
+	        <div class="col-lg-8 offset-lg-2 text-center">
+		    	<h2 class="h1" style="margin: 0"> {{ item.titel }} </h2>
+	        </div>
+	      </div>
+	    </div>
+		<a href="#section{{ sectionno * 2 }}" data-scroll-to class="scrolldown">
+			<div class="pijl">
+				<span class="line"></span>
+				<span class="p1"></span>
+				<span class="p2"></span>
+			</div>
+		</a>
+	  </div>
+  {% if item.xl %} </div> {% endif %}
+</section>

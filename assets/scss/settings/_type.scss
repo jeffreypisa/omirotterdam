@@ -1,0 +1,219 @@
+// Typography
+//
+// Font, line-height, and color for body text, headings, and more.
+
+@font-face {
+	font-family: 'IBM Plex Sans';
+	src: url('../fonts/IBMPlexSans-Regular.woff2') format('woff2'),
+		url('../fonts/IBMPlexSans-Regular.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'IBM Plex Sans';
+	src: url('../fonts/IBMPlexSans-SemiBold.woff2') format('woff2'),
+		url('../fonts/IBMPlexSans-SemiBold.woff') format('woff');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+  font-family: 'Font Awesome 5 Brands';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/fa-brands-400.eot');
+  src: url('../fonts/fa-brands-400.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/fa-brands-400.woff2') format('woff2'),
+  url('../fonts/fa-brands-400.woff') format('woff'),
+  url('../fonts/fa-brands-400.ttf') format('truetype'),
+  url('../fonts/fa-brands-400.svg#fontawesome') format('svg');
+}
+
+@font-face {
+  font-family: 'Font Awesome 5';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/fa-light-300.eot');
+  src: url('../fonts/fa-light-300.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/fa-light-300.woff2') format('woff2'),
+  url('../fonts/fa-light-300.woff') format('woff'),
+  url('../fonts/fa-light-300.ttf') format('truetype'),
+  url('../fonts/fa-light-300.svg#fontawesome') format('svg');
+}
+
+.fab {
+  font-family: 'Font Awesome 5 Brands';
+}
+
+// scss-docs-start font-variables
+// stylelint-disable value-keyword-case
+$font-family-base:            'IBM Plex Sans';
+$font-family-alt:			  'IBM Plex Sans';
+
+.altfont {
+	font-family: $font-family-alt;
+	font-weight: 400;
+} 
+.weight-300 {
+	font-weight: 300 !important;
+}
+.weight-400 {
+	font-weight: 400 !important;
+}
+.weight-500 {
+	font-weight: 500 !important;
+}
+.weight-600 {
+	font-weight: 600 !important;
+}
+.weight-700 {
+	font-weight: 700 !important;
+}
+
+.text-lg {
+	font-size: 18px;
+	line-height: 28px;
+}
+
+.text-sm {
+	font-size: 12px;
+	line-height: 16px;
+}
+
+body {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+* + h1,
+* + h2,
+* + h3,
+* + h4,
+* + h5,
+* + h6 {
+	margin-top: 60px;
+}
+
+.font-bigger {
+	font-size: 20px;
+}
+
+@include media-breakpoint-down(md) {
+	body {
+		h1 {
+			font-size: 40px;
+			line-height: 47px;
+		}
+		h2 {
+			font-size: 32px;
+			line-height: 36px;
+		}
+		h3 {
+			font-size: 28px;
+			line-height: 43px;
+		}
+		h4 {
+			font-size: 23px;
+			line-height: 28px;
+		}
+		h5, h6 {
+			font-size: 18px;
+			line-height: 24px;
+		}
+		.lead {
+			font-size: 20px;
+			line-height: 30px;
+		}
+	}
+}
+
+@include media-breakpoint-down(sm) {
+	body {
+		h1 {
+			font-size: 34px;
+			line-height: 42px;
+		}
+		h2 {
+			font-size: 28px;
+			line-height: 32px;
+		}
+		h3 {
+			font-size: 26px;
+			line-height: 32px;
+		}
+		h4 {
+			font-size: 22px;
+			line-height: 28px;
+		}
+		h5, h6 {
+			font-size: 17px;
+			line-height: 24px;
+		}
+		.lead {
+			font-size: 19px;
+			line-height: 28px;
+		}
+	}
+}
+
+
+.altfont {
+	text-transform: none;
+}
+
+// $font-size-root affects the value of `rem`, which is used for as well font sizes, paddings, and margins
+// $font-size-base affects the font size of the body text
+$font-size-root:              null;
+$font-size-base:              18px; // Assumes the browser default, typically `16px`
+$font-size-sm:                $font-size-base * .75;
+$font-size-lg:                $font-size-base * 1.5;
+
+$font-weight-base:            $font-weight-normal;
+
+$line-height-base:            1.5;
+$line-height-sm:              1.25;
+$line-height-lg:              2;
+
+$h1-font-size:                60px;
+$h2-font-size:                46px;
+$h3-font-size:                36px;
+$h4-font-size:                30px;
+$h5-font-size:                26px;
+$h6-font-size:                18px;
+// scss-docs-end font-variables
+
+// scss-docs-start headings-variables
+$headings-margin-bottom:      $spacer * 2;
+$headings-font-family:        null;
+$headings-font-style:         null;
+$headings-font-weight:        600;
+$headings-line-height:        1.2;
+$headings-color:              inherit;
+// scss-docs-end headings-variables
+
+
+$display-font-sizes: (
+  1: $font-size-base * 12,
+  2: $font-size-base * 9,
+  3: $font-size-base * 6,
+  4: $font-size-base * 3,
+  5: $font-size-base * 1.56,
+  6: 2.5rem
+);
+
+$display-font-weight: 700;
+$display-line-height: $headings-line-height;
+	
+
+// scss-docs-start type-variables
+$lead-font-size:              $font-size-base * 1.37;
+$lead-font-weight:            400;
+
+$small-font-size:             .875em;
+
+$sub-sup-font-size:           .75em;
+
+$text-muted:                  $gray-600;

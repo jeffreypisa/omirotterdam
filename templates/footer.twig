@@ -1,0 +1,56 @@
+<footer id="footer" class="section bg-blue text-white" data-scroll-section>
+  <div class="container">
+    <img src="{{ theme.link }}/assets/img/omi_logo_slogan_wit.svg" width="155" height="68">
+    <br><br><br>
+    <div class="row">
+      <div class="col-md-4">
+        {{ options.tekst }}
+      </div>
+      <div class="col-md-4 mb-3 mb-md-0">
+        {% include "menu.twig" with {'items': footermenu1.get_items} %}
+      </div>
+      <div class="col-md-3 col-lg-2 mb-3 mb-md-0">
+        {% if options.youtube %}
+          <a href="{{ options.youtube }}">
+            <i class="fab fa-youtube" style="width:20px"></i> Youtube
+          </a>
+        {% endif %}
+        <div class="clearfix"></div>
+        {% if options.youtube %}
+          <a href="{{ options.instagram }}">
+            <i class="fab fa-instagram" style="width:20px"></i> Instagram
+          </a>
+        {% endif %}
+        <div class="clearfix"></div>
+        {% if options.youtube %}
+          <a href="{{ options.facebook }}">
+            <i class="fab fa-facebook" style="width:20px"></i> Facebook
+          </a>
+        {% endif %}
+      </div>
+    </div>
+    <br>
+    {% if options.logos %}
+      <div class="row g-1">
+        {% for logo in options.logos %}
+          <div class="col">
+            <a href="{{ logo.url }}" target="_blank" class="logo" style="background-image: url({{ Image(logo.logo).src }})">
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+    <div class="subfooter">
+    	<div class="row">
+    		<div class="col-sm">
+		      <p> 
+            © {{ "now"|date('Y') }} OMI Office for Metropolitan Information
+          </p>
+    		</div>
+        <div class="col-sm-auto">
+          Site by <a href="https://www.thomasvandervlis.nl" target="_blank">Thomas Van Der Vlis</a> & <a href="https://www.emonks.nl" target="_blank">Emonks</a>
+        </div>
+    	</div>
+    </div>
+  </div>
+</footer>

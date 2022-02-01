@@ -1,0 +1,58 @@
+.tease {
+	.box {
+		padding: 15px;
+		background: $dark;
+		color: #fff;
+		transition: .4s $ease;
+	}
+	.image-holder {
+		color: #fff;
+		overflow: hidden;
+		.image {
+			transition: 2s $ease;
+		}
+		.content {
+			.read-more {
+				position: absolute;
+				bottom: 0;
+				right: 30px;
+				i {
+					transition: 1s $ease;
+				}
+			}
+		}
+	}
+	&:hover {
+		.box {
+			background: $orange;
+		}
+		.image-holder {
+			.image {
+				transform: scale(1.2);
+				opacity: 0.8;
+				transition: 10s $ease;
+			}
+			.content {
+				.read-more {
+					i {
+						color: $orange;
+						margin-left: 20px;
+					}
+				}
+			}
+		}
+	}
+}
+
+@include media-breakpoint-up(md) {
+	.tease {
+		.image-holder {
+			.content {
+				.read-more {
+					right: 30px;
+					bottom: 30px;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,44 @@
+.mod-content {
+	overflow-x: hidden;
+	overflow-y: visible;
+	img {
+		max-width: 100%;
+	}
+  img.size-full {
+    width: calc(100% + 20px);
+    max-width: calc(100% + 20px);
+    height: auto;
+    margin: 0 -10px 10px -10px;
+  }
+  &.marge {
+	  margin: 130px 0;
+  }
+}
+
+@include media-breakpoint-up(md) {
+	.mod-content {
+	  img.size-full {
+			width: calc(100% + 80px);
+	    max-width: calc(100% + 80px);
+	    height: auto;
+	    margin: 0 -40px 15px -40px;
+	  }
+	  &.marge {
+		  margin: 180px 0;
+	  }
+	}
+}
+
+@include media-breakpoint-up(xl) {
+	.mod-content {
+	  img.size-full {
+			width: calc(100% + 120px);
+	    max-width: calc(100% + 120px);
+	    height: auto;
+	    margin: 0 -60px 20px -60px;
+	  }
+	  &.marge {
+		  margin: 240px 0;
+	  }
+	}
+}
