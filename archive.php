@@ -22,37 +22,83 @@ $context = Timber::context();
 $currentPostType = get_post_type();
 
 if ($currentPostType == 'blog') {
-
+    $templates = array( 'archive-blog.twig');
+    $args_posts = array(
+      'post_type'               => 'blog',
+      'posts_per_page'          => -1,
+      'orderby' => 'date',
+      'order'   => 'DESC',
+      'suppress_filters' => true
+    );
+    
 } elseif ($currentPostType == 'events') {
+    $templates = array( 'archive-events.twig');
     $terms = \Timber::get_terms(array('taxonomy' => 'events_category', 'hide_empty' => true));
     $context['categories'] = $terms;
     $postcatid = get_queried_object()->term_id;
     $context['current_category'] = $postcatid;
+    
+    $date_1 = date('Ymd', strtotime("now")); 
+    $date_2 = date('Ymd', strtotime("+24 months"));
+    
+    $args_posts = array(
+        'post_type'               => 'events',
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'events_category', //double check your taxonomy name in you dd 
+                'field'    => 'id',
+                'terms'    => $postcatid,
+            ),
+        ),
+        'posts_per_page'          => -1,
+        'meta_query'              => array(
+        'relation'	=> 'OR',
+            // check to see if end date has been set
+            array(
+                'key'		=> 'datum_einde',
+                'compare'	=> 'BETWEEN',
+                'type'		=> 'numeric',
+                'value'		=> array($date_1, $date_2),
+            ),
+            // if no end date has been set use start date
+            array(
+                'key'		=> 'datum_start',
+                'compare'	=> 'BETWEEN',
+                'type'		=> 'numeric',
+                'value'		=> array($date_1, $date_2),
+            )
+            ),
+        'meta_key' => 'datum_start', // name of custom field
+        'orderby'	=> 'meta_value_num',
+        'order'		=> 'ASC'
+    );
+    
 } elseif ($currentPostType == 'paststories') {
+    $templates = array( 'archive-paststories.twig');
     $terms = \Timber::get_terms(array('taxonomy' => 'paststory_category', 'hide_empty' => true));
     $context['categories'] = $terms;
     $postcatid = get_queried_object()->term_id;
     $context['current_category'] = $postcatid;
+    
+    $args_posts = array(
+        'post_type'               => 'paststories',
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'paststory_category', //double check your taxonomy name in you dd 
+                'field'    => 'id',
+                'terms'    => $postcatid,
+            ),
+        ),
+        'posts_per_page'          => -1,
+        'meta_key' => 'datum_start', // name of custom field
+        'orderby'	=> 'meta_value_num',
+        'order'		=> 'DESC'
+    );
+
 }
 
-$context['title'] = 'Archive';
+$context['title'] = $currentPostType;
 
-if ( is_day() ) {
-	$context['title'] = 'Archive: ' . get_the_date( 'D M Y' );
-} elseif ( is_month() ) {
-	$context['title'] = 'Archive: ' . get_the_date( 'M Y' );
-} elseif ( is_year() ) {
-	$context['title'] = 'Archive: ' . get_the_date( 'Y' );
-} elseif ( is_tag() ) {
-	$context['title'] = single_tag_title( '', false );
-} elseif ( is_category() ) {
-	$context['title'] = single_cat_title( '', false );
-	array_unshift( $templates, 'archive-' . get_query_var( 'cat' ) . '.twig' );
-} elseif ( is_post_type_archive() ) {
-	$context['title'] = post_type_archive_title( '', false );
-	array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );
-}
-
-$context['posts'] = new Timber\PostQuery();
+$context['posts'] = Timber::get_posts($args_posts);
 
 Timber::render( $templates, $context );

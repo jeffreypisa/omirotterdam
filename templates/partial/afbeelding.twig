@@ -1,16 +1,32 @@
-<section class="mod-content single-content content-image" data-scroll-section>
+<section class="mod-content single-content content-image bg-greylight" data-scroll-section>
 	<div class="container">
-		<div class="row">
-			<div class="col-md">
-				<div class="image image1 ratio-3x4 w-100 mb-30 mb-md-0 anime-reveal">
-					<div class="bg-cover" style="background-image: url({{ Image(item.afbeelding)|resize(1024) }})"></div>
-				</div>
+		{% if item.slider %}
+			<div class="js-slick">
+				{% for image in item.afbeeldingen %}
+					<div class="item">
+						<div class="image ratio-16x9 w-100 anime-reveal">
+							<div class="bg-cover" style="background-image: url({{ Image(image) }})"></div>
+						</div>
+					</div>
+				{% endfor %}
 			</div>
-			<div class="col-md">
-				<div class="image image2 ratio-3x4 w-100 mb-30 mb-md-0 anime-reveal">
-					<div class="bg-cover" style="background-image: url({{ Image(item.afbeelding2)|resize(1024) }})"></div>
-				</div>
-			</div>
-		</div>
+		{% else %}
+			<div class="row">
+				{% for image in item.afbeeldingen %}
+					{% if loop.first %}
+						<div class="col-12">
+							<div class="image ratio-16x9 w-100 mb-30 anime-reveal">
+								<div class="bg-cover" style="background-image: url({{ Image(image) }})"></div>
+							</div>
+						</div>
+					{% else %}
+						<div class="col-md">
+							<div class="image ratio-16x9 w-100 mb-30 anime-reveal">
+								<div class="bg-cover" style="background-image: url({{ Image(image) }})"></div>
+							</div>
+						</div>
+					{% endif %}
+				{% endfor %}
+		{% endif %}
 	</div>
 </section>

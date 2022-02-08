@@ -4,8 +4,11 @@
 			<div class="image" style="background-image: url({{ Image(item.thumbnail).src }})"></div>
 			<div class="content">
 				<h3 class="h1 mb-2">{{ item.title }}</h3>
-				<h3> {{ item.date }} </h3>
+				<h3 class="mb-0 weight-400"> {% if item.naam %}- {{ item.naam }} <br>{% endif %} {{ item.van_tot }} </h3>
+				
 				<div class="read-more h4 mb-0">Lees meer <i class="fas fa-arrow-right"></i></div>
+				{% set terme = item.get_terms()|first %}
+				<div class="badge" style="background-color: {{ terme.kleur }}"> {{ terme.title }} </div>
 			</div>
 		</div>
 	</div>

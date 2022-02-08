@@ -52,6 +52,25 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_61f7db042dafd",
+                            "label": "Toon als slider",
+                            "name": "slider",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
                             "key": "field_61f7daec2dafc",
                             "label": "Afbeelding(en)",
                             "name": "afbeeldingen",
@@ -77,25 +96,6 @@
                             "max_height": "",
                             "max_size": "",
                             "mime_types": ""
-                        },
-                        {
-                            "key": "field_61f7db042dafd",
-                            "label": "Slider",
-                            "name": "slider",
-                            "type": "true_false",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "message": "",
-                            "default_value": 0,
-                            "ui": 0,
-                            "ui_on_text": "",
-                            "ui_off_text": ""
                         }
                     ],
                     "min": "",
@@ -122,6 +122,31 @@
                             },
                             "width": "",
                             "height": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_61fba08ad027b": {
+                    "key": "layout_61fba08ad027b",
+                    "name": "knop",
+                    "label": "Knop",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_61fba08ad027c",
+                            "label": "Knop",
+                            "name": "link",
+                            "type": "link",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array"
                         }
                     ],
                     "min": "",
@@ -167,5 +192,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1643634058
+    "modified": 1643880602
 }

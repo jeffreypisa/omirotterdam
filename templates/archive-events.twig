@@ -6,21 +6,21 @@
 {% block content %}
   <article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
     <section class="mod-archive bg-greylight" data-scroll-section>
-      <div class="container-fluid">
-        <h1 class="h2 mb-4 text-center">Events</h1>
-         {% if categories %}
-           <div class="mod-categories mb-5">
-               <div class="container text-center">
-                 <a href="/events" class="{% if current_category == '' %} text-underline {% endif %}"> alle </a>
-                 {% for item in categories %}
-                   <span> | </span> <a href="{{ item.link }}" class="{% if item.id == current_category %} text-underline {% endif %}">{{ item.title|lower }}</a>
-                 {% endfor %}
-               </div>
-           </div>
-         {% endif %}
-          <div class="row anime-fadein">
+      <div class="container">
+        <h1 class="h2 mb-2 mt-3 text-center">Events</h1>
+          {% if categories %}
+            <div class="mod-categories mb-5">
+              <div class="container text-center">
+               <a href="/events" class="{% if current_category == '' %}active{% endif %}"> alle </a>
+               {% for item in categories %}
+                 <span> | </span> <a href="{{ item.link }}" class="{% if item.id == current_category %}active{% endif %}">{{ item.title|lower }}</a>
+               {% endfor %}
+              </div>
+            </div>
+          {% endif %}
+          <div class="row mt-2 anime-fadein">
             {% for item in posts %}
-              <div class="col-6 col-md-6">
+              <div class="col-md-6">
                 {% include ['tease-event.twig'] %}
               </div>
             {% endfor %}

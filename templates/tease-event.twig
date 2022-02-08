@@ -1,11 +1,15 @@
-<a href="{{ item.link }}" target="{{ item.link.target}}" class="tease tease-blog-big noline anime-fadein">
+<a href="{{ item.link }}" target="{{ item.link.target}}" class="tease tease-event noline anime-fadein">
 	<div class="item">
-		<div class="image-holder overlay-gradient ratio-16x9 mb-30">
+		<div class="image-holder overlay-gradient ratio-4x3 mb-30">
 			<div class="image" style="background-image: url({{ Image(item.thumbnail).src }})"></div>
 			<div class="content">
 				<h3 class="h6 mb-1">{{ item.title }}</h3>
-				<p> {{ item.date }} </p>
+				<p class="mb-0"> {% if item.naam %}- {{ item.naam }} <br>{% endif %} {{ item.van_tot }} </p>
+				
 				<div class="read-more weight-600">Lees meer <i class="fas fa-arrow-right"></i></div>
+				
+				{% set the_term = item.get_terms()|first %}
+				<div class="badge" style="background-color: {{ the_term.kleur }}"> {{ the_term.title }} </div>
 			</div>
 		</div>
 	</div>

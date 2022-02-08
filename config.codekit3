@@ -17,6 +17,14 @@
       "oO" : 1,
       "oS" : 1
     },
+    "\/.nova\/Publishing\/Emonks.json" : {
+      "ft" : 524288,
+      "oA" : 1,
+      "oAP" : "\/.nova\/Publishing\/Emonks-min.json",
+      "oF" : 0,
+      "oO" : 1,
+      "oS" : 1
+    },
     "\/404.php" : {
       "cB" : 0,
       "ft" : 8192,
@@ -61,6 +69,22 @@
       "ft" : 524288,
       "oA" : 1,
       "oAP" : "\/acf-json\/group_61f94e897b63d-min.json",
+      "oF" : 0,
+      "oO" : 1,
+      "oS" : 1
+    },
+    "\/acf-json\/group_620110883a8ff.json" : {
+      "ft" : 524288,
+      "oA" : 1,
+      "oAP" : "\/acf-json\/group_620110883a8ff-min.json",
+      "oF" : 0,
+      "oO" : 1,
+      "oS" : 1
+    },
+    "\/acf-json\/group_62012073965d4.json" : {
+      "ft" : 524288,
+      "oA" : 1,
+      "oAP" : "\/acf-json\/group_62012073965d4-min.json",
       "oF" : 0,
       "oO" : 1,
       "oS" : 1
@@ -376,6 +400,38 @@
       "hM" : 0,
       "oA" : 0,
       "oAP" : "\/assets\/fonts\/IBMPlexSans-SemiBold.woff2",
+      "oF" : 0
+    },
+    "\/assets\/fonts\/IBMPlexSerif-Regular.woff" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/assets\/fonts\/IBMPlexSerif-Regular.woff",
+      "oF" : 0
+    },
+    "\/assets\/fonts\/IBMPlexSerif-Regular.woff2" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/assets\/fonts\/IBMPlexSerif-Regular.woff2",
+      "oF" : 0
+    },
+    "\/assets\/fonts\/IBMPlexSerif-SemiBold.woff" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/assets\/fonts\/IBMPlexSerif-SemiBold.woff",
+      "oF" : 0
+    },
+    "\/assets\/fonts\/IBMPlexSerif-SemiBold.woff2" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/assets\/fonts\/IBMPlexSerif-SemiBold.woff2",
       "oF" : 0
     },
     "\/assets\/fonts\/light.scss" : {
@@ -1666,14 +1722,6 @@
       "oAP" : "\/templates\/mobilemenu.twig",
       "oF" : 0
     },
-    "\/templates\/page-paststories.twig" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/templates\/page-paststories.twig",
-      "oF" : 0
-    },
     "\/templates\/page-plugin.twig" : {
       "cB" : 0,
       "ft" : 8192,
@@ -1770,6 +1818,14 @@
       "oAP" : "\/templates\/partial\/bannerslider.twig",
       "oF" : 0
     },
+    "\/templates\/partial\/knop.twig" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/templates\/partial\/knop.twig",
+      "oF" : 0
+    },
     "\/templates\/partial\/pagination.twig" : {
       "cB" : 0,
       "ft" : 8192,
@@ -1818,12 +1874,36 @@
       "oAP" : "\/templates\/sidebar.twig",
       "oF" : 0
     },
+    "\/templates\/single-blog.twig" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/templates\/single-blog.twig",
+      "oF" : 0
+    },
+    "\/templates\/single-events.twig" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/templates\/single-events.twig",
+      "oF" : 0
+    },
     "\/templates\/single-password.twig" : {
       "cB" : 0,
       "ft" : 8192,
       "hM" : 0,
       "oA" : 0,
       "oAP" : "\/templates\/single-password.twig",
+      "oF" : 0
+    },
+    "\/templates\/single-paststories.twig" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/templates\/single-paststories.twig",
       "oF" : 0
     },
     "\/templates\/single.twig" : {

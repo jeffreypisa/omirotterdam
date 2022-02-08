@@ -1,3 +1,9 @@
+{% if item.achtergrond == 'bg-orange' %}
+	{% set knopkleur = 'btn-light' %}
+{% else %}
+	{% set knopkleur = 'btn-dark' %}
+{% endif %}
+
 <section id="section{{ sectionno }}" class="mod-evenementen {{ item.achtergrond }} {% if item.achtergrond == 'bg-orange' %}text-white{% endif %}" data-scroll-section>
 	{% if item.titel %}
 		<div class="container anime-fadein">
@@ -8,10 +14,26 @@
 			</div>
 		</div>
 	{% endif %}
-	{% if item.evenementen %}
-		<div class="container-fluid">
-			<div class="row">
+	{% if item.weergave == 'custom' %}
+		<div class="container">
+			<div class="row justify-content-lg-center">
 				{% for item in item.evenementen|slice(0,3) %}
+					{% if loop.first %}
+						<div class="col-12">
+							{% include ['tease-event-big.twig'] %}
+						</div>
+					{% else %}
+						<div class="d-none d-lg-block col-lg-6">
+							{% include ['tease-event.twig'] %}
+						</div>
+					{% endif %}
+				{% endfor %}
+			</div>
+		</div>
+	{% else %}
+		<div class="container">
+			<div class="row">
+				{% for item in evenementen %}
 					{% if loop.first %}
 						<div class="col-12">
 							{% include ['tease-event-big.twig'] %}
@@ -26,6 +48,6 @@
 		</div>
 	{% endif %}  
 	<div class="text-center mt-4">
-		<a href="{{ site.link }}/events" class="btn btn-primary"> Meer events </a>
+		<a href="{{ site.link }}/events" class="btn {{ knopkleur }}"> Meer events </a>
 	</div>
 </section>

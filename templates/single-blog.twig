@@ -4,15 +4,19 @@
 	<div class="content-wrapper">
 		<article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
 			
-			<section class="mod-content bg-transparent" data-scroll-section>
-				<div class="container">
-					<h1 class="mb-0"> {{ post.title }} </h1>
+			<section class="mod-content bg-greylight" data-scroll-section>
+				<div class="container text-center">
+					<div class="row">
+						<div class="col-md-10 offset-md-1">
+							<h1 class="mb-2 mt-3"> {{ post.title }} </h1>
+						</div>
+					</div>
 				</div>
 			</section>
 			
 			{% for item in post.get_field('contentblokken') %}
 			
-				{% if item.acf_fc_layout == 'text' %}
+				{% if item.acf_fc_layout == 'tekst' %}
 					{% include 'partial/tekst.twig' %}	
 					
 				{% elseif item.acf_fc_layout == 'afbeelding' %}
@@ -20,10 +24,15 @@
 				
 				{% elseif item.acf_fc_layout == 'video' %}
 					{% include 'partial/video.twig' %}
-					
+				
+				{% elseif item.acf_fc_layout == 'knop' %}
+					{% include 'partial/knop.twig' %}
+				
 				{% endif %}
 				
 			{% endfor %}
+			
+			{% include 'pagebuilder.twig' %}
 		</article>
 	</div><!-- /content-wrapper -->
 {% endblock %}

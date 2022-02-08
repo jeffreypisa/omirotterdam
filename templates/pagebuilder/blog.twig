@@ -1,3 +1,9 @@
+{% if item.achtergrond == 'bg-orange' %}
+	{% set knopkleur = 'btn-light' %}
+{% else %}
+	{% set knopkleur = 'btn-dark' %}
+{% endif %}
+
 <section id="section{{ sectionno }}" class="mod-blog {{ item.achtergrond }} {% if item.achtergrond == 'bg-orange' %}text-white{% endif %}" data-scroll-section>
 	<div class="container anime-fadein">
 		<div class="row">
@@ -9,8 +15,8 @@
 		</div>
 	</div>
 	{% if item.artikelen %}
-		<div class="container-fluid">
-			<div class="row">
+		<div class="container">
+			<div class="row justify-content-md-center">
 				{% for item in item.artikelen|slice(0,3) %}
 					<div class="col-md-4">
 						{% include ['tease-blog.twig'] %}
@@ -20,6 +26,6 @@
 		</div>
 	{% endif %}  
 	<div class="text-center mt-4">
-		<a href="{{ site.link }}/events" class="btn btn-dark"> Meer blogs </a>
+		<a href="{{ site.link }}/events" class="btn {{ knopkleur }}"> Meer blogs </a>
 	</div>
 </section>

@@ -6,7 +6,6 @@
   height: 0; 
   overflow: hidden;
   max-width: 1200px;
-  margin: 25px auto 40px;
 }
   
 .video-container iframe, .video-container object, .video-container embed, .video-container video { 
@@ -24,8 +23,6 @@
 
 @include media-breakpoint-up(md) {
   .video-container { 
-    width: calc(100% + 120px);
-    margin-left: -60px;
-    margin-bottom: 80px;
+
   }
 }

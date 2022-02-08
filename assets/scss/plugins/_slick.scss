@@ -1,21 +1,8 @@
-.mod-content {
-	.slick-slider {
-		.slick-arrow {
-			&.slick-prev {
-				left: -8px;
-				right: auto;
-				background-image: url(../img/chevron_left_orange.svg);
-			}
-			&.slick-next {
-				right: -8px;
-				left: auto;
-				background-image: url(../img/chevron_left_orange.svg);
-				transform: rotate(180deg);
-			}
-		}
-	}
-}
 .slick-slider {
+	.slick-list {
+		padding: 0 !important;
+		margin: 0 !important;
+	}
 	.slick-arrow {
 		padding: 0;
 		position: absolute;
@@ -26,7 +13,7 @@
 		overflow: hidden;
 		border: 0;
 		background-repeat: no-repeat;
-		width: 17px;
+		width: 30px;
 		height: 30px;
 		background-size: cover;
 		background-color: transparent;
@@ -73,39 +60,6 @@
 				}
 			}
 		}
-	}
-}
-
-.js-slick-brands.slick-slider {
-	.slide-img { 
-		overflow: hidden; 
-		position: relative;
-		opacity: 1;
-	}
-	.bg-cover {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		opacity: 0;
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%) scale(1.3);
-	}
-	.slick-active {
-		.bg-cover {
-			animation: myMove 2s 1 $ease; 
-			opacity: 1;
-			transform: translate(-50%, -50%) scale(1.3);
-			animation-fill-mode: forwards;
-		}
-	}
-	.slick-slide[aria-hidden="true"] .slide-img {
-		visibility: hidden; 
 	}
 }
 
