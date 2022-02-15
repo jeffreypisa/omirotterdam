@@ -3,16 +3,15 @@
 	transition: 0.3s $ease;
 	z-index: 99;
 	background: #fff;
-	border-radius: 100px;
-	width: 50px;
-	height: 50px;
+	width: 60px;
+	height: 60px;
 	position: fixed;
-	top: 5px;
-	right: 35px;
+	top: 0px;
+	right: 15px;
 	.lines {
 		width: 36px;
 		height: 32px;
-		margin: 10px 7px;
+		margin: 8px 12px;
 		transform: rotate(0);
 		transition: 0.3s ease-in-out;
 		position: relative;
@@ -22,7 +21,7 @@
 			position: absolute;
 			height: 2px;
 			width: 27px;
-			background: $orange;
+			background: $dark;
 			opacity: 1;
 			left: 4px;
 			border-radius: 3px;
@@ -40,11 +39,28 @@
 			top: 22px;
 		}
 	}
+	.text {
+		display: block;
+		font-size: 10px;
+		text-decoration: none;
+		text-transform: lowercase;
+		position: absolute;
+		font-weight: 600;
+		top: 38px;
+		left: 15px;
+		color: $dark;
+		transition: 0.3s ease-in-out;
+	}
 	&:hover {
+		background: $orange;
+		color: #fff;
 		.lines {
 			span{
-				background: $dark;
+				background: #fff;;
 			}
+		}
+		.text {
+			color: #fff;
 		}
 	}
 }
@@ -54,7 +70,7 @@ body.opensidemenu {
 		&:hover {
 			.lines {
 				span {
-					background: #000;
+
 				}
 			}
 		}

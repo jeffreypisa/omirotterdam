@@ -1,0 +1,18 @@
+{% if options.nieuwsbrief_weergeven %}
+	<section id="section{{ sectionno }}" class="mod-newsletter" data-scroll-section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 offset-md-1 text-center">
+					{% if options.nieuwsbrief_titel %}
+						<h5> {{ options.nieuwsbrief_titel }} </h5>
+					{% endif %}
+					{% if options.nieuwsbrief_content %}					
+						<div class="anime-fadein">
+							{{ options.nieuwsbrief_content }}
+						</div>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</section>
+{% endif %}

@@ -1,0 +1,25 @@
+.mod-logos {
+	padding-bottom: 60px;
+	.logo {
+		display: block;
+		width: 100%;
+		padding-top: 50%;
+		background-size: contain;
+		background-position: center center;
+		background-repeat: no-repeat;
+		transition: 0.4s $ease;
+		opacity: 0.4;
+		&:hover {
+			opacity: 1;
+		}
+	}
+}
+
+@include media-breakpoint-up(md) {
+	.mod-logos {
+		.logo {
+			height: 100px;
+			padding: 0;
+		}
+	}
+}

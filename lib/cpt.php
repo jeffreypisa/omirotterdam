@@ -47,7 +47,7 @@ function create_posttype() {
 			'show_in_rest' 				=> true,
 			'has_archive'             	=> false,
 			'supports'                	=> array( 'title', 'editor', 'thumbnail' ),
-			'rewrite' 					=> array( 'slug' => 'events/%events_category%', 
+			'rewrite' 					=> array( 'slug' => 'evenementen/%events_category%', 
 													'with_front' 	=> false ),
 		)
 	);

@@ -15,7 +15,12 @@
 	
 	{% elseif item.acf_fc_layout == 'paststories' %}
 		{% include 'pagebuilder/paststories.twig' %}
-		
+	
+	{% elseif item.acf_fc_layout == 'video' %}
+		{% include 'pagebuilder/video.twig' %}
+	
 	{% endif %}
   
 {% endfor %}
+
+{% include 'pagebuilder/newsletter.twig' %}

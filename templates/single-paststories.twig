@@ -32,6 +32,44 @@
 				
 			{% endfor %}
 			
+			{% if post.colofon %}
+				<section class="mod-colofon bg-greylight text-sm" data-scroll-section>		
+					<div class="container mt-5">
+						<div class="row">
+							<div class="col-md-10 offset-md-1 col-xl-8 offset-xl-2">
+								<h6> Colofon </h6>
+								<div class="row">
+									<div class="col-auto col-sm-5 col-md-4 col-lg-3 weight-600">
+										{% for item in post.get_field('colofon') %}
+											{{ item.label }}: <br>
+										{% endfor %}
+									</div>
+									<div class="col">
+										{% for item in post.get_field('colofon') %}
+											{{ item.tekst }} <br>
+										{% endfor %}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			{% endif %}
+			
+			{% if post.logos %}
+				<section class="mod-logos bg-greylight text-sm" data-scroll-section>	
+					<br><br>
+					<div class="row g-1">
+						{% for logo in post.logos %}
+							<div class="col">
+								<a href="{{ logo.url }}" target="_blank" class="logo" style="background-image: url({{ Image(logo.logo).src }})">
+							</a>
+							</div>
+						{% endfor %}
+					</div>
+				</section>
+			{% endif %}
+			
 			{% include 'pagebuilder.twig' %}
 			
 		</article>

@@ -176,6 +176,25 @@
                             "maxlength": ""
                         },
                         {
+                            "key": "field_62026b6abb8c7",
+                            "label": "Eerste evenement groot tonen",
+                            "name": "primetime",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
                             "key": "field_62014e3dcf097",
                             "label": "Weergave",
                             "name": "weergave",
@@ -190,7 +209,7 @@
                             },
                             "choices": {
                                 "custom": "Zelf kiezen",
-                                "recent": "Eerstvolgende"
+                                "recent": "Binnenkort"
                             },
                             "default_value": false,
                             "allow_null": 0,
@@ -286,13 +305,46 @@
                             "maxlength": ""
                         },
                         {
+                            "key": "field_62026a58b7bd9",
+                            "label": "Weergave",
+                            "name": "weergave",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "custom": "Zelf kiezen",
+                                "recent": "Recent"
+                            },
+                            "default_value": false,
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": ""
+                        },
+                        {
                             "key": "field_61f9439a7da2b",
                             "label": "Artikelen",
                             "name": "artikelen",
                             "type": "post_object",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_62026a58b7bd9",
+                                        "operator": "==",
+                                        "value": "custom"
+                                    }
+                                ]
+                            ],
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -363,10 +415,10 @@
                             "maxlength": ""
                         },
                         {
-                            "key": "field_61f7e94ee600a",
-                            "label": "Artikelen",
-                            "name": "artikelen",
-                            "type": "post_object",
+                            "key": "field_62026a79b7bda",
+                            "label": "Weergave",
+                            "name": "weergave",
+                            "type": "select",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -375,8 +427,41 @@
                                 "class": "",
                                 "id": ""
                             },
+                            "choices": {
+                                "custom": "Zelf kiezen",
+                                "recent": "Recent"
+                            },
+                            "default_value": false,
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_61f7e94ee600a",
+                            "label": "Artikelen",
+                            "name": "artikelen",
+                            "type": "post_object",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_62026a79b7bda",
+                                        "operator": "==",
+                                        "value": "custom"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
                             "post_type": [
-                                "blog"
+                                "paststories"
                             ],
                             "taxonomy": "",
                             "allow_null": 0,
@@ -435,5 +520,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1644256999
+    "modified": 1644326148
 }

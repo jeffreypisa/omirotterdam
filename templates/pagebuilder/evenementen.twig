@@ -14,16 +14,19 @@
 			</div>
 		</div>
 	{% endif %}
+	{% if item.primetime %}
+		{% set primetime = 'true' %}
+	{% endif %}
 	{% if item.weergave == 'custom' %}
 		<div class="container">
 			<div class="row justify-content-lg-center">
 				{% for item in item.evenementen|slice(0,3) %}
-					{% if loop.first %}
-						<div class="col-12">
+					{% if primetime == 'true' and loop.first %}
+						<div class="col-12 {% if primetime == 'true' %}primetime{% endif %}">
 							{% include ['tease-event-big.twig'] %}
 						</div>
 					{% else %}
-						<div class="d-none d-lg-block col-lg-6">
+						<div class="{% if primetime == 'true' %}d-none d-lg-block{% endif %} col-lg-6">
 							{% include ['tease-event.twig'] %}
 						</div>
 					{% endif %}
@@ -34,12 +37,12 @@
 		<div class="container">
 			<div class="row">
 				{% for item in evenementen %}
-					{% if loop.first %}
-						<div class="col-12">
+					{% if primetime == 'true' and loop.first %}
+						<div class="col-12 {% if primetime == 'true' %}primetime{% endif %}">
 							{% include ['tease-event-big.twig'] %}
 						</div>
 					{% else %}
-						<div class="d-none d-lg-block col-lg-6">
+						<div class="{% if primetime == 'true' %}d-none d-lg-block{% endif %} col-lg-6">
 							{% include ['tease-event.twig'] %}
 						</div>
 					{% endif %}
@@ -48,6 +51,6 @@
 		</div>
 	{% endif %}  
 	<div class="text-center mt-4">
-		<a href="{{ site.link }}/events" class="btn {{ knopkleur }}"> Meer events </a>
+		<a href="{{ site.link }}/events" class="btn {{ knopkleur }}"> {% if lang == 'nl_NL' %}Meer evenementen{% else %}More events{% endif %}  </a>
 	</div>
 </section>

@@ -10,7 +10,7 @@ header {
 	z-index: 100;
 	transition: 1s $ease;
 	height: 60px;
-	padding: 10px 0;
+	padding: 7px 0;
 	background: #fff;
 	.header-brand {
 		display: block;
@@ -29,6 +29,44 @@ header {
 				text-decoration: none;
 				font-size: 18px;
 				font-weight: 600;
+			}
+			&.nav-itemlang-item {
+				padding: 4px;
+				&.lang-item-first {
+					margin-left: 25px;
+				}
+				a[href] {
+					color: $dark;
+					position: relative;
+					font-size: 14px;
+					padding: 8px 2px;
+					&:hover {
+						color: $orange;
+					}
+					&:after {
+						content: '';
+						position: absolute;
+						top: 4px;
+						left: 50%;
+						transform: translateX(-50%);
+						height: 28px;
+						width: 28px;
+						border-radius: 30px;
+						z-index: -1;
+					}
+				}
+				&.current-lang {
+					a[href] {
+						pointer-events: none;
+						color: #fff;
+						&:hover {
+							color: #fff;
+						}
+						&:after {
+							background: $orange;
+						}
+					}
+				}
 			}
 		}
 	}

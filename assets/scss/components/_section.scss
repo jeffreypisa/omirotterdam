@@ -2,6 +2,9 @@ section {
 	padding: 60px 0;
 	&:first-child {
 		padding-top: 30px;
+		&.bg-transparent {
+			padding-top: 44px;
+		}
 	}
 }
 
@@ -10,7 +13,7 @@ section.bg-white + section.bg-white,
 section.bg-greylight + section.bg-greylight,
 section.bg-orange + section.bg-orange {
 	padding-top: 0 !important;
-	margin-top: -40px;
+	margin-top: -48px;
 }
 
 
@@ -22,7 +25,7 @@ section.bg-orange + section.bg-orange {
 	section.bg-white + section.bg-white,
 	section.bg-greylight + section.bg-greylight,
 	section.bg-orange + section.bg-orange {
-		margin-top: -30px;
+		margin-top: -48px;
 	}
 }
 
@@ -34,7 +37,7 @@ section.bg-orange + section.bg-orange {
 	section.bg-white + section.bg-white,
 	section.bg-greylight + section.bg-greylight,
 	section.bg-orange + section.bg-orange {
-		margin-top: -40px;
+		margin-top: -50px;
 	}
 }
 
@@ -46,18 +49,18 @@ section.bg-orange + section.bg-orange {
 	section.bg-white + section.bg-white,
 	section.bg-greylight + section.bg-greylight,
 	section.bg-orange + section.bg-orange {
-		margin-top: -50px;
+		margin-top: -60px;
 	}
 }
 
 @include media-breakpoint-up(xxl) {
 	section {
-		padding: 90px 0;
+		padding: 100px 0;
 	}
 	section.bg-transparent + section.bg-transparent,
 	section.bg-white + section.bg-white,
 	section.bg-greylight + section.bg-greylight,
 	section.bg-orange + section.bg-orange {
-		margin-top: -60px;
+		margin-top: -70px;
 	}
 }

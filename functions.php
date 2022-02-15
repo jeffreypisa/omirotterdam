@@ -1,5 +1,6 @@
 <?php 
 
+include 'lib/menu.php';
 include 'lib/acf.php';
 include 'lib/cpt.php';
 include 'lib/ctax.php';

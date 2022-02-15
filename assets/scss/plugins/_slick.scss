@@ -15,7 +15,7 @@
 		background-repeat: no-repeat;
 		width: 30px;
 		height: 30px;
-		background-size: cover;
+		background-size: contain;
 		background-color: transparent;
 		&.slick-prev {
 			left: 10px;
@@ -25,8 +25,7 @@
 		&.slick-next {
 			right: 10px;
 			left: auto;
-			background-image: url(../img/chevron_left.svg);
-			transform: rotate(180deg);
+			background-image: url(../img/chevron_right.svg);
 		}
 		&:hover {
 			opacity: 0.6;
@@ -86,19 +85,6 @@
 			}
 			&.slick-next {
 				right: 30px;
-			}
-		}
-	}
-}
-
-@include media-breakpoint-up(xl) {
-	.slick-slider {
-		.slick-arrow {
-			&.slick-prev {
-				left: 60px;
-			}
-			&.slick-next {
-				right: 60px;
 			}
 		}
 	}

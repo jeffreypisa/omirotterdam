@@ -8,23 +8,17 @@ footer {
 		li {
 			display: block;
 			width: 100%;
+			&.nav-itemlang-item {
+				display: none;
+			}
 			a {
 				padding: 0;
 				color: #fff;
 			}
 		}
 	}
-	.logo {
-		display: block;
-		width: 100%;
-		padding-top: 75%;
-		background-size: contain;
-		background-position: center center;
-		transition: 0.4s $ease;
-		opacity: 0.4;
-		&:hover {
-			opacity: 1;
-		}
+	.mod-logos {
+		margin-top: 40px;
 	}
 	.subfooter {
 		padding-top: 40px;

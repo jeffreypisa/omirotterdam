@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header d-flex align-items-center">
 	<div class="container"> 
 		<div class="row g-2">
 			<div class="col d-flex align-items-center">
@@ -6,16 +6,17 @@
 					<span class="d-none">{{ site.name }}</span>
 				</a>
 			</div>
-			<div class="col-auto d-none d-md-flex align-items-center">
+			<div class="col-auto d-none d-lg-flex align-items-center">
 				{% include "menu.twig" with {'items': menu.get_items} %}
 			</div>
 			<div class="col-auto d-lg-none">
-				<a id="mobilemenubtn" class="btn-menu d-block immune js-menu d-md-none">
+				<a id="mobilemenubtn" class="btn-menu d-block immune js-menu d-lg-none">
 					<div class="lines">
 						<span></span>
 						<span></span>
 						<span></span>
 					</div>
+					<span class="text"> NL / EN </span>
 				</a>
 			</div>
 		</div>

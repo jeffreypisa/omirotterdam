@@ -9,7 +9,7 @@
 						<div class="col-md-10 offset-md-1">
 							<h1 class="h2 mb-1 mt-3"> {{ post.title }} </h1>
 							{% if post.van_tot %}
-								<h3 class="weight-400 mb-3"> {{ post.van_tot }} </h3>
+								<h3 class="weight-400 mb-3 mb-md-1"> {{ post.van_tot }} </h3>
 							{% endif %}
 						</div>
 					</div>
@@ -33,7 +33,7 @@
 			{% endfor %}
 			
 			{% if post.colofon %}
-				<section class="mod-content bg-greylight text-sm" data-scroll-section>		
+				<section class="mod-colofon bg-greylight text-sm" data-scroll-section>		
 					<div class="container mt-5">
 						<div class="row">
 							<div class="col-md-10 offset-md-1 col-xl-8 offset-xl-2">
@@ -56,10 +56,11 @@
 				</section>
 			{% endif %}
 			
-			{% if options.logos %}
-				<section class="mod-content bg-greylight text-sm" data-scroll-section>		
+			{% if post.logos %}
+				<section class="mod-logos bg-greylight text-sm" data-scroll-section>	
+					<br><br>	
 					<div class="row g-1">
-						{% for logo in options.logos %}
+						{% for logo in post.get_field('logos') %}
 							<div class="col">
 								<a href="{{ logo.url }}" target="_blank" class="logo" style="background-image: url({{ Image(logo.logo).src }})">
 							</a>

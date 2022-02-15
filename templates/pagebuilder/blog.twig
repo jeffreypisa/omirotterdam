@@ -5,7 +5,7 @@
 {% endif %}
 
 <section id="section{{ sectionno }}" class="mod-blog {{ item.achtergrond }} {% if item.achtergrond == 'bg-orange' %}text-white{% endif %}" data-scroll-section>
-	<div class="container anime-fadein">
+	<div class="container">
 		<div class="row">
 			<div class="col-md-10 offset-md-1 text-center">
 				{% if item.titel %}
@@ -14,18 +14,30 @@
 			</div>
 		</div>
 	</div>
-	{% if item.artikelen %}
-		<div class="container">
+	{% if item.weergave == 'recent' %}
+		<div class="container anime-fadein">
 			<div class="row justify-content-md-center">
-				{% for item in item.artikelen|slice(0,3) %}
+				{% for item in blog %}
 					<div class="col-md-4">
 						{% include ['tease-blog.twig'] %}
 					</div>
 				{% endfor %}
 			</div>
 		</div>
-	{% endif %}  
+	{% else %}
+		{% if item.artikelen %}
+			<div class="container anime-fadein">
+				<div class="row justify-content-md-center">
+					{% for item in item.artikelen|slice(0,3) %}
+						<div class="col-md-4">
+							{% include ['tease-blog.twig'] %}
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		{% endif %}  
+	{% endif %}
 	<div class="text-center mt-4">
-		<a href="{{ site.link }}/events" class="btn {{ knopkleur }}"> Meer blogs </a>
+		<a href="{{ site.link }}/blog" class="btn {{ knopkleur }}"> {% if lang == 'nl_NL' %}Meer blogs{% else %}More blog{% endif %}  </a>
 	</div>
 </section>

@@ -8,6 +8,14 @@ function post_remove ()      //creating functions post_remove for removing menu 
 add_action('admin_menu', 'post_remove');   //adding action for triggering function call
 
 
+function remove_h1_from_heading($args) {
+	// Just omit h1 from the list
+	$args['block_formats'] = 'Paragraph=p;Heading 2=h2;Heading 3=h3;Heading 4=h4;Heading 5=h5;Heading 6=h6;Pre=pre';
+	return $args;
+}
+add_filter('tiny_mce_before_init', 'remove_h1_from_heading' );
+
+
 // hide comments
 
 // Removes from admin menu

@@ -81,14 +81,71 @@ class StarterSite extends Timber\Site {
 	 * @param string $context context['this'] Being the Twig's {{ this }}.
 	 */
 	public function add_to_context( $context ) {
-		$context['foo']   = 'bar';
-		$context['stuff'] = 'I am a value set in your functions.php file';
-		$context['notes'] = 'These values are available everytime you call Timber::context();';
-		$context['menu']  = new Timber\Menu('menu');
-		$context['mobilemenu']  = new Timber\Menu('mobilemenu');
-		$context['footermenu1']  = new Timber\Menu('footermenu1');
-		$context['footermenu2']  = new Timber\Menu('footermenu2');
+		$context['menu']  = new TimberMenu('topmenu');
+		$context['footermenu']  = new TimberMenu('footermenu');
+
 		$context['site']  = $this;
+		$context['lang'] = get_locale();
+		
+		// Evenementen //
+		
+		$date_1 = date('Ymd', strtotime("now")); 
+		//Future date - the arg will look between today's date and this future date to see if the post fall within the 2 dates.
+		$date_2 = date('Ymd', strtotime("+24 months"));
+		
+		$args_evenementen = array(
+		  'post_type'			  => 'events',
+			'posts_per_page'  => 3,
+		  'meta_query'	=> array(
+			'relation'	=> 'OR',
+			// check to see if end date has been set
+			array(
+			'key'		=> 'datum_einde',
+			'compare'	=> 'BETWEEN',
+			'type'		=> 'numeric',
+			'value'		=> array($date_1, $date_2),
+			),
+			// if no end date has been set use start date
+			array(
+			'key'		=> 'datum_start',
+			'compare'	=> 'BETWEEN',
+			'type'		=> 'numeric',
+			'value'		=> array($date_1, $date_2),
+			)
+		  ),
+		  'meta_key' => 'datum_start', // name of custom field
+		  'orderby'	=> 'meta_value_num',
+		  'order'		=> 'ASC'
+		);
+		
+		$context['evenementen'] = Timber::get_posts($args_evenementen);
+			
+			
+		// Blog //
+		
+		$args_blog = array(
+			'post_type'			  => 'blog',
+			'posts_per_page'  => 3,
+			'orderby' => 'date',
+			'order'   => 'DESC',
+			'suppress_filters' => true
+		);
+		
+		$context['blog'] = Timber::get_posts($args_blog);
+		
+		
+		// Past stories //
+		
+		$args_paststories = array(
+		  'post_type'			  => 'paststories',
+		  'posts_per_page'  => 2,
+		  'meta_key' => 'datum_start', // name of custom field
+		  'orderby'	=> 'meta_value_num',
+		  'order'		=> 'DESC'
+		);
+		
+		$context['paststories'] = Timber::get_posts($args_paststories);
+			
 		return $context;
 	}
 
