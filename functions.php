@@ -10,6 +10,7 @@ include 'lib/optionspage.php';
 include 'lib/svg.php';
 include 'lib/timber.php';
 include 'lib/videoembed.php';
+include 'lib/loadmoreposts.php';
 include 'lib/wpadmin.php';
 
 // Set permalink structure projecten

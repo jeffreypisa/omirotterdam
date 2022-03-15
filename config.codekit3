@@ -464,6 +464,16 @@
       "pg" : 0,
       "sct" : 0
     },
+    "\/assets\/img\/arrow.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 2,
+      "oAP" : "\/assets\/img\/arrow.svg",
+      "oF" : 0,
+      "opt" : 0,
+      "plM" : 52780316221407,
+      "prP" : 0
+    },
     "\/assets\/img\/chevron_left_orange.svg" : {
       "ft" : 2097152,
       "miP" : 0,
@@ -623,6 +633,17 @@
       "mi" : 1,
       "oA" : 1,
       "oAP" : "\/assets\/js\/scripts\/lity-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
+    "\/assets\/js\/scripts\/loadmoreposts.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 1,
+      "oAP" : "\/assets\/js\/scripts\/loadmoreposts-min.js",
       "oF" : 0,
       "sC" : 3,
       "tS" : 0
@@ -1098,6 +1119,21 @@
       "pg" : 0,
       "sct" : 0
     },
+    "\/assets\/scss\/pagebuilder\/_evenementen.scss" : {
+      "aP" : 1,
+      "bl" : 0,
+      "co" : 0,
+      "dP" : 10,
+      "ec" : 1,
+      "ft" : 4,
+      "ma" : 1,
+      "oA" : 1,
+      "oAP" : "\/assets\/scss\/pagebuilder\/_evenementen.css",
+      "oF" : 0,
+      "oS" : 3,
+      "pg" : 0,
+      "sct" : 0
+    },
     "\/assets\/scss\/pagebuilder\/_overons.scss" : {
       "aP" : 1,
       "bl" : 0,
@@ -1441,6 +1477,14 @@
       "oAP" : "\/lib\/includes.php",
       "oF" : 0
     },
+    "\/lib\/loadmoreposts.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/lib\/loadmoreposts.php",
+      "oF" : 0
+    },
     "\/lib\/menu.php" : {
       "cB" : 0,
       "ft" : 8192,
@@ -1511,6 +1555,14 @@
       "oO" : 1,
       "oS" : 1
     },
+    "\/page-blog.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/page-blog.php",
+      "oF" : 0
+    },
     "\/page-events.php" : {
       "cB" : 0,
       "ft" : 8192,
@@ -1556,7 +1608,7 @@
     },
     "\/screenshot.png" : {
       "ft" : 32768,
-      "iS" : 13031,
+      "iS" : 595768,
       "oA" : 0,
       "oAP" : "\/screenshot.png",
       "oF" : 0,
@@ -1651,6 +1703,14 @@
       "hM" : 0,
       "oA" : 0,
       "oAP" : "\/templates\/404.twig",
+      "oF" : 0
+    },
+    "\/templates\/ajaxloadmore.twig" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/templates\/ajaxloadmore.twig",
       "oF" : 0
     },
     "\/templates\/archive-blog.twig" : {
@@ -1867,6 +1927,14 @@
       "hM" : 0,
       "oA" : 0,
       "oAP" : "\/templates\/partial\/knop.twig",
+      "oF" : 0
+    },
+    "\/templates\/partial\/more.twig" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/templates\/partial\/more.twig",
       "oF" : 0
     },
     "\/templates\/partial\/pagination.twig" : {

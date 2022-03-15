@@ -12,6 +12,7 @@ import { site_is_loaded } from './scripts/site_is_loaded.js';
 import { footer_down } from './scripts/footer_down.js';
 import { mobilemenu } from './scripts/mobilemenu.js';
 import { scrolleffects } from './scripts/scrolleffects.js';
+import { loadmoreposts } from './scripts/loadmoreposts.js';
 
 lity_init();
 
@@ -19,6 +20,7 @@ $( document ).ready(function() {
 	footer_down();
 	mobilemenu();
 	slick_init();
+	loadmoreposts();
 });
 
 $(window).on('load', function() {

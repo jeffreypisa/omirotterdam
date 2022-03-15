@@ -13,6 +13,12 @@
 			color: $orange;
 		}
 	}
+	&.bg-orange {
+		a:hover:not(.btn) {
+			color: #fff;
+			text-decoration: underline
+		}
+	}
 }
 
 .bg-greylight, .bg-white {

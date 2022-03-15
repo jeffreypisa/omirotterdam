@@ -1,7 +1,7 @@
-<a href="{{ item.link }}" target="{{ item.link.target}}" class="tease tease-event noline anime-fadein">
+<a href="{{ item.link }}" target="{{ item.link.target}}" class="tease tease-event noline">
 	<div class="item">
 		<div class="image-holder overlay-gradient ratio-16x9 mb-30">
-			<div class="image" style="background-image: url({{ Image(item.thumbnail).src }})"></div>
+			<div class="image" style="background-image: url({{ Image(item.thumbnail).src|resize(1024) }})"></div>
 			<div class="content">
 				<h3 class="h6 mb-1">{{ item.title }}</h3>
 				<p class="mb-0"> {% if item.naam %}<span class="d-none d-lg-block">- {{ item.naam }} <br></span>{% endif %} {{ item.van_tot }} </p>

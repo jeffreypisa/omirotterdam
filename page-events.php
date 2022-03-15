@@ -50,4 +50,7 @@ $context['categories'] = $terms;
 
 $context['posts'] = Timber::get_posts($args_posts);
 
+$timber_post     = new Timber\Post();
+$context['post'] = $timber_post;
+
 Timber::render( array( 'archive-events.twig' ), $context );

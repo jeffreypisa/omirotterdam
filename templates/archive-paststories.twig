@@ -18,6 +18,28 @@
               </div>
           </div>
         {% endif %}
+        <div class="row">
+          <div class="col-md-6 col-lg-4">
+            <div class="form-group mb-4">
+              <form id="category-select" class="category-dropdown" action="{{ currenturl }}" method="get"> 
+                <select class="form-select" name="jaar" id="jaar" class="cat-menu" onchange="return this.form.submit()">
+                  <option value="-1">{% if lang == 'nl_NL' %}Filteren op jaar{% else %}Filter by year{% endif %}</option>
+                    {% set ditjaar = '' %}
+                    {% set oudjaar = '' %}
+                    {% for jaar in paststories_jaren %}
+                      {% set ditjaar = jaar.datum_start|date('Y') %}
+                      {% if ditjaar != oudjaar %}                    
+                        <option class="level-0" value="{{ ditjaar }}" {% if selected_jaar == ditjaar %} selected {% endif %}>
+                          {{ ditjaar }}
+                        </option>
+                       {% set oudjaar = ditjaar %} 
+                      {% endif %}
+                    {% endfor %}
+                  <option value="0">{% if lang == 'nl_NL' %}Bekijk alle{% else %}All years{% endif %}</option>
+                </select>
+              </form>
+            </div>
+          </div>
           <div class="row mt-2 anime-fadein">
             {% for item in posts %}
               <div class="col-md-6">
@@ -28,5 +50,6 @@
           {% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
       </div>
     </section>
+    {% include 'pagebuilder.twig' %}
   </article>
 {% endblock %}

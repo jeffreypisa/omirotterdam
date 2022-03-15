@@ -21,14 +21,53 @@ $context = Timber::context();
 /* Load categories */
 $currentPostType = get_post_type();
 
+$jaar = '';
+
 if ($currentPostType == 'blog') {
+    
+    $currentlang = get_bloginfo('language');
+    $blog_page_id = 547;
+        
+    // Load from blog page
+    if($currentlang=="en-GB") {
+        $blog_page_id = 549;
+    } else {
+        $blog_page_id = 547;
+    }
+    
+    $blog = new TimberPost( $blog_page_id );
+    $context['post'] = $blog;
+    
+    
     $templates = array( 'archive-blog.twig');
-    $args_posts = array(
+        
+    $args_firstpost = array(
       'post_type'               => 'blog',
-      'posts_per_page'          => -1,
+      'posts_per_page'          => 1,
       'orderby' => 'date',
       'order'   => 'DESC',
-      'suppress_filters' => true
+      'suppress_filters' => true,
+    );
+    
+    $context['firstpost'] = Timber::get_posts($args_firstpost);
+    
+    global $paged;
+    
+    if (!isset($paged) || !$paged){
+        $paged = 1;
+    }
+    
+    $oldest_post_query = get_posts($args_firstpost);
+    $first_post_id = $oldest_post_query[0]->ID;    
+        
+    $args_posts = array(
+      'post_type'               => 'blog',
+      'posts_per_page'          => 9,
+      'post__not_in'    =>  array($first_post_id),
+      'orderby' => 'date',
+      'order'   => 'DESC',
+      'suppress_filters' => true,
+      'paged' => $paged
     );
     
 } elseif ($currentPostType == 'events') {
@@ -80,6 +119,9 @@ if ($currentPostType == 'blog') {
     $postcatid = get_queried_object()->term_id;
     $context['current_category'] = $postcatid;
     
+    $jaar = $_GET['jaar'];
+    $context['selected_jaar'] = $jaar;
+    
     $args_posts = array(
         'post_type'               => 'paststories',
         'tax_query' => array(
@@ -92,13 +134,37 @@ if ($currentPostType == 'blog') {
         'posts_per_page'          => -1,
         'meta_key' => 'datum_start', // name of custom field
         'orderby'	=> 'meta_value_num',
-        'order'		=> 'DESC'
+        'order'		=> 'DESC',
+        'meta_query' => array(
+            array(
+              'key'      => 'datum_start',
+              'compare'  => 'REGEXP',
+              'value'    => $jaar . '[0-9]{4}',
+            ),    
+          )
     );
+
+    $args_posts_all = array(
+        'post_type'               => 'paststories',
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'paststory_category', //double check your taxonomy name in you dd 
+                'field'    => 'id',
+                'terms'    => $postcatid,
+            ),
+        ),
+        'posts_per_page'          => -1,
+        'meta_key' => 'datum_start', // name of custom field
+        'orderby'	=> 'meta_value_num',
+        'order'		=> 'DESC',
+    );
+    
+    $context['paststories_jaren'] = Timber::get_posts($args_posts_all);
 
 }
 
 $context['title'] = $currentPostType;
 
-$context['posts'] = Timber::get_posts($args_posts);
+$context['posts'] = new Timber\PostQuery($args_posts);
 
 Timber::render( $templates, $context );

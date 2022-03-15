@@ -1,8 +1,8 @@
 <header class="header d-flex align-items-center">
-	<div class="container"> 
+	<div class="container-fluid container-lg"> 
 		<div class="row g-2">
 			<div class="col d-flex align-items-center">
-				<a class="header-brand" href="{{site.url}}" rel="home">
+				<a class="header-brand" href="{{ site.url }}{% if lang == 'nl_NL' %}{% else %}/en/{% endif %}" rel="home">
 					<span class="d-none">{{ site.name }}</span>
 				</a>
 			</div>

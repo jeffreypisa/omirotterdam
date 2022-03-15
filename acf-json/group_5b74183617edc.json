@@ -486,27 +486,6 @@
                 "operator": "==",
                 "value": "page"
             }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "blog"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "events"
-            }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "paststories"
-            }
         ]
     ],
     "menu_order": 0,
@@ -520,5 +499,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1644326148
+    "modified": 1647267452
 }

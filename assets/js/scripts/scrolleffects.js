@@ -24,5 +24,36 @@ export function scrolleffects() {
 			$('header').removeClass('nav-down');
 		}
 	});
+	
+	$('#theposts').on('click', '#load-older-posts', function(e) {
+		  
+		// prevent new page load
+		
+		  e.preventDefault();
+		  
+		// store next page number
+		
+		  var next_page = $(this).attr('href');
+		  
+		// remove older posts button from DOM
+		
+		  $(this).remove();
+		  
+		// ajax older posts below existing posts
+		
+		  $('#theposts').append(
+			$('<div />').load(next_page + ' #theposts')
+		  );
+		  
+		 function greet() {
+		  scroll.update();
+		 }
+		 setTimeout(greet, 1000); //execute greet after 2000 milliseconds (2 seconds)
+		 
+
+		});
+		
+		
+		
 
 }

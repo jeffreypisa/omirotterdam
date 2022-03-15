@@ -38,6 +38,14 @@
 		{% endif %}  
 	{% endif %}
 	<div class="text-center mt-4">
-		<a href="{{ site.link }}/blog" class="btn {{ knopkleur }}"> {% if lang == 'nl_NL' %}Meer blogs{% else %}More blog{% endif %}  </a>
+		{% if lang == 'nl_NL' %}
+			<a href="{{ site.link }}/blog" class="btn {{ knopkleur }}"> 
+				Meer blogs
+			</a>
+		{% else %}
+			<a href="{{ site.link }}/en/blog" class="btn {{ knopkleur }}"> 
+				More blog 
+			</a>
+		{% endif %}
 	</div>
 </section>

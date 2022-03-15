@@ -7,7 +7,7 @@
   <article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
     <section class="mod-archive bg-greylight" data-scroll-section>
       <div class="container">
-        <h1 class="h2 mb-2 mt-3 text-center">{% if lang == 'nl_NL' %}Evenementen{% else %}Events{% endif %}</h1>
+        <h1 class="h2 mb-2 mt-3 text-center">{% if lang == 'nl_NL' %}Events{% else %}Events{% endif %}</h1>
           {% if categories %}
             <div class="mod-categories mb-5">
               <div class="container text-center">
@@ -28,5 +28,6 @@
           {% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
       </div>
     </section>
+    {% include 'pagebuilder.twig' %}
   </article>
 {% endblock %}

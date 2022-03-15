@@ -19,3 +19,26 @@ body .nf-form-content label {
 	font-weight: 400; 
 	color: $dark;
 } 
+
+.form-select {
+	@extend .btn;
+	@extend .btn-primary;
+	padding-right: 50px;
+	width: auto;
+	background-repeat: no-repeat;
+	background-image: url('../img/arrow.svg');
+	background-size: 18px 18px;
+	background-position: right 20px center;
+	&:hover, &:focus {
+		background-repeat: no-repeat;
+		background-image: url('../img/arrow.svg');
+		background-size: 18px 18px;
+		background-position: right 20px center;
+	}
+}
+
+.form-control {
+	padding: 10px 20px;
+	box-shadow: none;
+	margin-bottom: 15px;
+}

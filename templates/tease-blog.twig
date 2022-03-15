@@ -1,12 +1,13 @@
-<a href="{{ item.link }}" target="{{ item.link.target}}" class="tease tease-blog noline mb-30 d-block">
+<a href="{{ item.link }}" target="{{ item.link.target}}" class="tease tease-blog noline mb-30 d-block" data-mh>
 	<div class="item">
 		<div class="image-holder ratio-16x9 mb-0">
-			<div class="image" style="background-image: url({{ Image(item.thumbnail).src }})"></div>
+			<div class="image" style="background-image: url({{ Image(item.thumbnail).src|resize(1024) }})"></div>
 		</div>
 		<div class="box">
-			<h6 class="mb-1">{{ item.title }}</h6>
-
-			{% if lang == 'nl_NL' %}{{ item.date }}{% else %}{{ item.date('F jS, Y') }}{% endif %}
+			<div data-mh>
+				<h6 class="mb-1">{{ item.title }}</h6>
+				{% if lang == 'nl_NL' %}{{ item.date }}{% else %}{{ item.date('F jS, Y') }}{% endif %}
+			</div>
 			<div class="read-more-text">{% if lang == 'nl_NL' %}Lees meer{% else %}Read more{% endif %} <i class="fas fa-arrow-right"></i></div>
 		</div>
 	</div>

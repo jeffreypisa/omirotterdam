@@ -94,9 +94,9 @@ class StarterSite extends Timber\Site {
 		$date_2 = date('Ymd', strtotime("+24 months"));
 		
 		$args_evenementen = array(
-		  'post_type'			  => 'events',
+		  	'post_type'			  => 'events',
 			'posts_per_page'  => 3,
-		  'meta_query'	=> array(
+		    'meta_query'	=> array(
 			'relation'	=> 'OR',
 			// check to see if end date has been set
 			array(
@@ -141,11 +141,16 @@ class StarterSite extends Timber\Site {
 		  'posts_per_page'  => 2,
 		  'meta_key' => 'datum_start', // name of custom field
 		  'orderby'	=> 'meta_value_num',
-		  'order'		=> 'DESC'
+		  'order'		=> 'DESC',
 		);
 		
 		$context['paststories'] = Timber::get_posts($args_paststories);
-			
+		
+		// Get this url
+		
+		$context['currenturl'] = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+		
+		
 		return $context;
 	}
 

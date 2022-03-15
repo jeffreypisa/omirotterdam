@@ -1,0 +1,56 @@
+{% if post.blog %}
+	<section class="mod-blog bg-white" data-scroll-section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 offset-md-1 text-center">
+					<h2> Blog </h2>
+				</div>
+			</div>
+			<div class="row justify-content-lg-center">
+				{% for item in post.get_field('blog')|slice(0,3) %}
+					<div class="col-lg-4">
+						{% include ['tease-blog.twig'] %}
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+{% endif %}
+
+{% if post.evenementen %}
+	<section class="mod-evenementen bg-orange text-white" data-scroll-section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 offset-md-1 text-center">
+					<h2> Events </h2>
+				</div>
+			</div>
+			<div class="row justify-content-lg-center">
+				{% for item in post.get_field('evenementen')|slice(0,3) %}
+					<div class="col-lg-6">
+						{% include ['tease-event.twig'] %}
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+{% endif %}
+
+{% if post.paststories %}
+	<section class="mod-paststories bg-greylight" data-scroll-section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 offset-md-1 text-center">
+					<h2> Past Stories </h2>
+				</div>
+			</div>
+			<div class="row justify-content-lg-center">
+				{% for item in post.get_field('paststories')|slice(0,3) %}
+					<div class="col-lg-6">
+						{% include ['tease-event.twig'] %}
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+{% endif %}

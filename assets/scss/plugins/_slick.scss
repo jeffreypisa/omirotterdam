@@ -18,12 +18,12 @@
 		background-size: contain;
 		background-color: transparent;
 		&.slick-prev {
-			left: 10px;
+			left: 15px;
 			right: auto;
 			background-image: url(../img/chevron_left.svg);
 		}
 		&.slick-next {
-			right: 10px;
+			right: 15px;
 			left: auto;
 			background-image: url(../img/chevron_right.svg);
 		}
@@ -81,10 +81,10 @@
 	.slick-slider {
 		.slick-arrow {
 			&.slick-prev {
-				left: 30px;
+				left: 15px;
 			}
 			&.slick-next {
-				right: 30px;
+				right: 15px;
 			}
 		}
 	}

@@ -32,6 +32,14 @@
 		{% endif %}
 	{% endif %}
 	<div class="text-center mt-4">
-		<a href="{{ site.link }}/past-stories" class="btn btn-light"> {% if lang == 'nl_NL' %}Meer stories{% else %}More stories{% endif %}  </a>
+		{% if lang == 'nl_NL' %}
+			<a href="{{ site.link }}/past-stories" class="btn btn-light"> 
+				Meer stories 
+			</a>
+		{% else %}
+			<a href="{{ site.link }}/en/past-stories-2" class="btn btn-light"> 
+				More stories 
+			</a>
+		{% endif %}
 	</div>
 </section>

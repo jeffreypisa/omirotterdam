@@ -8,7 +8,10 @@
 				<div class="container text-center">
 					<div class="row">
 						<div class="col-md-10 offset-md-1">
-							<h1 class="mb-2 mt-3"> {{ post.title }} </h1>
+							<h1 class="h2 mb-2 mt-3"> {{ post.title }} </h1>
+							{% if post.date %}
+								<h3 class="weight-400 mb-3 mb-md-2"> {{ post.date }} </h3>
+							{% endif %}
 						</div>
 					</div>
 				</div>
@@ -32,7 +35,8 @@
 				
 			{% endfor %}
 			
-			{% include 'pagebuilder.twig' %}
+			{% include 'partial/more.twig' %}
+			
 		</article>
 	</div><!-- /content-wrapper -->
 {% endblock %}

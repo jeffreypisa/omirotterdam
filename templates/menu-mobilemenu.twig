@@ -1,5 +1,10 @@
 {% if menu %}
 	<ul class="nav">
+		<li class="nav-item">
+			<a class="nav-link h2 mb-2" href="{{ site.link }}{% if lang == 'nl_NL' %}{% else %}/en/{% endif %}">
+				Home
+			</a>
+		</li>
 		{% for item in items %}
 			<li class="nav-item {{ item.classes | join(' ') }}">
 				<a class="nav-link h2 mb-2" target="{{ item.target }}" href="{{ item.link }}">
