@@ -35,19 +35,29 @@
 		</div>
 	{% else %}
 		<div class="container">
-			<div class="row {% if primetime == 'true' %}primetime js-slick-events{% endif %}">
-				{% for item in evenementen %}
-					{% if primetime == 'true' and loop.first %}
-						<div class="item col-12">
-							{% include ['tease-event-big.twig'] %}
-						</div>
-					{% else %}
-						<div class="item col-lg-6">
+			{% if primetime == 'true' %}
+				<div class="row primetime js-slick-events">
+					{% for item in evenementen %}
+						{% if primetime == 'true' and loop.first %}
+							<div class="item col-12">
+								{% include ['tease-event-big.twig'] %}
+							</div>
+						{% else %}
+							<div class="item col-lg-6">
+								{% include ['tease-event.twig'] %}
+							</div>
+						{% endif %}
+					{% endfor %}
+				</div>
+			{% else %}
+				<div class="row">
+					{% for item in evenementen|slice(0,2) %}
+						<div class="col-lg-6">
 							{% include ['tease-event.twig'] %}
 						</div>
-					{% endif %}
-				{% endfor %}
-			</div>
+					{% endfor %}
+				</div>
+			{% endif %}
 		</div>
 	{% endif %}  
 	<div class="text-center mt-4">

@@ -1,56 +1,92 @@
-{% if post.blog %}
-	<section class="mod-blog bg-white" data-scroll-section>
+{% if post.blog or post.blog_recent %}
+	<section class="mod-blog {{ post.blog_achtergrond }} {% if post.blog_achtergrond == 'bg-orange' %}text-white{% endif %}" data-scroll-section>
 		<div class="container">
-			<div class="row">
-				<div class="col-md-10 offset-md-1 text-center">
-					<h2> Blog </h2>
-				</div>
-			</div>
-			<div class="row justify-content-lg-center">
-				{% for item in post.get_field('blog')|slice(0,3) %}
-					<div class="col-lg-4">
-						{% include ['tease-blog.twig'] %}
+			{% if post.blog_titel %}
+				<div class="row">
+					<div class="col-md-10 offset-md-1 text-center">
+						<h2> {{ post.blog_titel }} </h2>
 					</div>
-				{% endfor %}
-			</div>
+				</div>
+			{% endif %}
+			{% if post.blog_recent %}
+				<div class="row justify-content-lg-center">
+					{% for item in blog %}
+						<div class="col-lg-4">
+							{% include ['tease-blog.twig'] %}
+						</div>
+					{% endfor %}
+				</div>
+			{% else %}
+				<div class="row justify-content-lg-center">
+					{% for item in post.get_field('blog')|slice(0,3) %}
+						<div class="col-lg-4">
+							{% include ['tease-blog.twig'] %}
+						</div>
+					{% endfor %}
+				</div>
+			{% endif %}
 		</div>
 	</section>
 {% endif %}
 
-{% if post.evenementen %}
-	<section class="mod-evenementen bg-orange text-white" data-scroll-section>
+{% if post.evenementen or post.evenement_recent %}
+	<section class="mod-evenementen {{ post.evenementen_achtergrond }} {% if post.evenementen_achtergrond == 'bg-orange' %}text-white{% endif %}" data-scroll-section>
 		<div class="container">
-			<div class="row">
-				<div class="col-md-10 offset-md-1 text-center">
-					<h2> Events </h2>
-				</div>
-			</div>
-			<div class="row justify-content-lg-center">
-				{% for item in post.get_field('evenementen')|slice(0,3) %}
-					<div class="col-lg-6">
-						{% include ['tease-event.twig'] %}
+			{% if post.evenementen_titel %}
+				<div class="row">
+					<div class="col-md-10 offset-md-1 text-center">
+						<h2> {{ post.evenementen_titel }} </h2>
 					</div>
-				{% endfor %}
-			</div>
+				</div>
+			{% endif %}
+			{% if post.evenement_recent %}
+				<div class="row justify-content-lg-center">
+					{% for item in evenementen|slice(0,2) %}
+						<div class="item col-lg-6">
+							{% include ['tease-event.twig'] %}
+						</div>
+					{% endfor %}
+				</div>
+			{% else %}
+				<div class="row justify-content-lg-center">
+					{% for item in post.get_field('evenementen')|slice(0,3) %}
+						<div class="col-lg-6">
+							{% include ['tease-event.twig'] %}
+						</div>
+					{% endfor %}
+				</div>
+			{% endif %}
 		</div>
 	</section>
 {% endif %}
 
-{% if post.paststories %}
-	<section class="mod-paststories bg-greylight" data-scroll-section>
+{% if post.paststories or post.paststories_recent %}
+	<section class="mod-paststories {{ post.paststories_achtergrond }} {% if post.paststories_achtergrond == 'bg-orange' %}text-white{% endif %}" data-scroll-section>
 		<div class="container">
-			<div class="row">
-				<div class="col-md-10 offset-md-1 text-center">
-					<h2> Past Stories </h2>
-				</div>
-			</div>
-			<div class="row justify-content-lg-center">
-				{% for item in post.get_field('paststories')|slice(0,3) %}
-					<div class="col-lg-6">
-						{% include ['tease-event.twig'] %}
+			{% if post.paststories_titel %}
+				<div class="row">
+					<div class="col-md-10 offset-md-1 text-center">
+						<h2> {{ post.paststories_titel }} </h2>
 					</div>
-				{% endfor %}
-			</div>
+				</div>
+			{% endif %}
+			{% if post.paststories_recent %}
+				<div class="row justify-content-lg-center">
+					{% for item in paststories %}
+						<div class="col-lg-6">
+							{% include ['tease-event.twig'] %}
+						</div>
+					{% endfor %}
+				</div>
+			{% else %}
+				<div class="row justify-content-lg-center">
+					{% for item in post.get_field('paststories')|slice(0,3) %}
+						<div class="col-lg-6">
+							{% include ['tease-event.twig'] %}
+						</div>
+					{% endfor %}
+				</div>
+			{% endif %}
 		</div>
 	</section>
 {% endif %}

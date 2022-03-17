@@ -124,6 +124,88 @@
                     "min": "",
                     "max": ""
                 },
+                "layout_62339c150a555": {
+                    "key": "layout_62339c150a555",
+                    "name": "afbeeldingen",
+                    "label": "Afbeeldingen",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_62339c150a556",
+                            "label": "Achtergrond",
+                            "name": "achtergrond",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "bg-transparent": "Wit",
+                                "bg-greylight": "Lichtgrijs",
+                                "bg-orange": "Oranje"
+                            },
+                            "default_value": false,
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "return_format": "value",
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_62339c470a55b",
+                            "label": "Toon als slider",
+                            "name": "slider",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_62339be115ec7",
+                            "label": "Afbeelding(en)",
+                            "name": "afbeeldingen",
+                            "type": "gallery",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "preview_size": "medium",
+                            "insert": "append",
+                            "library": "all",
+                            "min": "",
+                            "max": "",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
                 "layout_5b8fb7238d9cb": {
                     "key": "layout_5b8fb7238d9cb",
                     "name": "evenementen",
@@ -499,5 +581,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1647267452
+    "modified": 1647549528
 }

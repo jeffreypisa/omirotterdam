@@ -72,7 +72,18 @@ if ($currentPostType == 'blog') {
     
 } elseif ($currentPostType == 'events') {
     $templates = array( 'archive-events.twig');
-    $terms = \Timber::get_terms(array('taxonomy' => 'events_category', 'hide_empty' => true));
+    
+    $today = date("Ymd");
+    
+    $taxonomies = array( 
+        'events_category'
+    );
+    
+    $args_terms = array(
+        'hide_empty' => true,
+    );      
+    
+    $terms = \Timber::get_terms($taxonomies, $args_terms);
     $context['categories'] = $terms;
     $postcatid = get_queried_object()->term_id;
     $context['current_category'] = $postcatid;

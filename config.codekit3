@@ -81,14 +81,6 @@
       "oO" : 1,
       "oS" : 1
     },
-    "\/acf-json\/group_62012073965d4.json" : {
-      "ft" : 524288,
-      "oA" : 1,
-      "oAP" : "\/acf-json\/group_62012073965d4-min.json",
-      "oF" : 0,
-      "oO" : 1,
-      "oS" : 1
-    },
     "\/archive.php" : {
       "cB" : 0,
       "ft" : 8192,
@@ -1847,6 +1839,14 @@
       "hM" : 0,
       "oA" : 0,
       "oAP" : "\/templates\/pagebuilder.twig",
+      "oF" : 0
+    },
+    "\/templates\/pagebuilder\/afbeeldingen.twig" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/templates\/pagebuilder\/afbeeldingen.twig",
       "oF" : 0
     },
     "\/templates\/pagebuilder\/blog.twig" : {
