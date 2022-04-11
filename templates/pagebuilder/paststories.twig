@@ -1,3 +1,11 @@
+{% if item.achtergrond == 'bg-orange' %}
+	{% set knopkleur = 'btn-light' %}
+{% elseif item.achtergrond == 'bg-greylight' %}
+	{% set knopkleur = 'btn-primary' %}
+{% else %}
+	{% set knopkleur = 'btn-dark' %}
+{% endif %}
+
 <section id="section{{ sectionno }}" class="mod-paststories {{ item.achtergrond }} {% if item.achtergrond == 'bg-orange' %}text-white{% endif %}" data-scroll-section>
 	<div class="container">
 		<div class="row">
@@ -33,12 +41,12 @@
 	{% endif %}
 	<div class="text-center mt-4">
 		{% if lang == 'nl_NL' %}
-			<a href="{{ site.link }}/past-stories" class="btn btn-light"> 
-				Meer stories 
+			<a href="{{ site.link }}/past-stories" class="btn {{ knopkleur }}"> 
+				Meer stories
 			</a>
 		{% else %}
-			<a href="{{ site.link }}/en/past-stories-2" class="btn btn-light"> 
-				More stories 
+			<a href="{{ site.link }}/en/past-stories-2" class="btn {{ knopkleur }}"> 
+				More stories
 			</a>
 		{% endif %}
 	</div>

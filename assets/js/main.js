@@ -11,7 +11,7 @@ import { lity_init } from './scripts/lity.js';
 import { site_is_loaded } from './scripts/site_is_loaded.js';
 import { footer_down } from './scripts/footer_down.js';
 import { mobilemenu } from './scripts/mobilemenu.js';
-import { scrolleffects } from './scripts/scrolleffects.js';
+import { sticky_header } from './scripts/sticky_header.js';
 import { loadmoreposts } from './scripts/loadmoreposts.js';
 
 lity_init();
@@ -26,6 +26,6 @@ $( document ).ready(function() {
 $(window).on('load', function() {
 	matchheight_init();
 	animejs();
-	scrolleffects();
+	sticky_header();
 	site_is_loaded();
 });

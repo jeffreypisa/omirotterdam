@@ -123,6 +123,33 @@ if ($currentPostType == 'blog') {
         'order'		=> 'ASC'
     );
     
+    $args_allposts = array(
+        'post_type'               => 'events',
+        'posts_per_page'          => -1,
+        'meta_query'              => array(
+        'relation'	=> 'OR',
+            // check to see if end date has been set
+            array(
+                'key'		=> 'datum_einde',
+                'compare'	=> 'BETWEEN',
+                'type'		=> 'numeric',
+                'value'		=> array($date_1, $date_2),
+            ),
+            // if no end date has been set use start date
+            array(
+                'key'		=> 'datum_start',
+                'compare'	=> 'BETWEEN',
+                'type'		=> 'numeric',
+                'value'		=> array($date_1, $date_2),
+            )
+            ),
+        'meta_key' => 'datum_start', // name of custom field
+        'orderby'	=> 'meta_value_num',
+        'order'		=> 'ASC'
+    );
+    
+    $context['allposts'] = new Timber\PostQuery($args_allposts);
+    
 } elseif ($currentPostType == 'paststories') {
     $templates = array( 'archive-paststories.twig');
     $terms = \Timber::get_terms(array('taxonomy' => 'paststory_category', 'hide_empty' => true));

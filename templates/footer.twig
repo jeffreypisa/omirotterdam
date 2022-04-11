@@ -1,17 +1,17 @@
 <footer id="footer" class="section bg-blue text-white text-lg text-center text-md-start" data-scroll-section>
   <div class="container-fluid container-lg">
     <img src="{{ theme.link }}/assets/img/omi_logo_slogan_wit.svg" width="155" height="68">
-    <br><br><br>
+    <br><br>
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-4 mb-3 mb-md-0">
         {{ options.tekst }}
       </div>
       
-      <div class="col-md-4 mb-3 mb-md-0 d-none d-md-block">
-        {% include "menu.twig" with {'items': footermenu1.get_items} %}
+      <div class="col-md-4 mb-3 mb-md-0">
+        {{ options.openingstijden }}
       </div>
       
-      <div class="col-md-3 col-lg-2 mb-3 mb-md-0">
+      <div class="col-md-4 col-lg-4 mb-3 mb-md-0">
         {% if options.instagram %}
           <a href="{{ options.instagram }}" target="_blank">
             <i class="fab fa-instagram" style="width:20px"></i> Instagram
@@ -40,21 +40,14 @@
         {% endif %}
         <div class="clearfix"></div>
         
-        {% if options.email %}
-          <br>
-          <a href="mailto:{{ options.email }}">
-            {{ options.email }}
-          </a>
-        {% endif %}
-        
         <br>
         {% if lang == 'nl_NL' %}
           <a href="{{ site.link }}/privacyverklaring/">
-            Privacy verklaring
+            Privacyverklaring
           </a>
         {% else %}
           <a href="{{ site.link }}/en/privacy-statement/">
-            Privacy statement
+            Privacy Statement
           </a>
         {% endif %}
 
@@ -80,7 +73,7 @@
           </p>
     		</div>
         <div class="col-md-auto order-first order-md-last">
-          Site by <a href="https://www.thomasvandervlis.nl" target="_blank">Thomas Van Der Vlis</a> & <a href="https://www.emonks.nl" target="_blank">Emonks</a>
+          Site by <a href="https://www.thomasvandervlis.nl" target="_blank">Tosam</a> & <a href="https://www.emonks.nl" target="_blank">Emonks</a>
         </div>
     	</div>
     </div>

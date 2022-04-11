@@ -1,5 +1,7 @@
 {% if item.achtergrond == 'bg-orange' %}
 	{% set knopkleur = 'btn-light' %}
+{% elseif item.achtergrond == 'bg-greylight' %}
+	{% set knopkleur = 'btn-primary' %}
 {% else %}
 	{% set knopkleur = 'btn-dark' %}
 {% endif %}
@@ -19,14 +21,14 @@
 	{% endif %}
 	{% if item.weergave == 'custom' %}
 		<div class="container">
-			<div class="row justify-content-lg-center {% if primetime == 'true' %}primetime js-slick-events{% endif %}">
+			<div class="row justify-content-lg-center {% if primetime == 'true' %}primetime _js-slick-events{% endif %}">
 				{% for item in item.evenementen|slice(0,3) %}
 					{% if primetime == 'true' and loop.first %}
 						<div class="item col-12">
 							{% include ['tease-event-big.twig'] %}
 						</div>
 					{% else %}
-						<div class="item col-lg-6">
+						<div class="item col-lg-6 {% if loop.index > 2 %}d-none d-lg-block{% endif %}">
 							{% include ['tease-event.twig'] %}
 						</div>
 					{% endif %}
@@ -36,14 +38,14 @@
 	{% else %}
 		<div class="container">
 			{% if primetime == 'true' %}
-				<div class="row primetime js-slick-events">
+				<div class="row justify-content-lg-center primetime _js-slick-events">
 					{% for item in evenementen %}
 						{% if primetime == 'true' and loop.first %}
 							<div class="item col-12">
 								{% include ['tease-event-big.twig'] %}
 							</div>
 						{% else %}
-							<div class="item col-lg-6">
+							<div class="item col-lg-6 {% if loop.index > 2 %}d-none d-lg-block{% endif %}">
 								{% include ['tease-event.twig'] %}
 							</div>
 						{% endif %}
@@ -67,7 +69,7 @@
 			</a>
 		{% else %}
 			<a href="{{ site.link }}/en/events" class="btn {{ knopkleur }}"> 
-				More events 
+				More events
 			</a>
 		{% endif %}
 	</div>

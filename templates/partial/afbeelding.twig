@@ -4,9 +4,11 @@
 			<div class="js-slick">
 				{% for image in item.afbeeldingen %}
 					<div class="item">
-						<div class="image ratio-16x9 w-100 anime-fadein bg-cover" style="background-image: url({{ Image(image) }})"></div>
-						{% if image.alt %}
-							<p><small><i>{{ image.alt }}</i></small></p>
+						<div class="image ratio-16x9 w-100 bg-cover" style="background-image: url({{ Image(image) }})"></div>
+						{% if image.caption %}
+							<div class="text-end">
+								<p><small><i>{{ image.caption }}</i></small></p>
+							</div>
 						{% endif %}
 					</div>
 				{% endfor %}
@@ -14,18 +16,22 @@
 		{% else %}
 			<div class="row">
 				{% for image in item.afbeeldingen %}
-					{% if loop.first %}
+					{% if loop.first and item.afbeeldingen|length != 2 %}
 						<div class="col-12 mb-30">
-							<div class="image ratio-16x9 w-100 anime-fadein bg-cover" style="background-image: url({{ Image(image) }})"></div>
-							{% if image.alt %}
-								<p><small><i>{{ image.alt }}</i></small></p>
+							<div class="image ratio-16x9 w-100 bg-cover" style="background-image: url({{ Image(image) }})"></div>
+							{% if image.caption %}
+								<div class="text-end">
+									<p><small><i>{{ image.caption }}</i></small></p>
+								</div>
 							{% endif %}
 						</div>
 					{% else %}
-						<div class="col-md mb-30 ">
-							<div class="image ratio-16x9 w-100 anime-fadein bg-cover" style="background-image: url({{ Image(image) }})"></div>
-							{% if image.alt %}
-								<p><small><i>{{ image.alt }}</i></small></p>
+						<div class="col-md mb-30">
+							<div class="image ratio-16x9 w-100 bg-cover" style="background-image: url({{ Image(image) }})"></div>
+							{% if image.caption %}
+								<div class="text-end">
+									<p><small><i>{{ image.caption }}</i></small></p>
+								</div>
 							{% endif %}
 						</div>
 					{% endif %}

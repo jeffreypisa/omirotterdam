@@ -1,5 +1,7 @@
 {% if item.achtergrond == 'bg-orange' %}
 	{% set knopkleur = 'btn-light' %}
+{% elseif item.achtergrond == 'bg-greylight' %}
+	{% set knopkleur = 'btn-primary' %}
 {% else %}
 	{% set knopkleur = 'btn-dark' %}
 {% endif %}
@@ -40,11 +42,11 @@
 	<div class="text-center mt-4">
 		{% if lang == 'nl_NL' %}
 			<a href="{{ site.link }}/blog" class="btn {{ knopkleur }}"> 
-				Meer blogs
+				Meer
 			</a>
 		{% else %}
 			<a href="{{ site.link }}/en/blog" class="btn {{ knopkleur }}"> 
-				More blog 
+				Show more
 			</a>
 		{% endif %}
 	</div>

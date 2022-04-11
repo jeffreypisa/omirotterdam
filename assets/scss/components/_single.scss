@@ -24,3 +24,22 @@
 		}
 	}
 }
+
+.single {
+	.van_tot {
+		
+	}
+	.single-content {
+		.ratio-16x9 {
+			padding-top: 62.5%;
+		}
+	}
+}
+
+@include media-breakpoint-up(lg) {
+	.single {
+		.naam {
+			font-size: 44px;
+		}
+	}
+}

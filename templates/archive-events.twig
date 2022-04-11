@@ -7,13 +7,34 @@
   <article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
     <section class="mod-archive bg-greylight" data-scroll-section>
       <div class="container">
-        <h1 class="h2 mb-2 mt-3 text-center">{% if lang == 'nl_NL' %}Events{% else %}Events{% endif %}</h1>
+        <h1 class="h2 mb-2 mt-3 text-center">{% if lang == 'nl_NL' %}Evenementen{% else %}Events{% endif %}</h1>
           {% if categories %}
             <div class="mod-categories mb-5">
               <div class="container text-center">
                <a href="{{ site.url }}/{% if lang == 'nl_NL' %}evenementen/{% else %}en/events/{% endif %}" class="{% if current_category == '' %}active{% endif %}"> {% if lang == 'nl_NL' %}alle{% else %}all{% endif %} </a>
-               {% for item in categories %}
-                 <span> | </span> <a href="{{ item.link }}" class="{% if item.id == current_category %}active{% endif %}">{{ item.title|lower }}</a>
+               
+               {% for cat in categories %}
+                  {% set gotposts = '' %}
+                  {% if fn('is_tax') %}
+                    {% for item in allposts %}
+                      {% set theterm = item.terms('events_category')|first|lower %}
+                      {% if cat.title|lower == theterm %}
+                        {% set gotposts = 'true' %}
+                      {% endif %}
+                    {% endfor %}
+                  {% else %}
+                    {% for item in posts %}
+                      {% set theterm = item.terms('events_category')|first|lower %}
+                      {% if cat.title|lower == theterm %}
+                        {% set gotposts = 'true' %}
+                      {% endif %}
+                    {% endfor %}
+                  {% endif %}
+                  
+                  
+                  {% if gotposts == 'true' %}
+                   <span> | </span> <a href="{{ cat.link }}" class="{% if cat.id == current_category %}active{% endif %}">{{ cat.title|lower }}</a>
+                   {% endif %}
                {% endfor %}
               </div>
             </div>

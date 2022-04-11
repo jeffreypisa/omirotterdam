@@ -1,7 +1,21 @@
-.mod-evenementen {
-	.slick-slider.slick-initialized {
-		.image-holder {
-			margin-bottom: 0 !important;
+@include media-breakpoint-down(lg) {
+	.mod-evenementen {
+		.item {
+			h3, p {
+				line-height: 24px;
+			}
+		}
+		.primetime .item:first-child {
+			.image-holder {
+
+			}
+			h3 {
+				font-size: 18px;
+				line-height: 24px;
+			}
+			.read-more {
+				font-size: 18px;
+			}
 		}
 	}
 }

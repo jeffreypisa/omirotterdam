@@ -87,6 +87,8 @@ class StarterSite extends Timber\Site {
 		$context['site']  = $this;
 		$context['lang'] = get_locale();
 		
+		$currentID = get_the_ID();
+		
 		// Evenementen //
 		
 		$date_1 = date('Ymd', strtotime("now")); 
@@ -96,6 +98,7 @@ class StarterSite extends Timber\Site {
 		$args_evenementen = array(
 		  	'post_type'			  => 'events',
 			'posts_per_page'  => 3,
+			'post__not_in' => array($currentID),
 		    'meta_query'	=> array(
 			'relation'	=> 'OR',
 			// check to see if end date has been set
@@ -126,6 +129,7 @@ class StarterSite extends Timber\Site {
 		$args_blog = array(
 			'post_type'			  => 'blog',
 			'posts_per_page'  => 3,
+			'post__not_in' => array($currentID),
 			'orderby' => 'date',
 			'order'   => 'DESC',
 			'suppress_filters' => true
@@ -139,6 +143,7 @@ class StarterSite extends Timber\Site {
 		$args_paststories = array(
 		  'post_type'			  => 'paststories',
 		  'posts_per_page'  => 2,
+		  'post__not_in' => array($currentID),
 		  'meta_key' => 'datum_start', // name of custom field
 		  'orderby'	=> 'meta_value_num',
 		  'order'		=> 'DESC',

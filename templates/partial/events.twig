@@ -1,0 +1,49 @@
+{% if post.evenementen or post.evenement_recent %}
+	{% if post.evenementen_achtergrond == 'bg-orange' %}
+		{% set knopkleur = 'btn-light' %}
+	{% elseif post.evenementen_achtergrond == 'bg-greylight' %}
+		{% set knopkleur = 'btn-primary' %}
+	{% else %}
+		{% set knopkleur = 'btn-dark' %}
+	{% endif %}
+
+	<section class="mod-evenementen {{ post.evenementen_achtergrond }} {% if post.evenementen_achtergrond == 'bg-orange' %}text-white{% endif %}" data-scroll-section>		
+		<div class="container">
+			{% if post.evenementen_titel %}
+				<div class="row">
+					<div class="col-md-10 offset-md-1 text-center">
+						<h2> {{ post.evenementen_titel }} </h2>
+					</div>
+				</div>
+			{% endif %}
+			{% if post.evenement_recent %}
+				<div class="row justify-content-lg-center">
+					{% for item in evenementen|slice(0,2) %}
+						<div class="item col-lg-6">
+							{% include ['tease-event.twig'] %}
+						</div>
+					{% endfor %}
+				</div>
+			{% else %}
+				<div class="row justify-content-lg-center">
+					{% for item in post.get_field('evenementen')|slice(0,3) %}
+						<div class="col-lg-6">
+							{% include ['tease-event.twig'] %}
+						</div>
+					{% endfor %}
+				</div>
+			{% endif %}
+		</div>
+		<div class="text-center mt-4">
+			{% if lang == 'nl_NL' %}
+				<a href="{{ site.link }}/evenementen" class="btn {{ knopkleur }}"> 
+					Meer events
+				</a>
+			{% else %}
+				<a href="{{ site.link }}/en/events" class="btn {{ knopkleur }}"> 
+					More events 
+				</a>
+			{% endif %}
+		</div>
+	</section>
+{% endif %}

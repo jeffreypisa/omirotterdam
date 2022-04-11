@@ -1,0 +1,49 @@
+{% if post.paststories or post.paststories_recent %}
+	{% if post.paststories_achtergrond == 'bg-orange' %}
+		{% set knopkleur = 'btn-light' %}
+	{% elseif post.paststories_achtergrond == 'bg-greylight' %}
+		{% set knopkleur = 'btn-primary' %}
+	{% else %}
+		{% set knopkleur = 'btn-dark' %}
+	{% endif %}
+
+	<section class="mod-paststories {{ post.paststories_achtergrond }} {% if post.paststories_achtergrond == 'bg-orange' %}text-white{% endif %}" data-scroll-section>
+		<div class="container">
+			{% if post.paststories_titel %}
+				<div class="row">
+					<div class="col-md-10 offset-md-1 text-center">
+						<h2> {{ post.paststories_titel }} </h2>
+					</div>
+				</div>
+			{% endif %}
+			{% if post.paststories_recent %}
+				<div class="row justify-content-lg-center">
+					{% for item in paststories %}
+						<div class="col-lg-6">
+							{% include ['tease-event.twig'] %}
+						</div>
+					{% endfor %}
+				</div>
+			{% else %}
+				<div class="row justify-content-lg-center">
+					{% for item in post.get_field('paststories')|slice(0,3) %}
+						<div class="col-lg-6">
+							{% include ['tease-event.twig'] %}
+						</div>
+					{% endfor %}
+				</div>
+			{% endif %}
+		</div>
+		<div class="text-center mt-4">
+			{% if lang == 'nl_NL' %}
+				<a href="{{ site.link }}/past-stories" class="btn {{ knopkleur }}"> 
+					Meer stories
+				</a>
+			{% else %}
+				<a href="{{ site.link }}/en/past-stories-2" class="btn {{ knopkleur }}"> 
+					More stories 
+				</a>
+			{% endif %}
+		</div>
+	</section>
+{% endif %}

@@ -5,12 +5,15 @@
 		<article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
 			
 			<section class="mod-content bg-greylight" data-scroll-section>
-				<div class="container text-center">
+				<div class="container text-start text-md-center">
 					<div class="row">
 						<div class="col-md-10 offset-md-1">
 							<h1 class="h2 mb-2 mt-3"> {{ post.title }} </h1>
+							{% if post.naam %}
+								<h3 class="mb-2 mb-md-3 weight-400 naam"> {{ post.naam }} </h3>
+							{% endif %}
 							{% if post.van_tot %}
-								<h3 class="weight-400 mb-3 mb-md-2"> {{ post.van_tot }} </h3>
+								<h5 class="weight-400 van_tot"> {{ post.van_tot }} </h5>
 							{% endif %}
 						</div>
 					</div>
@@ -35,39 +38,36 @@
 				
 			{% endfor %}
 			
-			{% if post.colofon %}
+			{% if post.get_field('colofon') %}
 				<section class="mod-colofon bg-greylight text-sm" data-scroll-section>		
-					<div class="container mt-5">
+					<div class="container mt-4">
 						<div class="row">
 							<div class="col-md-10 offset-md-1 col-xl-8 offset-xl-2">
-								<h6> Colofon </h6>
-								<div class="row">
-									<div class="col-6 col-md-5 col-lg-5 weight-600">
-										{% for item in post.get_field('colofon') %}
+								{% for item in post.get_field('colofon') %}
+									<div class="row">
+										<div class="col-6 col-md-5 col-lg-5 weight-600">
 											{{ item.label }}: <br>
-										{% endfor %}
-									</div>
-									<div class="col">
-										{% for item in post.get_field('colofon') %}
+										</div>
+										<div class="col">
 											{{ item.tekst }} <br>
-										{% endfor %}
+										</div>
 									</div>
-								</div>
+								{% endfor %}
 							</div>
 						</div>
 					</div>
 				</section>
 			{% endif %}
 			
-			{% if post.logos %}
+			{% if post.get_field('logos') %}
 				<section class="mod-logos bg-greylight text-sm" data-scroll-section>	
-					<br>
+					<br><br>
 					<div class="container">
 						<div class="row">
 							<div class="col-md-10 offset-md-1 col-xl-8 offset-xl-2">
-								<div class="row g-1">
+								<div class="row g-2">
 									{% for logo in post.get_field('logos') %}
-										<div class="col-auto">
+										<div class="col-4 col-sm-3">
 											<a href="{{ logo.url }}" target="_blank" class="logo" style="background-image: url({{ Image(logo.logo).src }})">
 										</a>
 										</div>
@@ -76,10 +76,13 @@
 							</div>
 						</div>
 					</div>
+					<br><br>
 				</section>
 			{% endif %}
 			
-			{% include 'partial/more.twig' %}
+			{% include 'partial/paststories.twig' %}
+			{% include 'partial/blog.twig' %}
+			{% include 'partial/events.twig' %}
 			
 		</article>
 	</div><!-- /content-wrapper -->

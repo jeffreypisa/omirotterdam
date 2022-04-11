@@ -2,9 +2,12 @@
 	font-weight: 600;
 	line-height: 48px;
 	color: #fff;
-	transition: .4s $ease;
+	transition: .15s $ease;
 	border-radius: 30px;
 	padding: 0 30px;
+	&:hover, &:focus, &:target {
+		opacity: 1;
+	}
 	&.btn-light {
 		background: #fff;
 		color: $orange;

@@ -51,6 +51,9 @@
 		color: $dark;
 		transition: 0.3s ease-in-out;
 	}
+	.text-orange {
+		transition: 0.3s ease-in-out;
+	}
 	&:hover {
 		background: $orange;
 		color: #fff;
@@ -61,6 +64,9 @@
 		}
 		.text {
 			color: #fff;
+		}
+		.text-orange {
+			color: #fff !important;
 		}
 	}
 }

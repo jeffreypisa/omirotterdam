@@ -667,7 +667,7 @@
       "ft" : 64,
       "ma" : 0,
       "mi" : 1,
-      "oA" : 1,
+      "oA" : 0,
       "oAP" : "\/assets\/js\/scripts\/scrolleffects-min.js",
       "oF" : 0,
       "sC" : 3,
@@ -700,7 +700,7 @@
       "ft" : 64,
       "ma" : 0,
       "mi" : 1,
-      "oA" : 0,
+      "oA" : 1,
       "oAP" : "\/assets\/js\/scripts\/sticky_header-min.js",
       "oF" : 0,
       "sC" : 3,
@@ -1921,6 +1921,22 @@
       "oAP" : "\/templates\/partial\/bannerslider.twig",
       "oF" : 0
     },
+    "\/templates\/partial\/blog.twig" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/templates\/partial\/blog.twig",
+      "oF" : 0
+    },
+    "\/templates\/partial\/events.twig" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/templates\/partial\/events.twig",
+      "oF" : 0
+    },
     "\/templates\/partial\/knop.twig" : {
       "cB" : 0,
       "ft" : 8192,
@@ -1929,20 +1945,20 @@
       "oAP" : "\/templates\/partial\/knop.twig",
       "oF" : 0
     },
-    "\/templates\/partial\/more.twig" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/templates\/partial\/more.twig",
-      "oF" : 0
-    },
     "\/templates\/partial\/pagination.twig" : {
       "cB" : 0,
       "ft" : 8192,
       "hM" : 0,
       "oA" : 0,
       "oAP" : "\/templates\/partial\/pagination.twig",
+      "oF" : 0
+    },
+    "\/templates\/partial\/paststories.twig" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/templates\/partial\/paststories.twig",
       "oF" : 0
     },
     "\/templates\/partial\/socialmedia.twig" : {
