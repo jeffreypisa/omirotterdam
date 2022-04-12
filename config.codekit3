@@ -25,6 +25,14 @@
       "oO" : 1,
       "oS" : 1
     },
+    "\/.nova\/Publishing\/OMI Rotterdam.json" : {
+      "ft" : 524288,
+      "oA" : 1,
+      "oAP" : "\/.nova\/Publishing\/OMI Rotterdam-min.json",
+      "oF" : 0,
+      "oO" : 1,
+      "oS" : 1
+    },
     "\/404.php" : {
       "cB" : 0,
       "ft" : 8192,

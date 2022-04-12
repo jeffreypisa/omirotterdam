@@ -62,7 +62,7 @@ if ($currentPostType == 'blog') {
         
     $args_posts = array(
       'post_type'               => 'blog',
-      'posts_per_page'          => 9,
+      'posts_per_page'          => -1,
       'post__not_in'    =>  array($first_post_id),
       'orderby' => 'date',
       'order'   => 'DESC',
