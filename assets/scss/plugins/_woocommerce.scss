@@ -1,0 +1,281 @@
+.woocommerce-cart-form__contents .product-quantity {
+	// display: none !important;
+}
+
+// WooCommerce
+.btn-close, 
+body.woocommerce-page .woocommerce .cart .product-remove {
+	background: none;
+	min-height: 30px;
+}
+
+#add_payment_method table.cart td.actions .coupon .input-text, 
+.woocommerce-cart table.cart td.actions .coupon .input-text, 
+.woocommerce-checkout table.cart td.actions .coupon .input-text {
+	border: 2px solid $dark;
+	height: 50px;
+	line-height: 48px;
+	width: 160px;
+}
+
+.woocommerce-cart .woocommerce{
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+body.woocommerce-page .woocommerce {
+	
+	.woocommerce-error::before, .woocommerce-info::before, .woocommerce-message::before {
+		display: none;	
+	}
+	
+	// Product Listing
+	ul.products li.product {
+		@extend .col-md-4;
+		@extend .mb-4;
+	}
+
+	// Single Product
+	.product .summary.entry-summary {
+		@extend .mb-3;
+	}
+
+	// Sale Badge
+	.onsale {
+		@extend .badge;
+		@extend .bg-primary;
+		@extend .text-white;
+	}
+
+	// Price
+	.price {
+		@extend .h4;
+
+		.amount {
+			@extend .fw-bold;
+		}
+	}
+
+	// WooCommerce buttons
+	.button {
+		@extend .btn;
+		@extend .btn-dark;
+		color: #fff;
+		border-radius: 999px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		// Disabled button
+		&:disabled {
+			@extend .disabled;
+			color: #fff;
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+	}
+
+	// Checkout button
+	.checkout-button {
+		@extend .btn;
+		@extend .btn-primary;
+		@extend .w-100;
+		@extend .mb-3;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		width: auto !important;
+		float: right;
+	}
+
+	// Quantity Inputs
+	.quantity .qty {
+		// @extend .form-control;
+	}
+	
+	a.remove {
+		color: $orange;	
+	}
+	// WooCommerce tabs
+	.woocommerce-tabs {
+		ul.tabs {
+			@extend .nav;
+			@extend .nav-tabs;
+
+			li {
+				@extend .nav-item;
+
+				a {
+					@extend .nav-link;
+				}
+			}
+		}
+
+		.panel {
+			@extend .tab-pane;
+		}
+	}
+
+	// Reviews
+	.star-rating {
+		@extend .text-warning;
+	}
+	
+	.cart_totals  {
+		float: none;
+		margin-top: 50px;
+		width: 100%;
+		h2 {
+			@extend .h3;
+		}
+	}
+	// Cart
+	.cart {
+		.product-quantity {
+			// @extend .form-control;
+		}
+
+		.product-remove {
+			@extend .btn-close;
+		}
+	}
+	
+	// Checkout
+	.checkout {
+		.form-row {
+			@extend .mb-3;
+		}
+
+		.form-check-input {
+			@extend .form-check-input;
+		}
+	}
+
+	// Notices
+	.woocommerce-error,
+	.woocommerce-info,
+	.woocommerce-message {
+		@extend .alert;
+		@extend .w-100;
+		@extend .mb-3;
+		border-radius: 0;
+		border: 0;
+		box-shadow: none;
+		color: $dark !important;
+		margin-bottom: 40px !important;
+		a {
+			color: $dark;
+		}
+	}
+
+	.woocommerce-error {
+		@extend .alert-danger;
+		background-color: $orange;
+	}
+
+	.woocommerce-info {
+		@extend .alert-info;
+		background-color: $blue;
+	}
+
+	.woocommerce-message {
+		@extend .alert-success;
+		background-color: $greylight;
+	}
+	
+	// Form fields
+	.form-row input[type="text"],
+	.form-row input[type="email"],
+	.form-row input[type="tel"],
+	.form-row input[type="password"],
+	.form-row textarea {
+		@extend .form-control;
+		@extend .mb-3;
+		border: 2px solid $dark;
+	}
+	
+	// Select fields
+	.form-row select {
+		@extend .form-select;
+		@extend .mb-3;
+	}
+	
+	// Checkboxes and radio buttons
+	.form-row input[type="checkbox"],
+	.form-row input[type="radio"] {
+		@extend .form-check-input;
+	}
+	
+	// Form labels
+	.form-row label {
+		@extend .form-label;
+	}
+	
+	// Form errors
+	.form-row .woocommerce-invalid {
+		@extend .is-invalid;
+	}
+	
+	// Payment methods
+	.wc_payment_methods {
+		.wc_payment_method {
+			@extend .form-check;
+	
+			.form-check-input {
+				@extend .form-check-input;
+			}
+	
+			label {
+				@extend .form-check-label;
+			}
+		}
+	}
+	
+	// Select2
+	.select2-container {
+		.select2-selection {
+			border: 2px solid $dark;
+			border-radius: 0;
+			height: 50px;  // matches Bootstrap's form-control height
+			
+			.select2-selection__rendered {
+				line-height: calc(1.5em + .75rem + 2px);  // matches Bootstrap's form-control line-height
+				padding: .375rem .75rem;  // matches Bootstrap's form-control padding
+			}
+			.select2-selection__arrow {
+				top: 10px !important;
+				right: 10px !important;
+			}
+		}
+	
+		.select2-results {
+			.select2-results__option {
+				padding: .375rem .75rem;  // matches Bootstrap's form-control padding
+	
+				&.select2-results__option--highlighted {
+					background-color: $blue;
+					color: $dark;
+				}
+			}
+		}
+	
+		// Adjust dropdown positioning to account for Bootstrap's larger form controls
+		&.select2-container--below .select2-dropdown {
+			margin-top: 2px;
+		}
+	
+		// Add Bootstrap styles to multi-select controls
+		&.select2-container--default.select2-container--focus .select2-selection--multiple,
+		&.select2-container--default .select2-selection--multiple {
+			border-color: $greylight;
+		}
+	
+		// Add Bootstrap styles to multi-select option tags
+		.select2-selection__choice {
+			color: $dark;
+			background-color: $blue;
+			border-color: darken($blue, 10%);
+			padding: .25rem .5rem;
+			border-radius: 0;
+		}
+	}
+}

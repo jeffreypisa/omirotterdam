@@ -22,5 +22,80 @@
     <meta name="msapplication-TileColor" content="#fc471f">
     <meta name="theme-color" content="#ff0000">
     
+    {% if options.thema == 'omi' %}
+    <style>
+        @font-face {
+            font-family: 'IBM Plex Serif';
+            src: url('{{ theme.link }}/assets/fonts/IBMPlexSerif-Regular.woff2') format('woff2'),
+                url('{{ theme.link }}/assets/fonts/IBMPlexSerif-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'IBM Plex Serif';
+            src: url('{{ theme.link }}/assets/fonts/IBMPlexSerif-SemiBold.woff2') format('woff2'),
+                url('{{ theme.link }}/assets/fonts/IBMPlexSerif-SemiBold.woff') format('woff');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'IBM Plex Sans';
+            src: url('{{ theme.link }}/assets/fonts/IBMPlexSans-Regular.woff2') format('woff2'),
+                url('{{ theme.link }}/assets/fonts/IBMPlexSans-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'IBM Plex Sans';
+            src: url('{{ theme.link }}/assets/fonts/IBMPlexSans-SemiBold.woff2') format('woff2'),
+                url('{{ theme.link }}/assets/fonts/IBMPlexSans-SemiBold.woff') format('woff');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        .altfont {
+            font-family: 'IBM Plex Sans';
+            font-weight: 400;
+        } 
+    </style>
+    {% else %}
+    <style>
+       @font-face {
+           font-family: 'Neuzeit S LT Std Book';
+           src: url('{{ theme.link }}/assets/fonts/NeuzeitSLTStd-BookHeavy.woff2') format('woff2'),
+               url('{{ theme.link }}/assets/fonts/NeuzeitSLTStd-BookHeavy.woff') format('woff');
+           font-weight: 900;
+           font-style: normal;
+           font-display: swap;
+       }
+       
+       @font-face {
+           font-family: 'Neuzeit S LT Std Book';
+           src: url('{{ theme.link }}/assets/onts/NeuzeitSLTStd-Book.woff2') format('woff2'),
+               url('{{ theme.link }}/assets/fonts/NeuzeitSLTStd-Book.woff') format('woff');
+           font-weight: normal;
+           font-style: normal;
+           font-display: swap;
+       }
+       .altfont {
+           font-family: 'Neuzeit S LT Std Book' !important;
+           font-weight: 400;
+       } 
+       
+       body, h1, h2, h3, h4, h5 {
+           font-family: 'Neuzeit S LT Std Book' !important;
+       }
+       h1, h2, h3, h4, h5 { 
+           font-weight: 900;
+       }
+    </style>
+    {% endif %}
     {{function('wp_head')}}
 </head>

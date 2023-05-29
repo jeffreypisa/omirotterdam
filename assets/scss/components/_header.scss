@@ -1,7 +1,35 @@
 body {
 	padding-top: 60px;
+	&.dag {
+		header {
+			background: #000;
+			color: #fff;
+			ul {
+				li {
+					a[href] {
+						color: #fff;
+						font-weight: 900;
+						&:hover {
+							color: $orange;
+						}
+					}
+				}
+			}
+		}
+	}
 }
-
+body.dag {
+	padding-top: 60px;
+	header {
+		height: 60px;
+		.header-brand {
+			height: 40px;
+			img {
+				height: 40px;
+			}
+		}
+	}	
+}
 header {
 	position: absolute;
 	top: 0;
@@ -14,9 +42,8 @@ header {
 	background: #fff;
 	.header-brand {
 		display: block;
-		background: url($logo_sm_color);
 		height: 38px;
-		width: 108px;
+		width: auto;
 		background-size: contain;
 		background-repeat: no-repeat;
 	}
@@ -26,6 +53,8 @@ header {
 			display: inline-block;
 			margin-left: 0;
 			a {
+				padding-top: 0 !important;
+				padding-bottom: 0 !important;
 				text-decoration: none;
 				font-size: 18px;
 				font-weight: 600;
@@ -39,14 +68,14 @@ header {
 					color: $dark;
 					position: relative;
 					font-size: 14px;
-					padding: 8px 2px;
+					padding: 0 2px;
 					&:hover {
 						color: $orange;
 					}
 					&:after {
 						content: '';
 						position: absolute;
-						top: 4px;
+						top: -4px;
 						left: 50%;
 						transform: translateX(-50%);
 						height: 28px;
@@ -80,10 +109,22 @@ header {
 
 
 @include media-breakpoint-up(lg) {
+	body.dag {
+		padding-top: 150px;
+		header {
+			height: 150px;
+			.header-brand {
+				height: 100px;
+				img {
+					height: 100px;
+				}
+			}
+		}	
+	}
 	header {
 		position: fixed;
 		&.nav-up {
-			transform: translateY(-60px);
+			transform: translateY(-100%);
 			transition-delay: color .6s;
 			.header-brand {
 				transition-delay: background .6s;

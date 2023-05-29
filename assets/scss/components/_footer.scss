@@ -1,3 +1,11 @@
+.dag {
+	footer {
+		.thelogo {
+			height: 100px;
+			margin-bottom: 60px;
+		}
+	}
+}
 footer {
 	padding: 60px 0 20px;
 	position: relative;
@@ -27,20 +35,7 @@ footer {
 		a[href] {
 			font-size: 14px;
 			line-height: 18px;
-			color: rgba(255,255,255,.5);
 			text-decoration: none;
-			&:hover {
-				color: #fff !important;
-			}
-		}
-		a {
-			transition: 0.4 $ease;
-		}
-		a:hover {
-			color: $orange;
-		}
-		.col-md-auto {
-			color: rgba(255,255,255,.5);
 		}
 	}
 }

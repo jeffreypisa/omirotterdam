@@ -6,6 +6,7 @@
             "key": "field_5b74183a2ef6c",
             "label": "Stroken",
             "name": "stroken",
+            "aria-label": "",
             "type": "flexible_content",
             "instructions": "",
             "required": 0,
@@ -26,6 +27,7 @@
                             "key": "field_5bcc7b448e56a",
                             "label": "Achtergrond",
                             "name": "achtergrond",
+                            "aria-label": "",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -52,6 +54,7 @@
                             "key": "field_620127f6a4c1e",
                             "label": "Centreer content",
                             "name": "centreer_content",
+                            "aria-label": "",
                             "type": "true_false",
                             "instructions": "",
                             "required": 0,
@@ -71,6 +74,7 @@
                             "key": "field_5efa038175d67",
                             "label": "Titel",
                             "name": "titel",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "",
                             "required": 0,
@@ -90,6 +94,7 @@
                             "key": "field_5efc5c73681de",
                             "label": "Tekst",
                             "name": "tekst",
+                            "aria-label": "",
                             "type": "wysiwyg",
                             "instructions": "",
                             "required": 0,
@@ -109,6 +114,224 @@
                             "key": "field_5ef0b7aec6781",
                             "label": "Link",
                             "name": "link",
+                            "aria-label": "",
+                            "type": "link",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array"
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_646b7386b358b": {
+                    "key": "layout_646b7386b358b",
+                    "name": "shortcode",
+                    "label": "Shortcode",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_646de3870428e",
+                            "label": "Titel",
+                            "name": "titel",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_646de3900428f",
+                            "label": "Categorieën",
+                            "name": "cats",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "table",
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "",
+                            "button_label": "Nieuwe regel",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_646de4db68f8a",
+                                    "label": "Link",
+                                    "name": "link",
+                                    "aria-label": "",
+                                    "type": "link",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "parent_repeater": "field_646de3900428f"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_646b738db358d",
+                            "label": "Shortcode",
+                            "name": "shortcode",
+                            "aria-label": "",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
+                        },
+                        {
+                            "key": "field_646b7bb7f742e",
+                            "label": "Blokken",
+                            "name": "blokken",
+                            "aria-label": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "table",
+                            "min": 0,
+                            "max": 0,
+                            "collapsed": "",
+                            "button_label": "Nieuwe regel",
+                            "rows_per_page": 20,
+                            "sub_fields": [
+                                {
+                                    "key": "field_646b7cafb1928",
+                                    "label": "Achtergrond",
+                                    "name": "achtergrond",
+                                    "aria-label": "",
+                                    "type": "select",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "bg-orange": "oranje",
+                                        "bg-blue": "blauw",
+                                        "bg-dark": "zwart",
+                                        "bg-greylight": "grijs"
+                                    },
+                                    "default_value": false,
+                                    "return_format": "value",
+                                    "multiple": 0,
+                                    "allow_null": 0,
+                                    "ui": 0,
+                                    "ajax": 0,
+                                    "placeholder": "",
+                                    "parent_repeater": "field_646b7bb7f742e"
+                                },
+                                {
+                                    "key": "field_646b7bcef742f",
+                                    "label": "Titel",
+                                    "name": "titel",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_646b7bb7f742e"
+                                },
+                                {
+                                    "key": "field_646b7be0f7430",
+                                    "label": "Subtitel",
+                                    "name": "subtitel",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_646b7bb7f742e"
+                                },
+                                {
+                                    "key": "field_646b7becf7431",
+                                    "label": "Link",
+                                    "name": "link",
+                                    "aria-label": "",
+                                    "type": "link",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "parent_repeater": "field_646b7bb7f742e"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_646dd43335eb9",
+                            "label": "Link",
+                            "name": "link",
+                            "aria-label": "",
                             "type": "link",
                             "instructions": "",
                             "required": 0,
@@ -134,6 +357,7 @@
                             "key": "field_62339c150a556",
                             "label": "Achtergrond",
                             "name": "achtergrond",
+                            "aria-label": "",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -160,6 +384,7 @@
                             "key": "field_62339c470a55b",
                             "label": "Toon als slider",
                             "name": "slider",
+                            "aria-label": "",
                             "type": "true_false",
                             "instructions": "",
                             "required": 0,
@@ -179,6 +404,7 @@
                             "key": "field_62339be115ec7",
                             "label": "Afbeelding(en)",
                             "name": "afbeeldingen",
+                            "aria-label": "",
                             "type": "gallery",
                             "instructions": "",
                             "required": 0,
@@ -216,6 +442,7 @@
                             "key": "field_61abcc547b10a",
                             "label": "Achtergrond",
                             "name": "achtergrond",
+                            "aria-label": "",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -242,6 +469,7 @@
                             "key": "field_61f7e919e6002",
                             "label": "Titel",
                             "name": "titel",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "",
                             "required": 0,
@@ -261,6 +489,7 @@
                             "key": "field_62026b6abb8c7",
                             "label": "Eerste evenement groot tonen",
                             "name": "primetime",
+                            "aria-label": "",
                             "type": "true_false",
                             "instructions": "",
                             "required": 0,
@@ -280,6 +509,7 @@
                             "key": "field_62014e3dcf097",
                             "label": "Weergave",
                             "name": "weergave",
+                            "aria-label": "",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -305,6 +535,7 @@
                             "key": "field_61f9119e922e6",
                             "label": "Evenementen",
                             "name": "evenementen",
+                            "aria-label": "",
                             "type": "post_object",
                             "instructions": "Min 1, Max 3",
                             "required": 0,
@@ -345,6 +576,7 @@
                             "key": "field_61f7e91fe6004",
                             "label": "Achtergrond",
                             "name": "achtergrond",
+                            "aria-label": "",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -371,6 +603,7 @@
                             "key": "field_61f7e91fe6005",
                             "label": "Titel",
                             "name": "titel",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "",
                             "required": 0,
@@ -390,6 +623,7 @@
                             "key": "field_62026a58b7bd9",
                             "label": "Weergave",
                             "name": "weergave",
+                            "aria-label": "",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -415,6 +649,7 @@
                             "key": "field_61f9439a7da2b",
                             "label": "Artikelen",
                             "name": "artikelen",
+                            "aria-label": "",
                             "type": "post_object",
                             "instructions": "",
                             "required": 0,
@@ -455,6 +690,7 @@
                             "key": "field_61f7e94ee6008",
                             "label": "Achtergrond",
                             "name": "achtergrond",
+                            "aria-label": "",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -481,6 +717,7 @@
                             "key": "field_61f7e94ee6009",
                             "label": "Titel",
                             "name": "titel",
+                            "aria-label": "",
                             "type": "text",
                             "instructions": "",
                             "required": 0,
@@ -500,6 +737,7 @@
                             "key": "field_62026a79b7bda",
                             "label": "Weergave",
                             "name": "weergave",
+                            "aria-label": "",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -525,6 +763,7 @@
                             "key": "field_61f7e94ee600a",
                             "label": "Artikelen",
                             "name": "artikelen",
+                            "aria-label": "",
                             "type": "post_object",
                             "instructions": "",
                             "required": 0,
@@ -556,9 +795,9 @@
                     "max": ""
                 }
             },
-            "button_label": "Nieuwe strook",
             "min": "",
-            "max": ""
+            "max": "",
+            "button_label": "Nieuwe strook"
         }
     ],
     "location": [
@@ -581,5 +820,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1647549528
+    "modified": 1684923623
 }

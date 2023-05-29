@@ -1,7 +1,10 @@
 .dropdown {
 	.dropdown-menu {
-		background: transparent;
-		padding: 0;
+		background: $dark;
+		border-radius: 0;
+		bottom: -49px;
+		left: -5px;
+		padding: 10px 0;
 		.nav-item {
 			opacity: 0;
 			transform: translateX(10px);
@@ -15,6 +18,10 @@
 		.nav-item {
 			opacity: 1;
 			transform: translateX(0);
+			.dropdown-item:hover {
+				color: $orange;
+				background: transparent;
+			}
 		}
 	}
 }

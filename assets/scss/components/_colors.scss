@@ -25,6 +25,16 @@
 	color: $dark;
 }
 
+.bg-orange[href]:hover,
+.bg-blue[href]:hover,
+.bg-greylight[href]:hover {
+	color: $dark;
+}
+
+.bg-dark[href]:hover {
+	color: #fff;
+}
+
 @include media-breakpoint-up(lg) {
 
 }

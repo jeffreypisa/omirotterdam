@@ -4,7 +4,7 @@
 			<div class="image" style="background-image: url({{ Image(item.thumbnail).src }})"></div>
 			<div class="content">
 				<h3 class="h1 mb-0">{{ item.title }}</h3>
-				<h3 class="weight-400"> {% if lang == 'nl_NL' %}{{ item.date }}{% else %}{{ item.date('F jS, Y') }}{% endif %} </h3>
+				<h3 class="weight-400 d-none"> {% if lang == 'nl_NL' %}{{ item.date }}{% else %}{{ item.date('F jS, Y') }}{% endif %} </h3>
 				<div class="read-more h4 mb-0">{% if lang == 'nl_NL' %}Lees meer{% else %}Read more{% endif %}  <i class="fas fa-arrow-right"></i></div>
 			</div>
 		</div>

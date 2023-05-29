@@ -4,7 +4,7 @@
 	{% endblock %}
 {% endblock %}
 
-	<body class="{{ body_class }}" data-template="base.twig" data-scroll-container>	
+	<body class="{{ body_class }} {{ options.thema }}" data-template="base.twig" data-scroll-container>	
 		{% include 'mobilemenu.twig' %}
 		
 		{% block header %}

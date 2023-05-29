@@ -35,6 +35,21 @@ main {
 }
 
 body {
+	&.dag {
+		.mod-mobilemenu {
+			background: $dark;
+			&:after {
+				background: $dark;
+			}
+			ul {
+				li {
+					a {
+						font-weight: 700;
+					}
+				}
+			}
+		}
+	}
 	&:after {
 		transition: opacity 1s $ease;
 		transition-delay: 0s;

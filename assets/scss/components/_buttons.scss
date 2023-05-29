@@ -1,16 +1,32 @@
+.bg-blue {
+	a {
+		color: $dark;
+		&:hover {
+			color: #fff;
+		}
+	}
+}
+
+.dag .btn.btn-primary {
+	background: $dark;
+	&:hover {
+		background: $orange;
+	}
+}
 .btn {
 	font-weight: 600;
-	line-height: 48px;
+	line-height: 50px;
 	color: #fff;
 	transition: .15s $ease;
 	border-radius: 30px;
 	padding: 0 30px;
+	text-transform: lowercase;
 	&:hover, &:focus, &:target {
 		opacity: 1;
 	}
 	&.btn-light {
 		background: #fff;
-		color: $orange;
+		color: $dark;
 		&:hover, &:focus, &:target {
 			background: $dark;
 			color: #fff !important;
@@ -32,13 +48,18 @@
 		}
 	}
 }
-
+.bg-dark {
+	.btn-link {
+		color: #fff;
+	}
+}
 .btn-link {
 	text-decoration: none;
 	color: $dark;
-	font-weight: 600;
+	font-weight: 400;
 	font-size: 18px;
 	transition: 0.4s $ease;
+	text-transform: lowercase;
 	&:after {
 		display: inline-block;
 		font-style: normal;

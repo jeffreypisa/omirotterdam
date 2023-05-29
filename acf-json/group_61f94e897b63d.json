@@ -3,9 +3,103 @@
     "title": "Thema opties",
     "fields": [
         {
+            "key": "field_646221a1dcbce",
+            "label": "Algemeen",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_646221b32de32",
+            "label": "Logo kleur",
+            "name": "logo_color",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_646dc91e575cf",
+            "label": "Logo alternatief",
+            "name": "logo_alt",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_646b6b03682d2",
+            "label": "Thema",
+            "name": "thema",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "dag": "Dag en Nacht van de Architectuur Rotterdam",
+                "omi": "OMI Rotterdam"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_6202683511048",
             "label": "Nieuwsbrief",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -22,6 +116,7 @@
             "key": "field_620268621104b",
             "label": "Weergeven",
             "name": "nieuwsbrief_weergeven",
+            "aria-label": "",
             "type": "true_false",
             "instructions": "",
             "required": 0,
@@ -41,6 +136,7 @@
             "key": "field_6202683d11049",
             "label": "Titel",
             "name": "nieuwsbrief_titel",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -60,6 +156,7 @@
             "key": "field_6202684f1104a",
             "label": "Content",
             "name": "nieuwsbrief_content",
+            "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
             "required": 0,
@@ -79,6 +176,7 @@
             "key": "field_61f94e9699d81",
             "label": "Footer",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -95,6 +193,7 @@
             "key": "field_61f94e9f99d82",
             "label": "Adres",
             "name": "tekst",
+            "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
             "required": 0,
@@ -114,6 +213,7 @@
             "key": "field_624c4ad2a0d6f",
             "label": "Openingstijden",
             "name": "openingstijden",
+            "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
             "required": 0,
@@ -133,6 +233,7 @@
             "key": "field_61f94ecf99d85",
             "label": "Instagram",
             "name": "instagram",
+            "aria-label": "",
             "type": "url",
             "instructions": "",
             "required": 0,
@@ -149,6 +250,7 @@
             "key": "field_61f94eda99d86",
             "label": "Facebook",
             "name": "facebook",
+            "aria-label": "",
             "type": "url",
             "instructions": "",
             "required": 0,
@@ -165,6 +267,7 @@
             "key": "field_6225f7dabfb06",
             "label": "Vimeo",
             "name": "vimeo",
+            "aria-label": "",
             "type": "url",
             "instructions": "",
             "required": 0,
@@ -178,9 +281,10 @@
             "placeholder": ""
         },
         {
-            "key": "field_61f94eae99d84",
-            "label": "Youtube",
-            "name": "youtube",
+            "key": "field_632ae76923723",
+            "label": "Linkedin",
+            "name": "linkedin",
+            "aria-label": "",
             "type": "url",
             "instructions": "",
             "required": 0,
@@ -197,6 +301,7 @@
             "key": "field_61f94ea599d83",
             "label": "Email",
             "name": "email",
+            "aria-label": "",
             "type": "email",
             "instructions": "",
             "required": 0,
@@ -215,6 +320,7 @@
             "key": "field_61f94ef299d87",
             "label": "Logo's",
             "name": "logos",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -229,11 +335,13 @@
             "max": 0,
             "layout": "table",
             "button_label": "Nieuw logo",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_61f94eff99d88",
                     "label": "Logo",
                     "name": "logo",
+                    "aria-label": "",
                     "type": "image",
                     "instructions": "",
                     "required": 0,
@@ -252,12 +360,14 @@
                     "max_width": "",
                     "max_height": "",
                     "max_size": "",
-                    "mime_types": ""
+                    "mime_types": "",
+                    "parent_repeater": "field_61f94ef299d87"
                 },
                 {
                     "key": "field_61f94f0699d89",
                     "label": "URL",
                     "name": "url",
+                    "aria-label": "",
                     "type": "url",
                     "instructions": "",
                     "required": 0,
@@ -268,7 +378,8 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "placeholder": ""
+                    "placeholder": "",
+                    "parent_repeater": "field_61f94ef299d87"
                 }
             ]
         }
@@ -291,5 +402,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1649167067
+    "modified": 1684916525
 }

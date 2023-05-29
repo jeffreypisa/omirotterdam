@@ -1,0 +1,38 @@
+.mod-shortcode {
+	.blokken {
+		margin-top: 15px;
+		.blok {
+			display: block;
+			padding: 10px;
+			margin-bottom: 0px;
+			transition: .2s $ease;
+			.btn-link {
+				pointer-events: none;
+			}
+			&:hover {
+				transform: scale(1.05);
+			}
+		}
+	}
+}
+
+@include media-breakpoint-up(md) {
+	.mod-shortcode {
+		.blokken {
+			margin-top: 45px;
+			.blok {
+				padding: 20px;
+			}
+		}
+	}
+}
+
+@include media-breakpoint-up(lg) {
+	.mod-shortcode {
+		.blokken {
+			.blok {
+				margin-bottom: 30px;
+			}
+		}
+	}
+}

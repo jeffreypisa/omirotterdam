@@ -7,6 +7,9 @@
 	{% if item.acf_fc_layout == 'content' %}
 		{% include 'pagebuilder/content.twig' %}
 	
+	{% elseif item.acf_fc_layout == 'shortcode' %}
+		{% include 'pagebuilder/shortcode.twig' %}
+	
 	{% elseif item.acf_fc_layout == 'afbeeldingen' %}
 		{% include 'pagebuilder/afbeeldingen.twig' %}
 	

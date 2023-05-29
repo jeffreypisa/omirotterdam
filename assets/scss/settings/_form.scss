@@ -50,7 +50,7 @@ $input-disabled-border-color:           null;
 $input-color:                           $body-color;
 $input-border-color:                    #fff;
 $input-border-width:                    1px;
-$input-box-shadow:                      $box-shadow;
+$input-box-shadow:                      none;
 
 $input-border-radius:                   none;
 $input-border-radius-sm:                $border-radius-sm;
@@ -60,7 +60,7 @@ $input-focus-bg:                        $input-bg;
 $input-focus-border-color:              $orange;
 $input-focus-color:                     $input-color;
 $input-focus-width:                     $input-btn-focus-width;
-$input-focus-box-shadow:                $box-shadow;
+$input-focus-box-shadow:                none;
 
 $input-placeholder-color:               $gray-500;
 $input-plaintext-color:                 $body-color;

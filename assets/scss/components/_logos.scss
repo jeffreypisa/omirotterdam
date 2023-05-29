@@ -1,3 +1,11 @@
+.dag {
+	.mod-logos {
+		.logo {
+			width: 150px;
+			margin: 0 10px 20px;
+		}
+	}
+}
 .mod-logos {
 	padding-bottom: 30px;
 	.logo {
@@ -19,7 +27,7 @@
 @include media-breakpoint-up(md) {
 	.mod-logos {
 		.logo {
-			height: 100px;
+			height: 60px;
 			padding: 0;
 		}
 	}

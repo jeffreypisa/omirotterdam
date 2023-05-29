@@ -10,7 +10,7 @@
 			position: absolute;
 			right: 20px;
 			bottom: 15px;
-			color: $orange;
+			text-transform: lowercase;
 			font-size: 16px;
 			font-weight: 600;
 		}
@@ -33,6 +33,7 @@
 				position: absolute;
 				bottom: 20px;
 				right: 20px;
+				text-transform: lowercase;
 				i {
 					transition: 1s $ease;
 					transform: scale(.7);
@@ -42,9 +43,10 @@
 	}
 	&:hover {
 		.box {
-			background: $orange;
+			background: $greylight;
+			color: $dark;
 			.read-more-text {
-				color: #fff;
+				color: $dark;
 			}
 		}
 		.image-holder {

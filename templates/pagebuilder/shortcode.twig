@@ -1,0 +1,47 @@
+<section id="section{{ sectionno }}" class="mod-shortcode {{ item.achtergrond }} {% if item.achtergrond == 'bg-orange' %}text-white{% endif %}"  data-scroll-section>
+	<div class="container">
+		{% if item.titel or item.cats %}
+			<div class="mb-3">
+				{% if item.titel %}
+					<h2 class="text-center mb-2"> {{ item.titel }} </h2>
+				{% endif %}
+				{% if item.cats %}
+					<div class="mod-categories mb-2">
+			  			<div class="container text-center">
+							{% for item in item.cats %}
+				  			{% if not loop.first %}<span> | </span>{% endif %} <a href="{{ item.link.url }}" class="{% if item.link.url == post.link %}active{% endif %}">{{ item.link.title|lower }}</a>
+							{% endfor %}
+			  			</div>
+		  			</div>
+				{% endif %}
+			</div>
+		{% endif %}
+		{{ item.shortcode }}
+		{% if item.blokken %}
+			<div class="blokken">
+				<div class="row g-3 g-md-4">
+					{% for blok in item.blokken %}
+						<div class="col-6 col-lg-3">
+							<a href="{{ blok.link.url }}" class="blok {{ blok.achtergrond }}">
+								<div data-mh>
+									{% if blok.titel %}<h3 class="mb-0">{{ blok.titel }}</h3>{% endif %}
+									{% if blok.subtitel %}<p>{{ blok.subtitel }}</p>{% endif %}
+								</div>
+								<div class="d-none d-md-block">
+									<br><br>
+									{% if blok.link %}<div class="btn-link">{{ blok.link.title }}</div>{% endif %}
+								</div>
+							</a>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		{% endif %}
+		{% if item.link %}
+			<div class="text-center">
+				<br>
+				<a href="{{ item.link.url }}" target="{{ item.link.target }}" class="btn btn-dark">{{ item.link.title }}</a>
+			</div>
+		{% endif %}
+    </div>
+</section>

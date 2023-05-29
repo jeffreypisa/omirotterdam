@@ -6,10 +6,22 @@
 			</a>
 		</li>
 		{% for item in items %}
-			<li class="nav-item {{ item.classes | join(' ') }}">
+			<li class="nav-item {{ item.classes | join(' ') }} {% if item.children %}mb-0{% endif %}">
 				<a class="nav-link h2 mb-2" target="{{ item.target }}" href="{{ item.link }}">
 					{{ item.title }}
 				</a>
+				{% if item.children %}
+					<ul class="nav mt-3 mb-0" style="padding: 0">
+						{% for item in item.children %}
+							<li class="nav-item {{ item.classes | join(' ') }}">
+								<a class="nav-link h2 mb-2" target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>
+								{% if item.children %}
+									{% include "menu.twig" with {'items': item.children} %}
+								{% endif %}
+							</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
 			</li>
 		{% endfor %}
 	</ul>

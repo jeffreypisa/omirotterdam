@@ -1,6 +1,6 @@
-<footer id="footer" class="section bg-blue text-white text-lg text-center text-md-start" data-scroll-section>
+<footer id="footer" class="section bg-blue text-lg text-center text-md-start" data-scroll-section>
   <div class="container-fluid container-lg">
-    <img src="{{ theme.link }}/assets/img/omi_logo_slogan_wit.svg" width="155" height="68">
+    <img class="thelogo" height="38" src="{{ Image(options.logo_alt).src }}" src="{{ Image(options.logo_alt).alt }}">
     <br><br>
     <div class="row">
       <div class="col-md-4 mb-3 mb-md-0">
@@ -33,9 +33,9 @@
         {% endif %}
         <div class="clearfix"></div>
         
-        {% if options.youtube %}
-          <a href="{{ options.youtube }}" target="_blank">
-            <i class="fab fa-youtube" style="width:20px"></i> Youtube
+        {% if options.linkedin %}
+          <a href="{{ options.linkedin }}" target="_blank">
+            <i class="fab fa-linkedin" style="width:20px"></i> Linkedin
           </a>
         {% endif %}
         <div class="clearfix"></div>

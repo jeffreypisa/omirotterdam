@@ -1,7 +1,7 @@
 {% if menu %}
 	<ul class="nav">
 	{% for item in items %}
-		<li class="nav-item{% if item.children %} dropdown{% endif %}{{ item.classes | join(' ') }}">
+		<li class="nav-item{% if item.children %} dropdown{% endif %}{{ item.classes | join(' ') }} d-flex align-items-end">
 			<a class="nav-link" target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>
 			{% if item.children %}
 				<ul class="dropdown-menu">

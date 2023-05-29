@@ -12,6 +12,7 @@ include 'lib/timber.php';
 include 'lib/videoembed.php';
 include 'lib/loadmoreposts.php';
 include 'lib/wpadmin.php';
+include 'lib/woocommerce.php';
 
 // Set permalink structure projecten
 

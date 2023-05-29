@@ -3,5 +3,5 @@
   "localPath" : ".",
   "remotePath" : "\/domains\/omirotterdam.nl\/DEFAULT\/wp-content\/themes\/omirotterdam",
   "server" : "OMI Rotterdam",
-  "usesPublishing" : false
+  "usesPublishing" : true
 }

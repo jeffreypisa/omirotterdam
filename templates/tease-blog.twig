@@ -6,7 +6,9 @@
 		<div class="box">
 			<div data-mh>
 				<h6 class="mb-1">{{ item.title }}</h6>
-				{% if lang == 'nl_NL' %}{{ item.date }}{% else %}{{ item.date('F jS, Y') }}{% endif %}
+				<div class="d-none">
+					{% if lang == 'nl_NL' %}{{ item.date }}{% else %}{{ item.date('F jS, Y') }}{% endif %}
+				</div>
 			</div>
 			<div class="read-more-text">{% if lang == 'nl_NL' %}Lees meer{% else %}Read more{% endif %} <i class="fas fa-arrow-right"></i></div>
 		</div>
