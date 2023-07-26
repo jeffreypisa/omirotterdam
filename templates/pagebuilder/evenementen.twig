@@ -22,7 +22,7 @@
 	{% if item.weergave == 'custom' %}
 		<div class="container">
 			<div class="row justify-content-lg-center {% if primetime == 'true' %}primetime _js-slick-events{% endif %}">
-				{% for item in item.evenementen|slice(0,3) %}
+				{% for item in item.evenementen|slice(0,6) %}
 					{% if primetime == 'true' and loop.first %}
 						<div class="item col-12">
 							{% include ['tease-event-big.twig'] %}

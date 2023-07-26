@@ -9,6 +9,9 @@
 		max-width: calc(100% + 20px);
 		height: auto;
 		margin: 10px -10px 10px -10px;
+		&:first-child {
+			margin-top: 0;
+		}
 	}
 	&.marge {
   		margin: 130px 0;
@@ -21,7 +24,7 @@
 		width: calc(100% + 80px);
 	    max-width: calc(100% + 80px);
 	    height: auto;
-	    margin: 15px -40px 15px -40px;
+	    margin: 20px -40px 20px -40px;
 	  }
 	  &.marge {
 		  margin: 180px 0;
@@ -35,7 +38,7 @@
 		width: calc(100% + 120px);
 	    max-width: calc(100% + 120px);
 	    height: auto;
-	    margin: 20px -60px 20px -60px;
+	    margin: 30px -60px 30px -60px;
 	  }
 	  &.marge {
 		  margin: 240px 0;

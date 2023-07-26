@@ -7,7 +7,7 @@
       "uuidString" : "DAB3A1D1-B069-47CF-B5B7-C2F91B29D8B3"
     }
   ],
-  "creatorBuild" : "34484",
+  "creatorBuild" : "34510",
   "files" : {
     "\/.nova\/Configuration.json" : {
       "ft" : 524288,
@@ -21,6 +21,14 @@
       "ft" : 524288,
       "oA" : 1,
       "oAP" : "\/.nova\/Publishing\/Dag van de Architectuur-min.json",
+      "oF" : 0,
+      "oO" : 1,
+      "oS" : 1
+    },
+    "\/.nova\/Publishing\/Emonks 2.json" : {
+      "ft" : 524288,
+      "oA" : 1,
+      "oAP" : "\/.nova\/Publishing\/Emonks 2-min.json",
       "oF" : 0,
       "oO" : 1,
       "oS" : 1
@@ -666,13 +674,13 @@
       "sC" : 3,
       "tS" : 0
     },
-    "\/assets\/js\/scripts\/lity.js" : {
+    "\/assets\/js\/scripts\/lity_init.js" : {
       "bF" : 0,
       "ft" : 64,
       "ma" : 0,
       "mi" : 1,
       "oA" : 1,
-      "oAP" : "\/assets\/js\/scripts\/lity-min.js",
+      "oAP" : "\/assets\/js\/scripts\/lity_init-min.js",
       "oF" : 0,
       "sC" : 3,
       "tS" : 0
@@ -688,13 +696,13 @@
       "sC" : 3,
       "tS" : 0
     },
-    "\/assets\/js\/scripts\/matchheight.js" : {
+    "\/assets\/js\/scripts\/matchheight_init.js" : {
       "bF" : 0,
       "ft" : 64,
       "ma" : 0,
       "mi" : 1,
       "oA" : 1,
-      "oAP" : "\/assets\/js\/scripts\/matchheight-min.js",
+      "oAP" : "\/assets\/js\/scripts\/matchheight_init-min.js",
       "oF" : 0,
       "sC" : 3,
       "tS" : 0
@@ -1229,6 +1237,21 @@
       "ma" : 1,
       "oA" : 1,
       "oAP" : "\/assets\/scss\/pagebuilder\/_shortcode.css",
+      "oF" : 0,
+      "oS" : 3,
+      "pg" : 0,
+      "sct" : 0
+    },
+    "\/assets\/scss\/pagebuilder\/_slider.scss" : {
+      "aP" : 1,
+      "bl" : 0,
+      "co" : 0,
+      "dP" : 10,
+      "ec" : 1,
+      "ft" : 4,
+      "ma" : 1,
+      "oA" : 1,
+      "oAP" : "\/assets\/scss\/pagebuilder\/_slider.css",
       "oF" : 0,
       "oS" : 3,
       "pg" : 0,
@@ -1966,6 +1989,22 @@
       "oAP" : "\/templates\/pagebuilder\/blog.twig",
       "oF" : 0
     },
+    "\/templates\/pagebuilder\/blokken.twig" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/templates\/pagebuilder\/blokken.twig",
+      "oF" : 0
+    },
+    "\/templates\/pagebuilder\/colofon.twig" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/templates\/pagebuilder\/colofon.twig",
+      "oF" : 0
+    },
     "\/templates\/pagebuilder\/content.twig" : {
       "cB" : 0,
       "ft" : 8192,
@@ -2004,6 +2043,14 @@
       "hM" : 0,
       "oA" : 0,
       "oAP" : "\/templates\/pagebuilder\/shortcode.twig",
+      "oF" : 0
+    },
+    "\/templates\/pagebuilder\/slider.twig" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/templates\/pagebuilder\/slider.twig",
       "oF" : 0
     },
     "\/templates\/pagebuilder\/video.twig" : {
@@ -2172,6 +2219,14 @@
       "hM" : 0,
       "oA" : 0,
       "oAP" : "\/templates\/tease-blog.twig",
+      "oF" : 0
+    },
+    "\/templates\/tease-blokken.twig" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/templates\/tease-blokken.twig",
       "oF" : 0
     },
     "\/templates\/tease-event-big.twig" : {

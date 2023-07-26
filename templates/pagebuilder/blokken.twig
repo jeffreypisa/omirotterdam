@@ -1,0 +1,22 @@
+<section id="blokken" class="strook-blokken {{ item.achtergrond }}" data-scroll-section>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-10 offset-md-1 text-center">
+				<h2> {{ item.titel }} </h2>
+			</div>
+		</div>
+		<div class="row">
+			{% for item in item.blokken %}
+				<div class="col-md-6 col-xl-4">
+					{% include ['tease-blokken.twig'] %}
+				</div>
+			{% endfor %}
+		</div>
+		{% if item.link %}
+			<div class="text-center">
+				<br>
+				<a href="{{ item.link.url }}" target="{{ item.link.target }}" class="btn btn-dark">{{ item.link.title }}</a>
+			</div>
+		{% endif %}
+	</div>
+</section> 

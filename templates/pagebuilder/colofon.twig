@@ -1,0 +1,20 @@
+{% if item.colofon %}
+	<section class="mod-colofon {{ item.achtergrond }} text-sm" data-scroll-section>		
+		<div class="container mt-2">
+			<div class="row">
+				<div class="col-md-10 offset-md-1 col-xl-8 offset-xl-2">
+					{% for colofon in item.colofon %}
+						<div class="row">
+							<div class="col-6 col-md-5 col-lg-5 weight-600">
+								{{ colofon.label }}:
+							</div>
+							<div class="col">
+								{{ colofon.tekst }}
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</section>
+{% endif %}

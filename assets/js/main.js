@@ -3,9 +3,9 @@ import 'bootstrap';
 
 // Init plugins
 import { slick_init } from './scripts/slick.js';
-import { matchheight_init } from './scripts/matchheight.js';
+import { matchheight_init } from './scripts/matchheight_init.js';
 import { animejs } from './scripts/anime.js';
-import { lity_init } from './scripts/lity.js';
+import { lity_init } from './scripts/lity_init.js';
 
 // Scripts
 import { site_is_loaded } from './scripts/site_is_loaded.js';
@@ -28,4 +28,10 @@ $(window).on('load', function() {
 	animejs();
 	sticky_header();
 	site_is_loaded();
+	
+	// $( ".mec-event-loc-place" ).each(function() {
+	//	const str = $(this).text();
+	//	const first = str.split('|');
+	//	$(this).text(first);
+	// });
 });

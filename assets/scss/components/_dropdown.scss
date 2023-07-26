@@ -2,13 +2,14 @@
 	.dropdown-menu {
 		background: $dark;
 		border-radius: 0;
-		bottom: -49px;
+		top: 28px;
 		left: -5px;
 		padding: 10px 0;
 		.nav-item {
 			opacity: 0;
 			transform: translateX(10px);
 			transition: 0.2s ease-in;
+			display: block;
 		}
 	}
 	a:hover + .dropdown-menu,

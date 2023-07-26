@@ -1,0 +1,24 @@
+.strook-slider {
+	padding-top: 30px;
+	.item {
+		min-height: 400px;
+		position: relative;
+		.read-more {
+			position: absolute;
+			bottom: 30px;
+			right: 30px;
+		}
+	}
+	.bg-cover {
+		padding-top: 57%;
+	}
+}
+@include media-breakpoint-down(lg) {
+	.mod-slider {
+		.item {
+			h3, p {
+				line-height: 24px;
+			}
+		}
+	}
+}

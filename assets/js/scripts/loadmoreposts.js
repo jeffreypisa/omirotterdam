@@ -18,9 +18,6 @@ export function loadmoreposts() {
 				},
 				success: function(data) {
 					$('#theposts').append(data);
-				},
-				error: function(data) {
-					console.log(data);
 				}
 			});
 		});

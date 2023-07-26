@@ -15,6 +15,9 @@
 	
 	{% elseif item.acf_fc_layout == 'blog' %}
 		{% include 'pagebuilder/blog.twig' %}
+	
+	{% elseif item.acf_fc_layout == 'slider' %}
+		{% include 'pagebuilder/slider.twig' %}
 		
 	{% elseif item.acf_fc_layout == 'evenementen' %}
 		{% include 'pagebuilder/evenementen.twig' %}
@@ -24,6 +27,12 @@
 	
 	{% elseif item.acf_fc_layout == 'video' %}
 		{% include 'pagebuilder/video.twig' %}
+	
+	{% elseif item.acf_fc_layout == 'blokken' %}
+		{% include 'pagebuilder/blokken.twig' %}
+	
+	{% elseif item.acf_fc_layout == 'colofon' %}
+		{% include 'pagebuilder/colofon.twig' %}
 	
 	{% endif %}
   

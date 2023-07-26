@@ -1,0 +1,31 @@
+<section class="strook-slider text-white {{ item.achtergrond }}" data-scroll-section>
+	<div class="container">
+		<div class="justify-content-lg-center js-slick">
+			{% for item in item.slides|slice(0,3) %}
+				<div class="item">
+					<a {% if item.link %}href="{{ item.link.url }}" target="{{ item.link.target}}"{% endif %} class="tease tease-event-big noline">
+						<div class="item">
+							<div class="image-holder overlay-gradient ratio-16x9 mb-30">
+								<div class="image" style="background-image: url({{ Image(item.afbeelding).src }})"></div>
+								<div class="content">
+									<h3 class="h1 mb-0">{{ item.titel }}</h3>
+									<p class="h5">{{ item.tekst }}</p>
+								</div>
+								{% if item.link %}
+									<div class="read-more h4 mb-0">{{ item.link.title }}  <i class="fas fa-arrow-right"></i></div>
+								{% endif %}
+							</div>
+						</div>
+					</a>
+				</div>
+			{% endfor %}
+		</div>
+		
+		{% if item.link %}
+			<div class="text-center">
+				<br>
+				<a href="{{ item.link.url }}" target="{{ item.link.target }}" class="btn btn-dark">{{ item.link.title }}</a>
+			</div>
+		{% endif %}
+	</div>
+</section> 
