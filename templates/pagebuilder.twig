@@ -34,6 +34,9 @@
 	{% elseif item.acf_fc_layout == 'colofon' %}
 		{% include 'pagebuilder/colofon.twig' %}
 	
+	{% elseif item.acf_fc_layout == 'logos' %}
+		{% include 'pagebuilder/logos.twig' %}
+	
 	{% endif %}
   
 {% endfor %}

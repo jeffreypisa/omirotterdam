@@ -7,7 +7,7 @@
       "uuidString" : "DAB3A1D1-B069-47CF-B5B7-C2F91B29D8B3"
     }
   ],
-  "creatorBuild" : "34510",
+  "creatorBuild" : "34564",
   "files" : {
     "\/.nova\/Configuration.json" : {
       "ft" : 524288,
@@ -2021,6 +2021,14 @@
       "oAP" : "\/templates\/pagebuilder\/evenementen.twig",
       "oF" : 0
     },
+    "\/templates\/pagebuilder\/logos.twig" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/templates\/pagebuilder\/logos.twig",
+      "oF" : 0
+    },
     "\/templates\/pagebuilder\/newsletter.twig" : {
       "cB" : 0,
       "ft" : 8192,
@@ -3091,9 +3099,6 @@
       "no-new-native-nonconstructor" : {
         "active" : 0
       },
-      "no-new-object" : {
-        "active" : 0
-      },
       "no-new-symbol" : {
         "active" : 1
       },
@@ -3105,6 +3110,9 @@
       },
       "no-obj-calls" : {
         "active" : 1
+      },
+      "no-object-constructor" : {
+        "active" : 0
       },
       "no-octal" : {
         "active" : 1
@@ -3159,9 +3167,6 @@
       "no-return-assign" : {
         "active" : 0,
         "optionString" : "'except-parens'"
-      },
-      "no-return-await" : {
-        "active" : 0
       },
       "no-script-url" : {
         "active" : 0

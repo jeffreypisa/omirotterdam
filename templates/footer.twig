@@ -1,7 +1,9 @@
 <footer id="footer" class="section bg-blue text-lg text-center text-md-start" data-scroll-section>
   <div class="container-fluid container-lg">
-    <img class="thelogo" height="38" src="{{ Image(options.logo_alt).src }}" src="{{ Image(options.logo_alt).alt }}">
-    <br><br>
+    {% if options.logo_alt %}
+      <img class="thelogo" height="38" src="{{ Image(options.logo_alt).src }}" src="{{ Image(options.logo_alt).alt }}">
+      <br><br>
+    {% endif %}
     <div class="row">
       <div class="col-md-4 mb-3 mb-md-0">
         {{ options.tekst }}

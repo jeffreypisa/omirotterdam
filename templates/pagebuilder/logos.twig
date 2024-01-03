@@ -1,0 +1,19 @@
+{% if item.logos %}
+  <section class="mod-logos {{ item.achtergrond }}">
+	  <div class="container">
+			<div class="row g-1 justify-content-center justify-content-md-start">
+	  		{% for logo in item.logos %}
+				<div class="col-auto">
+					{% if logo.link %}
+		  				<a href="{{ logo.link.url }}" target="_blank" class="logo" style="background-image: url({{ Image(logo.afbeelding).src }})">
+		  				</a>
+				  {% else %}
+				  <div class="logo" style="background-image: url({{ Image(logo.afbeelding).src }})">
+					</div>
+				  {% endif %}
+				</div>
+	  		{% endfor %}
+			</div>
+	  </div>
+  </section>
+{% endif %}

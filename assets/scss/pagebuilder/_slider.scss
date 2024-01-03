@@ -1,7 +1,6 @@
 .strook-slider {
 	padding-top: 30px;
 	.item {
-		min-height: 400px;
 		position: relative;
 		.read-more {
 			position: absolute;
@@ -13,6 +12,17 @@
 		padding-top: 57%;
 	}
 }
+
+@include media-breakpoint-down(md) {
+	.mod-slider {
+		.item {
+			h3, p {
+				line-height: 24px;
+			}
+		}
+	}
+}
+
 @include media-breakpoint-down(lg) {
 	.mod-slider {
 		.item {

@@ -1,16 +1,40 @@
 .omi {
+	.mec-events-meta-group.mec-events-meta-group-booking {
+		padding-top: 50px !important;
+	}
 	.mec-month-divider span {
 		text-transform: none;
 	}
 	.mec-event-tile-view {
 		article.mec-tile-item {
 			height: 300px;
+			.mec-event-title {
+				padding-left: 0;
+			}
 			.mec-event-time {
 				display: none;
 			}
 		}
 	}
 	
+	.mec-events-meta-group-booking .mec-book-form-btn-wrap button {
+		padding: 0 30px;
+		+ button {
+			margin-left: 20px;
+		}
+	}
+	
+	.mec-event-list-standard .mec-event-meta .mec-venue-details .mec-event-address span {
+		margin: 0;
+	}
+	
+	.mec-event-list-standard .mec-event-meta svg {
+		margin-left: -27px;
+		margin-right: 10px;
+	}
+	.mec-event-meta.mec-color-before {
+		margin-left: 20px
+	}
 	.mec-month-divider {
 		padding: 0;
 		margin-bottom: 10px;
