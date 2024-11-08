@@ -1,5 +1,6 @@
 import $ from "jquery";
-import 'bootstrap';
+import bootstrap from 'bootstrap/dist/js/bootstrap.bundle';
+window.bootstrap = bootstrap;
 
 // Init plugins
 import { slick_init } from './scripts/slick.js';
@@ -21,6 +22,11 @@ $( document ).ready(function() {
 	mobilemenu();
 	slick_init();
 	loadmoreposts();
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+  const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
+  const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl));
 });
 
 $(window).on('load', function() {

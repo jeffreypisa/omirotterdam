@@ -1,0 +1,68 @@
+{% if item.kaart %}
+<section class="mod-kaart {{ item.achtergrond }}">
+	<div class="container">
+
+		<!-- Kaart afbeelding -->
+		<div class="kaart-wrapper">
+			<img src="{{ item.kaart.url }}" alt="{{ item.kaart.alt }}" class="kaart-afbeelding">
+
+			<!-- Markers -->
+			{% for pin in item.pin %}
+				{% set pinIcoon = pin.pin_icoon ? pin.pin_icoon.url : item.pin_icoon.url %}
+				<div 
+					class="kaart-marker" 
+					style="left: {{ pin.x }}%; top: {{ pin.y }}%; transform: translateX(-50%) translateY(-100%);" 
+					data-bs-toggle="popover" 
+					data-bs-trigger="hover" 
+					data-bs-html="true"
+					data-bs-content="
+						<div class='popover-content'>
+							{% if pin.titel %}
+								<h5>{{ pin.titel }}</h5>
+							{% endif %}
+							{% if pin.afbeelding %}
+								<img src='{{ Image(pin.afbeelding).src }}' alt='{{ pin.afbeelding.alt }}' style='width: 100%; height: auto; margin-top: 5px;'>
+							{% endif %}
+							<p>{{ pin.tekst }}</p>
+							{% if pin.link %}
+								<a href='{{ pin.link.url }}' target='{{ pin.link.target }}'>{{ pin.link.title }}</a>
+							{% endif %}
+						</div>
+					">
+					<img src="{{ pinIcoon }}" alt="Pin">
+				</div>
+			{% endfor %}
+		</div>
+
+		<!-- Mobiele weergave -->
+		<div class="kaart-accordion d-md-none">
+			<div class="accordion" id="kaartAccordion">
+				{% for pin in item.pin %}
+				{% set pinIcoon = pin.pin_icoon ? pin.pin_icoon.url : item.pin_icoon.url %}
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="heading{{ loop.index }}">
+						<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ loop.index }}" aria-expanded="true" aria-controls="collapse{{ loop.index }}">
+
+							<img src="{{ pinIcoon }}" alt="Pin" class="accordion-pin-icon">
+							{{ pin.titel }}
+						</button>
+					</h2>
+					<div id="collapse{{ loop.index }}" class="accordion-collapse collapse" aria-labelledby="heading{{ loop.index }}" data-bs-parent="#kaartAccordion">
+						<div class="accordion-body">
+							{% if pin.afbeelding %}
+							<img src="{{ pin.afbeelding.url }}" alt="{{ pin.afbeelding.alt }}" class="accordion-image">
+							{% endif %}
+							<p>{{ pin.tekst }}</p>
+							{% if pin.link %}
+							<a href="{{ pin.link.url }}" target="{{ pin.link.target }}">{{ pin.link.title }}</a>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+
+	</div>
+</section>
+{% endif %}

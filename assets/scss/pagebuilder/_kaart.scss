@@ -1,0 +1,57 @@
+.mod-kaart {
+	.kaart-wrapper {
+		position: relative;
+
+		.kaart-afbeelding {
+			width: 100%;
+			height: auto;
+		}
+
+		.kaart-marker {
+			position: absolute;
+			cursor: pointer;
+
+			img {
+				width: 24px; // of elke gewenste grootte
+				height: 24px;
+			}
+		}
+	}
+
+	.kaart-accordion {
+		margin-top: 20px;
+
+		.accordion-item {
+			.accordion-button {
+				display: flex;
+				align-items: center;
+
+				.accordion-pin-icon {
+					width: 20px;
+					height: 20px;
+					margin-right: 10px;
+				}
+			}
+
+			.accordion-body {
+				img.accordion-image {
+					max-width: 100%;
+					margin-bottom: 10px;
+				}
+			}
+		}
+	}
+}
+
+@include media-breakpoint-up(md) {
+	.mod-kaart {
+		.kaart-wrapper {
+			.kaart-marker {
+				img {
+					width: 36px;
+					height: 36px;
+				}
+			}
+		}
+	}
+}

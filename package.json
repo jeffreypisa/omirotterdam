@@ -1,21 +1,29 @@
 {
-  "license": "UNLICENSED",
-  "repository": {},
-  "optionalDependencies": {},
-  "author": "",
-  "private": true,
-  "name": "codekit-project",
-  "description": "CodeKit created this starter package.json file. You should customize it appropriately. (If you intend to publish this project on npm, add an entry in the 'repository' field and remove the 'private' attribute, below.)",
-  "devDependencies": {},
-  "dependencies": {
-    "@popperjs/core": "^2.11.7",
-    "bootstrap": "^5.2.3",
-    "in-view": "^0.6.1",
-    "jquery": "^3.7.0",
-    "lity": "^2.4.1",
-    "matchheight": "^0.2.0",
-    "slick-carousel": "^1.8.1"
+  "repository" : {
+
   },
-  "scripts": {},
-  "version": "1.0.0"
+  "optionalDependencies" : {
+
+  },
+  "dependencies" : {
+    "matchheight" : "^1.1.2",
+    "lity" : "^2.4.1",
+    "in-view" : "^0.6.1",
+    "jquery" : "^3.7.0",
+    "slick-carousel" : "^1.8.1",
+    "bootstrap" : "^5.2.3",
+    "@popperjs\/core" : "^2.11.7"
+  },
+  "scripts" : {
+
+  },
+  "description" : "CodeKit created this starter package.json file. You should customize it appropriately. (If you intend to publish this project on npm, add an entry in the 'repository' field and remove the 'private' attribute, below.)",
+  "private" : true,
+  "author" : "",
+  "version" : "1.0.0",
+  "name" : "codekit-project",
+  "devDependencies" : {
+
+  },
+  "license" : "UNLICENSED"
 }

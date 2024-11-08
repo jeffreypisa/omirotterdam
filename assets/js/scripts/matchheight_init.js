@@ -1,7 +1,7 @@
 import MatchHeight from 'matchheight';
 
 export function matchheight_init() {
-	MatchHeight.init();
+	new MatchHeight();
 	// use data-mh
 	
 	// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
