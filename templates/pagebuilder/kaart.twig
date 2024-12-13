@@ -9,28 +9,41 @@
 			<!-- Markers -->
 			{% for pin in item.pin %}
 				{% set pinIcoon = pin.pin_icoon ? pin.pin_icoon.url : item.pin_icoon.url %}
+				{% set pinHeight = pin.pin_hoogte ? pin.pin_hoogte : item.pin_hoogte %}
+				{% set pinAfbeelding = pin.afbeelding %}
+				
+				{% if pin.link and not pin.popover %}
+				<a href="{{ pin.link.url }}"
+				{% else %}
 				<div 
+				{% endif %}
 					class="kaart-marker" 
 					style="left: {{ pin.x }}%; top: {{ pin.y }}%; transform: translateX(-50%) translateY(-100%);" 
+					{% if pin.popover %}
+					tabindex="{{ loop.index }}"
 					data-bs-toggle="popover" 
-					data-bs-trigger="hover" 
+					data-bs-trigger="focus"
 					data-bs-html="true"
 					data-bs-content="
 						<div class='popover-content'>
 							{% if pin.titel %}
-								<h5>{{ pin.titel }}</h5>
+								<h5 class='mb-2'>{{ pin.titel }}</h5>
 							{% endif %}
-							{% if pin.afbeelding %}
-								<img src='{{ Image(pin.afbeelding).src }}' alt='{{ pin.afbeelding.alt }}' style='width: 100%; height: auto; margin-top: 5px;'>
+							{% if pinAfbeelding %}
+								<img src='{{ pinAfbeelding.url }}' alt='{{ pinAfbeelding.alt }}' class='w-100 h-auto'>
 							{% endif %}
 							<p>{{ pin.tekst }}</p>
 							{% if pin.link %}
 								<a href='{{ pin.link.url }}' target='{{ pin.link.target }}'>{{ pin.link.title }}</a>
 							{% endif %}
 						</div>
-					">
-					<img src="{{ pinIcoon }}" alt="Pin">
-				</div>
+					" {% endif %}>
+					<img src="{{ pinIcoon }}" alt="Pin" class="pin-icon" {% if pinHeight %} style="height: {{ pinHeight }}px;"{% endif %}>
+				{% if pin.link and not pin.popover %}
+			</a>
+				{% else %}
+		</div> 
+				{% endif %}
 			{% endfor %}
 		</div>
 

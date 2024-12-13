@@ -826,6 +826,28 @@
                             "preview_size": "medium"
                         },
                         {
+                            "key": "field_675c4b6dd786c",
+                            "label": "Pin hoogte",
+                            "name": "pin_hoogte",
+                            "aria-label": "",
+                            "type": "number",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 30,
+                            "min": 1,
+                            "max": 300,
+                            "placeholder": "",
+                            "step": 1,
+                            "prepend": "",
+                            "append": "px"
+                        },
+                        {
                             "key": "field_6728a610214ba",
                             "label": "Pin",
                             "name": "pin",
@@ -870,6 +892,29 @@
                                     "max_size": "",
                                     "mime_types": "",
                                     "preview_size": "medium",
+                                    "parent_repeater": "field_6728a610214ba"
+                                },
+                                {
+                                    "key": "field_675c4ba5d786d",
+                                    "label": "Pin hoogte",
+                                    "name": "pin_hoogte",
+                                    "aria-label": "",
+                                    "type": "number",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "min": 1,
+                                    "max": 300,
+                                    "placeholder": "",
+                                    "step": 1,
+                                    "prepend": "",
+                                    "append": "px",
                                     "parent_repeater": "field_6728a610214ba"
                                 },
                                 {
@@ -941,7 +986,7 @@
                                 },
                                 {
                                     "key": "field_6728a68e214bf",
-                                    "label": "Titel",
+                                    "label": "Popover | Titel",
                                     "name": "titel",
                                     "aria-label": "",
                                     "type": "text",
@@ -970,7 +1015,7 @@
                                 },
                                 {
                                     "key": "field_6728a6be214c2",
-                                    "label": "Afbeelding",
+                                    "label": "Popover | Afbeelding",
                                     "name": "afbeelding",
                                     "aria-label": "",
                                     "type": "image",
@@ -1004,7 +1049,7 @@
                                 },
                                 {
                                     "key": "field_6728a694214c0",
-                                    "label": "Tekst",
+                                    "label": "Popover | Tekst",
                                     "name": "tekst",
                                     "aria-label": "",
                                     "type": "textarea",
@@ -1039,15 +1084,7 @@
                                     "type": "link",
                                     "instructions": "",
                                     "required": 0,
-                                    "conditional_logic": [
-                                        [
-                                            {
-                                                "field": "field_6728a678214be",
-                                                "operator": "==",
-                                                "value": "1"
-                                            }
-                                        ]
-                                    ],
+                                    "conditional_logic": 0,
                                     "wrapper": {
                                         "width": "",
                                         "class": "",
@@ -1718,5 +1755,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1730720816
+    "modified": 1734102872
 }

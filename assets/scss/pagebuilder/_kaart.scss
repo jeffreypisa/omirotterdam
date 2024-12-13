@@ -1,3 +1,4 @@
+
 .mod-kaart {
 	.kaart-wrapper {
 		position: relative;
@@ -12,8 +13,9 @@
 			cursor: pointer;
 
 			img {
-				width: 24px; // of elke gewenste grootte
-				height: 24px;
+				height: 36px;
+				width: auto; // of elke gewenste grootte
+				transform: scale(.8);
 			}
 		}
 	}
@@ -48,8 +50,7 @@
 		.kaart-wrapper {
 			.kaart-marker {
 				img {
-					width: 36px;
-					height: 36px;
+					transform: scale(1);
 				}
 			}
 		}
