@@ -801,14 +801,48 @@
                             "preview_size": "medium"
                         },
                         {
+                            "key": "field_680f42acdd2b9",
+                            "label": "Type marker",
+                            "name": "type_marker",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "pin": "Pin",
+                                "numeric": "Numeriek"
+                            },
+                            "default_value": "numeric",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": ""
+                        },
+                        {
                             "key": "field_6728a661214bd",
-                            "label": "Pin icoon",
+                            "label": "Pin icoon (default)",
                             "name": "pin_icoon",
                             "aria-label": "",
                             "type": "image",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_680f42acdd2b9",
+                                        "operator": "==",
+                                        "value": "pin"
+                                    }
+                                ]
+                            ],
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -827,13 +861,21 @@
                         },
                         {
                             "key": "field_675c4b6dd786c",
-                            "label": "Pin hoogte",
+                            "label": "Pin hoogte (default)",
                             "name": "pin_hoogte",
                             "aria-label": "",
                             "type": "number",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_680f42acdd2b9",
+                                        "operator": "==",
+                                        "value": "pin"
+                                    }
+                                ]
+                            ],
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -876,7 +918,15 @@
                                     "type": "image",
                                     "instructions": "optioneel",
                                     "required": 0,
-                                    "conditional_logic": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_680f42acdd2b9",
+                                                "operator": "==",
+                                                "value": "pin"
+                                            }
+                                        ]
+                                    ],
                                     "wrapper": {
                                         "width": "",
                                         "class": "",
@@ -902,7 +952,15 @@
                                     "type": "number",
                                     "instructions": "",
                                     "required": 0,
-                                    "conditional_logic": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_680f42acdd2b9",
+                                                "operator": "==",
+                                                "value": "pin"
+                                            }
+                                        ]
+                                    ],
                                     "wrapper": {
                                         "width": "",
                                         "class": "",
@@ -964,29 +1022,8 @@
                                     "parent_repeater": "field_6728a610214ba"
                                 },
                                 {
-                                    "key": "field_6728a678214be",
-                                    "label": "Popover",
-                                    "name": "popover",
-                                    "aria-label": "",
-                                    "type": "true_false",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "message": "",
-                                    "default_value": 0,
-                                    "ui_on_text": "",
-                                    "ui_off_text": "",
-                                    "ui": 1,
-                                    "parent_repeater": "field_6728a610214ba"
-                                },
-                                {
                                     "key": "field_6728a68e214bf",
-                                    "label": "Popover | Titel",
+                                    "label": "Titel",
                                     "name": "titel",
                                     "aria-label": "",
                                     "type": "text",
@@ -1014,9 +1051,59 @@
                                     "parent_repeater": "field_6728a610214ba"
                                 },
                                 {
+                                    "key": "field_67ffab9bd764c",
+                                    "label": "Ondertitel",
+                                    "name": "ondertitel",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_6728a678214be",
+                                                "operator": "==",
+                                                "value": "1"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_6728a610214ba"
+                                },
+                                {
+                                    "key": "field_6728a678214be",
+                                    "label": "Popover",
+                                    "name": "popover",
+                                    "aria-label": "",
+                                    "type": "true_false",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "message": "",
+                                    "default_value": 0,
+                                    "ui_on_text": "",
+                                    "ui_off_text": "",
+                                    "ui": 1,
+                                    "parent_repeater": "field_6728a610214ba"
+                                },
+                                {
                                     "key": "field_6728a6be214c2",
                                     "label": "Popover | Afbeelding",
-                                    "name": "afbeelding",
+                                    "name": "popover_afbeelding",
                                     "aria-label": "",
                                     "type": "image",
                                     "instructions": "",
@@ -1048,11 +1135,11 @@
                                     "parent_repeater": "field_6728a610214ba"
                                 },
                                 {
-                                    "key": "field_6728a694214c0",
+                                    "key": "field_680f4404dd2bb",
                                     "label": "Popover | Tekst",
-                                    "name": "tekst",
+                                    "name": "popover_tekst",
                                     "aria-label": "",
-                                    "type": "textarea",
+                                    "type": "text",
                                     "instructions": "",
                                     "required": 0,
                                     "conditional_logic": [
@@ -1071,17 +1158,46 @@
                                     },
                                     "default_value": "",
                                     "maxlength": "",
-                                    "rows": "",
                                     "placeholder": "",
-                                    "new_lines": "",
+                                    "prepend": "",
+                                    "append": "",
                                     "parent_repeater": "field_6728a610214ba"
                                 },
                                 {
-                                    "key": "field_6728a6b4214c1",
-                                    "label": "Link",
-                                    "name": "link",
+                                    "key": "field_680f43b5dd2ba",
+                                    "label": "Popover | Link naar accordion",
+                                    "name": "popover_link",
                                     "aria-label": "",
-                                    "type": "link",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_6728a678214be",
+                                                "operator": "==",
+                                                "value": "1"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_6728a610214ba"
+                                },
+                                {
+                                    "key": "field_6728a694214c0",
+                                    "label": "Accordion | Content",
+                                    "name": "tekst",
+                                    "aria-label": "",
+                                    "type": "wysiwyg",
                                     "instructions": "",
                                     "required": 0,
                                     "conditional_logic": 0,
@@ -1090,7 +1206,11 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "return_format": "array",
+                                    "default_value": "",
+                                    "tabs": "all",
+                                    "toolbar": "full",
+                                    "media_upload": 1,
+                                    "delay": 0,
                                     "parent_repeater": "field_6728a610214ba"
                                 }
                             ]
@@ -1742,6 +1862,13 @@
                 "operator": "==",
                 "value": "page"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "verhalenatlas"
+            }
         ]
     ],
     "menu_order": 0,
@@ -1755,5 +1882,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1734102872
+    "modified": 1745833078
 }

@@ -38,3 +38,9 @@
 		margin: 0;
 	}
 }
+
+.last-element-nomb {
+	> *:last-child {
+		margin-bottom: 0 !important;
+	}
+}

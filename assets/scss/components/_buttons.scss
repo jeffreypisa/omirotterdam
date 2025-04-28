@@ -13,6 +13,14 @@
 		background: $orange;
 	}
 }
+.dag .mec-slider-t3-content.mec-event-grid-modern .mec-booking-button {
+	background: $dark;
+	color: #fff;
+	&:hover, &:focus {
+		background: $orange !important;
+		color: #fff !important;
+	}
+}
 .btn {
 	font-weight: 600;
 	line-height: 50px;

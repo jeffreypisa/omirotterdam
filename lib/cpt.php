@@ -77,6 +77,33 @@ function create_posttype() {
 		)
 	);
 	
+	register_post_type( 'verhalenatlas',
+	
+		array(
+			'labels' => array(
+				'name'                  => __( 'Verhalenatlas' ),
+				'singular_name'         => __( 'Kaart' ),
+				'all_items'             => __( 'Alle kaarten' ),
+				'add_new_item'          => __( 'Nieuwe kaart toevoegen' ),
+				'new_item'              => __( 'Nieuwe kaart' ),
+				'add_new'               => __( 'Nieuwe kaart' ),
+				'edit_item'             => __( 'Bewerk kaart' ),
+				'update_item'           => __( 'Update kaart' ),
+				'view_item'             => __( 'Bekijk kaart' ),
+				'search_items'          => __( 'Zoek kaart' ),
+			),
+			'menu_icon'                => 'dashicons-location-alt',
+			'public'                   => true,
+			'show_in_rest'             => true,
+			'has_archive'              => false,
+			'supports'                 => array( 'title', 'thumbnail' ),
+			'rewrite'                  => array( 
+				'slug' => 'verhalenatlas/%verhalenatlas_category%', 
+				'with_front' => false 
+			),
+		)
+	);
+	
 }
 
 add_action( 'init', 'create_posttype' ); 

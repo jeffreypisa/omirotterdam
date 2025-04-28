@@ -15,7 +15,7 @@ import { mobilemenu } from './scripts/mobilemenu.js';
 import { sticky_header } from './scripts/sticky_header.js';
 import { loadmoreposts } from './scripts/loadmoreposts.js';
 
-lity_init();
+
 
 $( document ).ready(function() {
 	footer_down();
@@ -35,6 +35,7 @@ $(window).on('load', function() {
 	matchheight_init();
 	animejs();
 	sticky_header();
+	lity_init();
 	site_is_loaded();
 	
 	// $( ".mec-event-loc-place" ).each(function() {

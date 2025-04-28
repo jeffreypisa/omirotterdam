@@ -14,10 +14,10 @@
 				{% endfor %}
 			</div>
 		{% else %}
-			<div class="row">
+			<div class="row d-flex gap-4">
 				{% for image in item.afbeeldingen %}
 					{% if loop.first and item.afbeeldingen|length != 2 %}
-						<div class="col-12 mb-30">
+						<div class="col-12">
 							<div class="image ratio-16x9 w-100 bg-cover" style="background-image: url({{ Image(image) }})"></div>
 							{% if image.caption %}
 								<div class="text-end">
@@ -26,7 +26,7 @@
 							{% endif %}
 						</div>
 					{% else %}
-						<div class="col-md mb-30">
+						<div class="col-md">
 							<div class="image ratio-16x9 w-100 bg-cover" style="background-image: url({{ Image(image) }})"></div>
 							{% if image.caption %}
 								<div class="text-end">

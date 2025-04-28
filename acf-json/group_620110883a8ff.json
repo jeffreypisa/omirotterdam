@@ -6,6 +6,7 @@
             "key": "field_6201112166ac8",
             "label": "Kleur",
             "name": "kleur",
+            "aria-label": "",
             "type": "color_picker",
             "instructions": "",
             "required": 1,
@@ -23,6 +24,7 @@
             "key": "field_620b7d74255b6",
             "label": "Tekstkleur",
             "name": "tekstkleur",
+            "aria-label": "",
             "type": "select",
             "instructions": "",
             "required": 0,
@@ -59,6 +61,13 @@
                 "operator": "==",
                 "value": "paststory_category"
             }
+        ],
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "verhalenatlas_category"
+            }
         ]
     ],
     "menu_order": 0,
@@ -70,5 +79,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1644920307
+    "modified": 1743427963
 }

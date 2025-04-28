@@ -37,3 +37,14 @@ function wpa_paststories_permalinks( $post_link, $post ){
 	return $post_link;
 }
 add_filter( 'post_type_link', 'wpa_paststories_permalinks', 1, 2 );
+
+function wpa_verhalenatlas_permalinks( $post_link, $post ) {
+	if ( is_object( $post ) && $post->post_type == 'verhalenatlas' ) {
+		$terms = wp_get_object_terms( $post->ID, 'verhalenatlas_category' );
+		if ( $terms ) {
+			return str_replace( '%verhalenatlas_category%', $terms[0]->slug, $post_link );
+		}
+	}
+	return $post_link;
+}
+add_filter( 'post_type_link', 'wpa_verhalenatlas_permalinks', 1, 2 );

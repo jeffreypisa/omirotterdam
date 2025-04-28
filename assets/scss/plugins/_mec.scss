@@ -425,11 +425,25 @@ a.mec-timeline-readmore {
 			padding: 0;
 		}
 		.col-md-8 {
-			img.size-full {
-				width: 100%;
-				height: auto;
+			figure {
 				margin-bottom: 30px;
+				img.size-full {
+					width: 100%;
+					height: auto;
+					margin-bottom: 0;
+				}
+				figcaption {
+					text-align: right;
+					padding-top: 8px;
+					font-size: 14px;
+				}
 			}
+		}
+	}
+	
+	.mec-single-event-additional-organizers {
+		.mec-events-single-section-title {
+			display: none;
 		}
 	}
 	.mec-events-meta-group-tags {
@@ -556,9 +570,24 @@ a.mec-timeline-readmore {
 	}
 	
 	.mec-related-events {
-		display: flex;
-		align-items: center;
-		justify-content: center;
+		margin-right: 0;
+		margin-left: 0;
+		article {
+			margin-bottom: 30px;
+		}
+	}
+	
+	@include media-breakpoint-up(lg) {
+		.mec-related-events {
+			margin-right: 15px;
+			margin-left: 15px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			article {
+				margin-bottom: 0;
+			}
+		}
 	}
 	
 	.mec-related-events-wrap {
@@ -609,8 +638,8 @@ a.mec-timeline-readmore {
 	}
 	
 	.mec-events-meta-group {
-		padding-top: 60px;
-		padding-bottom: 60px;
+		padding-top: 60px !important;
+		padding-bottom: 60px !important;
 		border: 0;
 		margin: 0;
 		h4 {

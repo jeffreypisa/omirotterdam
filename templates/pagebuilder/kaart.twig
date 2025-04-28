@@ -1,6 +1,6 @@
 {% if item.kaart %}
-<section class="mod-kaart {{ item.achtergrond }}">
-	<div class="container">
+<section id="Kaart_{{ sectionno }}" class="mod-kaart {{ item.achtergrond }}">
+	<div class="container-md">
 
 		<!-- Kaart afbeelding -->
 		<div class="kaart-wrapper">
@@ -8,74 +8,162 @@
 
 			<!-- Markers -->
 			{% for pin in item.pin %}
-				{% set pinIcoon = pin.pin_icoon ? pin.pin_icoon.url : item.pin_icoon.url %}
-				{% set pinHeight = pin.pin_hoogte ? pin.pin_hoogte : item.pin_hoogte %}
-				{% set pinAfbeelding = pin.afbeelding %}
-				
-				{% if pin.link and not pin.popover %}
-				<a href="{{ pin.link.url }}"
-				{% else %}
-				<div 
+				{% if item.type_marker == 'pin' %}
+					{% set pinIcoon = pin.pin_icoon ? pin.pin_icoon.url : item.pin_icoon.url %}
+					{% set pinHeight = pin.pin_hoogte ? pin.pin_hoogte : item.pin_hoogte %}
+				{% elseif item.type_marker == 'numeric' %}
+					{# No icon needed #}
 				{% endif %}
-					class="kaart-marker" 
-					style="left: {{ pin.x }}%; top: {{ pin.y }}%; transform: translateX(-50%) translateY(-100%);" 
-					{% if pin.popover %}
-					tabindex="{{ loop.index }}"
-					data-bs-toggle="popover" 
-					data-bs-trigger="focus"
-					data-bs-html="true"
-					data-bs-content="
-						<div class='popover-content'>
-							{% if pin.titel %}
-								<h5 class='mb-2'>{{ pin.titel }}</h5>
-							{% endif %}
-							{% if pinAfbeelding %}
-								<img src='{{ pinAfbeelding.url }}' alt='{{ pinAfbeelding.alt }}' class='w-100 h-auto'>
-							{% endif %}
-							<p>{{ pin.tekst }}</p>
-							{% if pin.link %}
-								<a href='{{ pin.link.url }}' target='{{ pin.link.target }}'>{{ pin.link.title }}</a>
-							{% endif %}
-						</div>
-					" {% endif %}>
-					<img src="{{ pinIcoon }}" alt="Pin" class="pin-icon" {% if pinHeight %} style="height: {{ pinHeight }}px;"{% endif %}>
-				{% if pin.link and not pin.popover %}
-			</a>
+
+				{% set targetId = "collapse" ~ loop.index %}
+
+				{% if not pin.popover %}
+					<a href="#{{ targetId }}" class="kaart-marker-link kaart-marker" 
+					   style="left: {{ pin.x }}%; top: {{ pin.y }}%; transform: translateX(-50%) translateY(-100%);">
 				{% else %}
-		</div> 
+					<div class="kaart-marker" style="left: {{ pin.x }}%; top: {{ pin.y }}%; transform: translateX(-50%) translateY(-100%);"
+						 tabindex="{{ loop.index }}" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true"
+						 data-bs-content="
+							<div class='popover-content'>
+								{% if pin.titel %}
+									<h5 class='mb-2'>{{ pin.titel }}</h5>
+								{% endif %}
+								{% if pin.ondertitel %}
+									<p><strong>{{ pin.ondertitel }}</strong></p>
+								{% endif %}
+								{% if pin.popover_afbeelding %}
+									<img src='{{ Image(pin.popover_afbeelding).url }}' alt='{{ Image(pin.popover_afbeelding).alt }}' class='w-100 h-auto mb-2'>
+								{% endif %}
+								<p>
+									{{ pin.popover_tekst }}
+								</p>
+								<a href='#{{ targetId }}' class='kaart-marker-link mt-2 d-inline-block'>{% if pin.popover_link %}{{ pin.popover_link }}{% else %}lees meer{% endif %}</a>
+							</div>
+						 ">
+				{% endif %}
+
+				{% if item.type_marker == 'pin' %}
+					<img src="{{ pinIcoon }}" alt="Pin" class="pin-icon" {% if pinHeight %} style="height: {{ pinHeight }}px;" {% endif %}>
+				{% elseif item.type_marker == 'numeric' %}
+					<h5>{{ loop.index }}</h5>
+				{% endif %}
+
+				{% if not pin.popover %}
+					</a>
+				{% else %}
+					</div>
 				{% endif %}
 			{% endfor %}
 		</div>
+	</div>
 
+	<div class="container">
 		<!-- Mobiele weergave -->
-		<div class="kaart-accordion d-md-none">
+		<div class="kaart-accordion">
 			<div class="accordion" id="kaartAccordion">
 				{% for pin in item.pin %}
-				{% set pinIcoon = pin.pin_icoon ? pin.pin_icoon.url : item.pin_icoon.url %}
-				<div class="accordion-item">
-					<h2 class="accordion-header" id="heading{{ loop.index }}">
-						<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ loop.index }}" aria-expanded="true" aria-controls="collapse{{ loop.index }}">
-
-							<img src="{{ pinIcoon }}" alt="Pin" class="accordion-pin-icon">
-							{{ pin.titel }}
-						</button>
-					</h2>
-					<div id="collapse{{ loop.index }}" class="accordion-collapse collapse" aria-labelledby="heading{{ loop.index }}" data-bs-parent="#kaartAccordion">
-						<div class="accordion-body">
-							{% if pin.afbeelding %}
-							<img src="{{ pin.afbeelding.url }}" alt="{{ pin.afbeelding.alt }}" class="accordion-image">
-							{% endif %}
-							<p>{{ pin.tekst }}</p>
-							{% if pin.link %}
-							<a href="{{ pin.link.url }}" target="{{ pin.link.target }}">{{ pin.link.title }}</a>
-							{% endif %}
+					{% set pin = pin|merge({
+						'tekst': function('apply_filters', 'the_content', pin.tekst)
+					}) %}
+					{% set pinIcoon = pin.pin_icoon ? pin.pin_icoon.url : item.pin_icoon.url %}
+					<div class="accordion-item">
+						<h2 class="accordion-header" id="heading{{ loop.index }}">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ loop.index }}" aria-expanded="false" aria-controls="collapse{{ loop.index }}">
+								{% if item.type_marker == 'pin' %}
+									<div class="pin-holder">
+										<img src="{{ pinIcoon }}" alt="Pin" class="accordion-pin-icon">
+									</div>
+								{% elseif item.type_marker == 'numeric' %}
+									<span class="accordion-numeric">{{ loop.index }}</span>
+								{% endif %}
+								{{ pin.titel }}
+							</button>
+						</h2>
+						<div id="collapse{{ loop.index }}" class="accordion-collapse collapse" aria-labelledby="heading{{ loop.index }}" data-bs-parent="#kaartAccordion">
+							<div class="accordion-body">
+								<div class="body-wrapper">
+									{{ pin.tekst }}
+									<br>
+									<a href="#Kaart_{{ sectionno }}" class="btn btn-primary">Terug naar kaart</a>
+									<br>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
 				{% endfor %}
 			</div>
 		</div>
-
 	</div>
+
+	<!-- Scroll + open accordion script -->
+	<script>
+	document.addEventListener('DOMContentLoaded', function () {
+		// Klikken op markers of popover links
+		document.addEventListener('click', function (e) {
+			var link = e.target.closest('.kaart-marker-link');
+			if (link) {
+				e.preventDefault();
+				var targetId = link.getAttribute('href');
+				var collapseElement = document.querySelector(targetId);
+	
+				if (collapseElement) {
+					// Eerst alle open collapses sluiten
+					var openCollapses = document.querySelectorAll('.accordion-collapse.show');
+					openCollapses.forEach(function (openCollapse) {
+						new bootstrap.Collapse(openCollapse, { toggle: false }).hide();
+					});
+	
+					// Open de juiste collapse
+					var collapse = new bootstrap.Collapse(collapseElement, { toggle: true });
+	
+					// Scroll na openklappen
+					collapseElement.addEventListener('shown.bs.collapse', function handler() {
+						scrollToAccordionHeader(collapseElement);
+						collapseElement.removeEventListener('shown.bs.collapse', handler);
+					});
+				}
+			}
+		});
+	
+		// Zelf klikken op accordion-header
+		document.querySelectorAll('.accordion-collapse').forEach(function (collapseElement) {
+			collapseElement.addEventListener('shown.bs.collapse', function () {
+				scrollToAccordionHeader(collapseElement);
+			});
+		});
+	
+		// Klikken op "Terug naar kaart"
+		document.addEventListener('click', function (e) {
+			var backLink = e.target.closest('a[href^="#Kaart_"]');
+			if (backLink) {
+				e.preventDefault();
+				var targetId = backLink.getAttribute('href');
+				var kaartElement = document.querySelector(targetId);
+	
+				if (kaartElement) {
+					// Eerst alle open collapses sluiten
+					var openCollapses = document.querySelectorAll('.accordion-collapse.show');
+					openCollapses.forEach(function (openCollapse) {
+						new bootstrap.Collapse(openCollapse, { toggle: false }).hide();
+					});
+	
+					// Scroll naar kaart
+					setTimeout(function () { // Kleine vertraging zodat alles netjes dicht is
+						kaartElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+					}, 200);
+				}
+			}
+		});
+	
+		// Scroll functie
+		function scrollToAccordionHeader(collapseElement) {
+			var headerId = collapseElement.getAttribute('aria-labelledby');
+			var headerElement = document.getElementById(headerId);
+			if (headerElement) {
+				headerElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+			}
+		}
+	});
+	</script>
 </section>
 {% endif %}

@@ -6,6 +6,7 @@
             "key": "field_61f92b1d2ca3f",
             "label": "Datum in tekst",
             "name": "van_tot",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -25,6 +26,7 @@
             "key": "field_62011a3297b94",
             "label": "Naam",
             "name": "naam",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -44,6 +46,7 @@
             "key": "field_61f7d2bcaf072",
             "label": "Start",
             "name": "datum_start",
+            "aria-label": "",
             "type": "date_picker",
             "instructions": "",
             "required": 0,
@@ -61,6 +64,7 @@
             "key": "field_61f7dd515bc61",
             "label": "Einde",
             "name": "datum_einde",
+            "aria-label": "",
             "type": "date_picker",
             "instructions": "",
             "required": 0,
@@ -78,6 +82,7 @@
             "key": "field_61fba38190929",
             "label": "Colofon",
             "name": "colofon",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -97,6 +102,7 @@
                     "key": "field_61fba3979092a",
                     "label": "Label",
                     "name": "label",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -110,12 +116,14 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_61fba38190929"
                 },
                 {
                     "key": "field_61fba3a39092b",
                     "label": "Tekst",
                     "name": "tekst",
+                    "aria-label": "",
                     "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
@@ -129,14 +137,17 @@
                     "tabs": "all",
                     "toolbar": "full",
                     "media_upload": 1,
-                    "delay": 0
+                    "delay": 0,
+                    "parent_repeater": "field_61fba38190929"
                 }
-            ]
+            ],
+            "rows_per_page": 20
         },
         {
             "key": "field_620284ece7286",
             "label": "Logos",
             "name": "logos",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -156,6 +167,7 @@
                     "key": "field_62028608e7287",
                     "label": "Logo",
                     "name": "logo",
+                    "aria-label": "",
                     "type": "image",
                     "instructions": "",
                     "required": 0,
@@ -174,12 +186,14 @@
                     "max_width": "",
                     "max_height": "",
                     "max_size": "",
-                    "mime_types": ""
+                    "mime_types": "",
+                    "parent_repeater": "field_620284ece7286"
                 },
                 {
                     "key": "field_6202861ae7288",
                     "label": "URL",
                     "name": "url",
+                    "aria-label": "",
                     "type": "url",
                     "instructions": "",
                     "required": 0,
@@ -190,9 +204,11 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "placeholder": ""
+                    "placeholder": "",
+                    "parent_repeater": "field_620284ece7286"
                 }
-            ]
+            ],
+            "rows_per_page": 20
         }
     ],
     "location": [
@@ -220,5 +236,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1649689558
+    "modified": 1743430176
 }

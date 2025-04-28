@@ -1,4 +1,3 @@
-
 .mod-kaart {
 	.kaart-wrapper {
 		position: relative;
@@ -17,36 +16,143 @@
 				width: auto; // of elke gewenste grootte
 				transform: scale(.8);
 			}
+
+			h5 {
+				background: #fff;
+				display: block;
+				width: 30px;
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+				color: $orange;
+				font-size: 18px;
+				box-shadow: 0px 1px 3px rgba(0, 0, 0, .1);
+				transform: translateY(15px);
+			}
+
+			&:hover {
+				h5 {
+					background: $orange;
+					color: #fff;
+				}
+			}
 		}
 	}
 
 	.kaart-accordion {
-		margin-top: 20px;
+		margin-top: 6px;
 
 		.accordion-item {
+			margin-bottom: 6px;
 			.accordion-button {
+				position: relative;
 				display: flex;
 				align-items: center;
+				justify-content: space-between; // tekst en chevron netjes uitlijnen
+				background: $greylight;
+				font-weight: 700;
+				padding: 8px 15px 8px 6px;
 
+				&:after {
+					font-family: "Font Awesome 5 Pro"; // of jouw gebruikte FontAwesome versie
+					font-weight: 900; // Solid icons
+					font-size: 1rem;
+					content: "\f078"; // Unicode voor chevron-down
+					margin-left: auto;
+					transition: transform 0.3s ease;
+					background-image: none;
+					width: 14px;
+				}
+
+				&.collapsed:after {
+					content: "\f078"; // chevron-down
+				}
+
+				&:not(.collapsed):after {
+					transform: rotate(180deg);
+					color: #fff;
+				}
+
+				.accordion-numeric {
+					background: #fff;
+					display: block;
+					width: 30px;
+					height: 30px;
+					line-height: 30px;
+					font-weight: bold;
+					text-align: center;
+					color: $orange;
+					font-size: 20px;
+					box-shadow: 0px 1px 3px rgba(0, 0, 0, .1);
+					margin-right: 10px;
+				}
+				
+				.pin-holder {
+					background: #fff;
+					display: block;
+					width: 30px;
+					height: 30px;
+					box-shadow: 0px 1px 3px rgba(0, 0, 0, .1);
+					margin-right: 10px;
+					img {
+						object-fit: contain;
+						width: 26px;
+						height: 26px;
+						margin: 2px;
+					}
+				}
 				.accordion-pin-icon {
 					width: 20px;
 					height: 20px;
 					margin-right: 10px;
 				}
+
+				&[aria-expanded="true"] {
+					background: $orange;
+					color: #fff;
+
+					&:after {
+						color: #fff;
+					}
+				}
 			}
 
 			.accordion-body {
-				img.accordion-image {
-					max-width: 100%;
-					margin-bottom: 10px;
+				background: $greylight;
+				.body-wrapper {
+					max-width: 800px;
+					margin: 0 auto;
+					img {
+						max-width: 100%;
+						height: auto;
+						margin-bottom: 10px;
+					}
 				}
 			}
 		}
 	}
 }
 
+@include media-breakpoint-down(md) {
+	.mod-kaart {
+		.container-md {
+			padding: 0;
+		}
+	}
+}
+
 @include media-breakpoint-up(md) {
 	.mod-kaart {
+		.kaart-accordion {
+			.accordion-item {
+				.accordion-body {
+					.body-wrapper {
+						padding: 30px 0;
+					}
+				}
+			}
+		}
+		
 		.kaart-wrapper {
 			.kaart-marker {
 				img {
