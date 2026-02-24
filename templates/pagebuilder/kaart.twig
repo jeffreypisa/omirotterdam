@@ -1,5 +1,5 @@
 {% if item.kaart %}
-<section id="Kaart_{{ sectionno }}" class="mod-kaart {{ item.achtergrond }}">
+<section id="Kaart_{{ sectionno }}" class="mod-kaart {{ item.achtergrond|default('bg-transparent') }}">
 	<div class="container-md">
 
 		<!-- Kaart afbeelding -->

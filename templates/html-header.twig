@@ -9,7 +9,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="author" href="{{ theme.link }}/humans.txt" />
     <link rel="pingback" href="{{ site.pingback_url }}" />
     <link rel="profile" href="http://gmpg.org/xfn/11">
     
@@ -103,5 +102,27 @@
        }
     </style>
     {% endif %}
+    
+    <meta name="author" content="Emonks – https://www.emonks.nl">
+     
+    <script type="application/ld+json">
+     {
+       "@context": "https://schema.org",
+       "@type": "WebSite",
+       "name": "{{ site.name|e('js') }}",
+       "url": "{{ site.url|e('js') }}",
+       "author": {
+         "@type": "Organization",
+         "name": "Emonks",
+         "url": "https://www.emonks.nl"
+       },
+       "publisher": {
+         "@type": "Organization",
+         "name": "Emonks",
+         "url": "https://www.emonks.nl"
+       }
+     }
+    </script>
+    
     {{function('wp_head')}}
 </head>
