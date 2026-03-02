@@ -1,10 +1,15 @@
 {% if item.kaart %}
-<section id="Kaart_{{ sectionno }}" class="mod-kaart {{ item.achtergrond|default('bg-transparent') }}">
-	<div class="container-md">
+<section id="kaart" class="mod-kaart {{ item.achtergrond|default('bg-transparent') }}">
+	<div class="kaart-holder container-md text-center">
 
 		<!-- Kaart afbeelding -->
 		<div class="kaart-wrapper">
-			<img src="{{ item.kaart.url }}" alt="{{ item.kaart.alt }}" class="kaart-afbeelding">
+			
+			{% set kaartOpacityPct = item.kaart_opacity is not null ? item.kaart_opacity|default(100) : 100 %}
+			{% set kaartOpacityPct = kaartOpacityPct < 0 ? 0 : (kaartOpacityPct > 100 ? 100 : kaartOpacityPct) %}
+			{% set kaartOpacity = kaartOpacityPct / 100 %}
+			
+			<img src="{{ item.kaart.url }}" alt="{{ item.kaart.alt }}" class="kaart-afbeelding" {% if item.kaart_opacity is not null %}style="opacity: {{ kaartOpacity }};"{% endif %}>
 
 			<!-- Markers -->
 			{% for pin in item.pin %}
@@ -37,7 +42,7 @@
 								<p>
 									{{ pin.popover_tekst }}
 								</p>
-								<a href='#{{ targetId }}' class='kaart-marker-link mt-2 d-inline-block'>{% if pin.popover_link %}{{ pin.popover_link }}{% else %}lees meer{% endif %}</a>
+								<a href='#{{ targetId }}' class='btn btn-primary kaart-marker-link mt-2 d-inline-block'>{% if pin.popover_link %}{{ pin.popover_link }}{% else %}lees meer{% endif %}</a>
 							</div>
 						 ">
 				{% endif %}
@@ -84,7 +89,7 @@
 								<div class="body-wrapper">
 									{{ pin.tekst }}
 									<br>
-									<a href="#Kaart_{{ sectionno }}" class="btn btn-primary">Terug naar kaart</a>
+									<a href="#kaart" class="btn btn-primary">Terug naar kaart</a>
 									<br>
 								</div>
 							</div>

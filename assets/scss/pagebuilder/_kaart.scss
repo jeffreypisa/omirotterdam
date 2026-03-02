@@ -1,16 +1,34 @@
 .mod-kaart {
+	.kaart-holder {
+		position: relative;
+		&:after {
+			top: 0;
+			bottom: 0;
+			left: 15px;
+			right: 15px;
+			content: '';
+			background: #fafafa;
+			position: absolute;
+			z-index: -1;
+		}
+	}
 	.kaart-wrapper {
 		position: relative;
-
+		display: inline-block;
 		.kaart-afbeelding {
-			width: 100%;
+			width: auto;
 			height: auto;
+			max-height: 90vh;
+			display: inline-block;
+			margin: 0 auto;
 		}
 
 		.kaart-marker {
 			position: absolute;
 			cursor: pointer;
-
+			display: inline-block;
+			margin: 0 auto;
+			
 			img {
 				height: 36px;
 				width: auto; // of elke gewenste grootte

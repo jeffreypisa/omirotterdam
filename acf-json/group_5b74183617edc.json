@@ -801,6 +801,28 @@
                             "preview_size": "medium"
                         },
                         {
+                            "key": "field_69a58e243c05e",
+                            "label": "Kaart doorzichtigheid",
+                            "name": "kaart_opacity",
+                            "aria-label": "",
+                            "type": "number",
+                            "instructions": "0% = Volledig doorzichtig\r\n100% = Niet doorzichtig",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 80,
+                            "min": "",
+                            "max": "",
+                            "placeholder": "",
+                            "step": 1,
+                            "prepend": "",
+                            "append": "%"
+                        },
+                        {
                             "key": "field_680f42acdd2b9",
                             "label": "Type marker",
                             "name": "type_marker",
@@ -1882,5 +1904,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1745833078
+    "modified": 1772457621
 }

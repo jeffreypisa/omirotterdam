@@ -9,12 +9,10 @@
 					<div class="row">
 						<div class="col-md-10 offset-md-1">
 							<h1 class="h2 mb-2 mt-3"> {{ post.title }} </h1>
-							{% if post.naam %}
-								<h3 class="mb-2 mb-md-3 weight-400 naam"> {{ post.naam }} </h3>
+							{% if post.subtitel %}
+								<h3 class="mb-3 mb-md-4 weight-400"> {{ post.subtitel }} </h3>
 							{% endif %}
-							{% if post.van_tot %}
-								<h5 class="weight-400 van_tot"> {{ post.van_tot }} </h5>
-							{% endif %}
+							<a class="btn btn-primary" href="#kaart">Bekijk route</a>
 						</div>
 					</div>
 				</div>
