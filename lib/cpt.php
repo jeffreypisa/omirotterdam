@@ -98,7 +98,7 @@ function create_posttype() {
 			'has_archive'              => false,
 			'supports'                 => array( 'title', 'thumbnail' ),
 			'rewrite'                  => array( 
-				'slug' => 'verhalenatlas/%verhalenatlas_category%', 
+				'slug' => 'verhalen-atlas/%verhalenatlas_category%', 
 				'with_front' => false 
 			),
 		)
