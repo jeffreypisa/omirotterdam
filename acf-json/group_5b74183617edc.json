@@ -928,7 +928,7 @@
                             "layout": "block",
                             "min": 0,
                             "max": 0,
-                            "collapsed": "",
+                            "collapsed": "field_6728a68e214bf",
                             "button_label": "Nieuwe regel",
                             "rows_per_page": 20,
                             "sub_fields": [
@@ -1904,5 +1904,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1772457621
+    "modified": 1772464697
 }

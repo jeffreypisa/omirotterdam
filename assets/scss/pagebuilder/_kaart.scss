@@ -7,7 +7,7 @@
 			left: 15px;
 			right: 15px;
 			content: '';
-			background: #fafafa;
+			// background: #fafafa;
 			position: absolute;
 			z-index: -1;
 		}
@@ -140,12 +140,22 @@
 				.body-wrapper {
 					max-width: 800px;
 					margin: 0 auto;
+					figure {
+						width: 100% !important;
+						height: auto;
+						pointer-events: none;
+						figcaption {
+							text-align: right;
+							font-size: 16px;
+							font-style: italic;
+							transform: translateY(-5px);
+						}
+					}
 					img {
-						max-width: 100%;
+						width: 100% !important;
 						height: auto;
 						margin-bottom: 10px;
-						max-height: 80vh;
-						width: auto;
+						pointer-events: none;
 					}
 				}
 			}

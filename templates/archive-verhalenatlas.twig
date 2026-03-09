@@ -10,7 +10,7 @@
 			{% if categories %}
 			<div class="mod-categories mb-5">
 				<div class="container text-center">
-					<a href="{{ site.url }}/{% if lang == 'nl_NL' %}verhalen-atlas/{% else %}en/verhalen-atlas/{% endif %}" class="{% if current_category == '' %}active{% endif %}">
+					<a href="{{ site.url }}/{% if lang == 'nl_NL' %}verhalenatlas/{% else %}en/verhalenatlas/{% endif %}" class="{% if current_category == '' %}active{% endif %}">
 						{% if lang == 'nl_NL' %}alle{% else %}all{% endif %}
 					</a>
 					{% for item in categories %}
@@ -23,7 +23,7 @@
 			<div class="row mt-2 anime-fadein">
 				{% for item in posts %}
 				<div class="col-md-6">
-					{% include ['tease-event.twig'] %}
+					{% include ['tease-verhalenatlas.twig'] %}
 				</div>
 				{% endfor %}
 			</div>

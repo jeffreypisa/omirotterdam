@@ -3,7 +3,7 @@
 	<div class="kaart-holder container-md text-center">
 
 		<!-- Kaart afbeelding -->
-		<div class="kaart-wrapper">
+		<div id="kaartwrap" class="kaart-wrapper">
 			
 			{% set kaartOpacityPct = item.kaart_opacity is not null ? item.kaart_opacity|default(100) : 100 %}
 			{% set kaartOpacityPct = kaartOpacityPct < 0 ? 0 : (kaartOpacityPct > 100 ? 100 : kaartOpacityPct) %}
@@ -42,7 +42,7 @@
 								<p>
 									{{ pin.popover_tekst }}
 								</p>
-								<a href='#{{ targetId }}' class='btn btn-primary kaart-marker-link mt-2 d-inline-block'>{% if pin.popover_link %}{{ pin.popover_link }}{% else %}lees meer{% endif %}</a>
+								<a href='#{{ targetId }}' class='btn btn-primary btn-sm kaart-marker-link mt-2 d-inline-block'>{% if pin.popover_link %}{{ pin.popover_link }}{% else %}lees meer{% endif %}</a>
 							</div>
 						 ">
 				{% endif %}
@@ -103,11 +103,28 @@
 	<!-- Scroll + open accordion script -->
 	<script>
 	document.addEventListener('DOMContentLoaded', function () {
+		function closeAllKaartPopovers() {
+			document.querySelectorAll('.kaart-marker[data-bs-toggle="popover"]').forEach(function (trigger) {
+				var popoverInstance = bootstrap.Popover.getInstance(trigger);
+				if (popoverInstance) {
+					popoverInstance.hide();
+				}
+				if (typeof trigger.blur === 'function') {
+					trigger.blur();
+				}
+			});
+		}
+
+		// Sluit geopende popovers zodra de gebruiker scrolt
+		window.addEventListener('scroll', closeAllKaartPopovers, { passive: true });
+		window.addEventListener('touchmove', closeAllKaartPopovers, { passive: true });
+
 		// Klikken op markers of popover links
 		document.addEventListener('click', function (e) {
 			var link = e.target.closest('.kaart-marker-link');
 			if (link) {
 				e.preventDefault();
+				closeAllKaartPopovers();
 				var targetId = link.getAttribute('href');
 				var collapseElement = document.querySelector(targetId);
 	
@@ -142,6 +159,7 @@
 			var backLink = e.target.closest('a[href^="#Kaart_"]');
 			if (backLink) {
 				e.preventDefault();
+				closeAllKaartPopovers();
 				var targetId = backLink.getAttribute('href');
 				var kaartElement = document.querySelector(targetId);
 	

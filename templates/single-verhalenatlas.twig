@@ -1,10 +1,18 @@
 {% extends "base.twig" %}
 
 {% block content %}
+	{% set contentblokken = post.get_field('stroken')|default([]) %}
+	{% set has_kaart_strook = false %}
+	{% for blok in contentblokken %}
+		{% if blok.acf_fc_layout == 'kaart' %}
+			{% set has_kaart_strook = true %}
+		{% endif %}
+	{% endfor %}
+
 	<div class="content-wrapper">
 		<article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
 			
-			<section class="mod-content bg-greylight" data-scroll-section>
+			<section class="mod-content bg-orange text-white" data-scroll-section>
 				<div class="container text-start text-md-center">
 					<div class="row">
 						<div class="col-md-10 offset-md-1">
@@ -12,7 +20,9 @@
 							{% if post.subtitel %}
 								<h3 class="mb-3 mb-md-4 weight-400"> {{ post.subtitel }} </h3>
 							{% endif %}
-							<a class="btn btn-primary" href="#kaart">Bekijk route</a>
+							{% if has_kaart_strook %}
+								<a class="btn btn-light" href="#kaart">Bekijk route</a>
+							{% endif %}
 						</div>
 					</div>
 				</div>

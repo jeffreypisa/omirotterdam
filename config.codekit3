@@ -2202,6 +2202,14 @@
       "oAP" : "\/templates\/tease-event.twig",
       "oF" : 0
     },
+    "\/templates\/tease-verhalenatlas.twig" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/templates\/tease-verhalenatlas.twig",
+      "oF" : 0
+    },
     "\/templates\/tease.twig" : {
       "cB" : 0,
       "ft" : 8192,

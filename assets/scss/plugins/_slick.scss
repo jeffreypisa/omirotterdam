@@ -12,23 +12,40 @@
 		text-indent: -1000px;
 		overflow: hidden;
 		border: 0;
-		background-repeat: no-repeat;
-		width: 30px;
-		height: 30px;
-		background-size: contain;
-		background-color: transparent;
+		width: 40px;
+		height: 40px;
+		background-color: #000;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: background-color 0.2s ease;
+
+		&:before {
+			content: "";
+			display: block;
+			width: 9px;
+			height: 9px;
+			border-right: 2px solid #fff;
+			border-bottom: 2px solid #fff;
+			transform-origin: center;
+		}
+
 		&.slick-prev {
 			left: 15px;
 			right: auto;
-			background-image: url(../img/chevron_left.svg);
+			&:before {
+				transform: rotate(135deg);
+			}
 		}
 		&.slick-next {
 			right: 15px;
 			left: auto;
-			background-image: url(../img/chevron_right.svg);
+			&:before {
+				transform: rotate(-45deg);
+			}
 		}
 		&:hover {
-			opacity: 0.6;
+			background-color: $orange;
 		}
 	}
 	.slick-dots {

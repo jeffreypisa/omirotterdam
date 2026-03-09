@@ -33,6 +33,10 @@
 	border-radius: 30px;
 	padding: 0 30px;
 	text-transform: lowercase;
+	&.btn-sm {
+		line-height: 40px;
+		padding: 0 20px;
+	}
 	&:hover, &:focus, &:target {
 		opacity: 1;
 	}
