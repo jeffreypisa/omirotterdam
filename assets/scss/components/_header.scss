@@ -75,7 +75,7 @@ header {
 
 	.header-cart-link {
 		width: 48px;
-		height: 48px;
+		height: 28px;
 		color: $dark;
 		background: #fff;
 		text-decoration: none;
@@ -85,7 +85,6 @@ header {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		transform: translate(0px, 10px);
 		margin-left: 10px;
 		i {
 			font-size: 21px;
