@@ -1,21 +1,60 @@
 {% if menu %}
+	{% set cartEnabled = options.header_cart_icon_tonen and options.header_cart_link %}
+	{% set cartRendered = false %}
 	<ul class="nav">
 	{% for item in items %}
-		<li class="nav-item{% if item.children %} dropdown{% endif %}{{ item.classes | join(' ') }} d-flex align-items-end">
-			<a class="nav-link" target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>
-			{% if item.children %}
-				<ul class="dropdown-menu">
-					{% for item in item.children %}
-						<li class="nav-item {{ item.classes | join(' ') }}">
-							<a class="dropdown-item btn-sm" target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>
-							{% if item.children %}
-								{% include "menu.twig" with {'items': item.children} %}
-							{% endif %}
-						</li>
-					{% endfor %}
-				</ul>
-			{% endif %}
-		</li>
+		{% set itemTitle = item.title|lower|trim %}
+		{% set isWinkelwagenItem = itemTitle == 'winkelwagen' or itemTitle == 'cart' %}
+		{% set itemClasses = item.classes | join(' ') %}
+		{% set isLangItem = 'lang-item' in itemClasses %}
+
+		{% if cartEnabled and (not cartRendered) and isLangItem %}
+			<li class="nav-item nav-item-cart d-flex align-items-center">
+				<a
+					class="nav-link header-cart-link d-inline-flex align-items-center justify-content-center"
+					href="{{ options.header_cart_link.url }}"
+					{% if options.header_cart_link.target %}target="{{ options.header_cart_link.target }}"{% endif %}
+					aria-label="{% if options.header_cart_link.title %}{{ options.header_cart_link.title }}{% else %}Winkelwagen{% endif %}"
+					title="{% if options.header_cart_link.title %}{{ options.header_cart_link.title }}{% else %}Winkelwagen{% endif %}"
+				>
+					<i class="fas fa-shopping-cart" aria-hidden="true"></i>
+				</a>
+			</li>
+			{% set cartRendered = true %}
+		{% endif %}
+
+		{% if not (hide_winkelwagen_item and isWinkelwagenItem) %}
+			<li class="nav-item{% if item.children %} dropdown{% endif %}{{ item.classes | join(' ') }} d-flex align-items-end">
+				<a class="nav-link" target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>
+				{% if item.children %}
+					<ul class="dropdown-menu">
+						{% for item in item.children %}
+							<li class="nav-item {{ item.classes | join(' ') }}">
+								<a class="dropdown-item btn-sm" target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>
+								{% if item.children %}
+									{% include "menu.twig" with {'items': item.children} %}
+								{% endif %}
+							</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+			</li>
+		{% endif %}
 	{% endfor %}
+
+	{% if cartEnabled and (not cartRendered) %}
+		<li class="nav-item nav-item-cart d-flex align-items-center">
+			<a
+				class="nav-link header-cart-link d-inline-flex align-items-center justify-content-center"
+				href="{{ options.header_cart_link.url }}"
+				{% if options.header_cart_link.target %}target="{{ options.header_cart_link.target }}"{% endif %}
+				aria-label="{% if options.header_cart_link.title %}{{ options.header_cart_link.title }}{% else %}Winkelwagen{% endif %}"
+				title="{% if options.header_cart_link.title %}{{ options.header_cart_link.title }}{% else %}Winkelwagen{% endif %}"
+			>
+				<i class="fas fa-shopping-cart" aria-hidden="true"></i>
+			</a>
+		</li>
+	{% endif %}
+
 	</ul>
 {% endif %}

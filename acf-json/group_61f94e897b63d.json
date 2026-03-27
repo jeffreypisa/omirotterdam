@@ -96,6 +96,50 @@
             "placeholder": ""
         },
         {
+            "key": "field_67e53bc8b0a01",
+            "label": "Header winkelwagen icoon tonen",
+            "name": "header_cart_icon_tonen",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_67e53bfab0a02",
+            "label": "Header winkelwagen link",
+            "name": "header_cart_link",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_67e53bc8b0a01",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
             "key": "field_6202683511048",
             "label": "Nieuwsbrief",
             "name": "",
