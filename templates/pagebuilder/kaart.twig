@@ -1,4 +1,5 @@
 {% if item.kaart %}
+{% set verhalenatlasUrl = site.url ~ '/' ~ ((lang == 'nl_NL') ? 'verhalenatlas/' : 'en/verhalenatlas/') %}
 <section id="kaart" class="mod-kaart {{ item.achtergrond|default('bg-transparent') }}">
 	<div class="kaart-holder container-md text-center">
 
@@ -98,6 +99,12 @@
 				{% endfor %}
 			</div>
 		</div>
+	</div>
+
+	<div class="container text-center mt-4">
+		<a class="btn btn-primary" href="{{ verhalenatlasUrl }}">
+			{% if lang == 'nl_NL' %}Bekijk verhalenatlas{% else %}View storyatlas{% endif %}
+		</a>
 	</div>
 
 	<!-- Scroll + open accordion script -->
