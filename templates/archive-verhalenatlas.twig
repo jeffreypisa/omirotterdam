@@ -20,6 +20,26 @@
 				</div>
 			</div>
 			{% endif %}
+			{% if verhalenatlas_filters %}
+				<div class="row">
+					<div class="col-md-6 col-lg-4">
+						<div class="form-group mb-4">
+							<form id="filter-select" class="category-dropdown" action="{{ currenturl }}" method="get">
+								<select class="form-select" name="filter" id="filter" onchange="return this.form.submit()">
+									<option value="" {% if selected_filter == '' %}selected{% endif %}>
+										{% if lang == 'nl_NL' %}Bekijk alle{% else %}Show all{% endif %}
+									</option>
+									{% for item in verhalenatlas_filters %}
+										<option value="{{ item.slug }}" {% if selected_filter == item.slug %}selected{% endif %}>
+											{{ item.title }}
+										</option>
+									{% endfor %}
+								</select>
+							</form>
+						</div>
+					</div>
+				</div>
+			{% endif %}
 			<div class="row mt-2 anime-fadein">
 				{% for item in posts %}
 				<div class="col-md-6">

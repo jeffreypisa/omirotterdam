@@ -91,3 +91,33 @@ function create_verhalenatlas_tax() {
 
 	register_taxonomy('verhalenatlas_category', array('verhalenatlas'), $args);
 }
+
+// hook into the init action and call create_verhalenatlas_filter_tax when it fires
+add_action( 'init', 'create_verhalenatlas_filter_tax', 0 );
+function create_verhalenatlas_filter_tax() {
+
+	$labels = array(
+		'name'              => _x( 'Filters', 'taxonomy general name' ),
+		'singular_name'     => _x( 'Filter', 'taxonomy singular name' ),
+		'search_items'      => __( 'Zoek filter' ),
+		'all_items'         => __( 'Alle filters' ),
+		'parent_item'       => __( 'Parent filter' ),
+		'parent_item_colon' => __( 'Parent filter' ),
+		'edit_item'         => __( 'Bewerk filter' ),
+		'update_item'       => __( 'Update filter' ),
+		'add_new_item'      => __( 'Nieuwe filter toevoegen' ),
+		'new_item_name'     => __( 'Naam nieuwe filter' ),
+		'menu_name'         => __( 'Filters' ),
+	);
+
+	$args = array(
+		'hierarchical'      => true,
+		'labels'            => $labels,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'query_var'         => true,
+		'rewrite'           => array( 'slug' => 'verhalenatlas-filter' )
+	);
+
+	register_taxonomy( 'filter', array( 'verhalenatlas' ), $args );
+}

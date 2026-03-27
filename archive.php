@@ -157,41 +157,61 @@ if ($currentPostType == 'blog') {
     $context['paststories_jaren'] = Timber::get_posts($args_posts_all);
 
 } elseif ($currentPostType == 'verhalenatlas') {
-    // Verhalenatlas (NIEUW)
+    // Verhalenatlas
     $templates = array('archive-verhalenatlas.twig');
     $terms = \Timber::get_terms(array('taxonomy' => 'verhalenatlas_category', 'hide_empty' => true));
     $context['categories'] = $terms;
-    $postcatid = get_queried_object()->term_id;
+    $queried_object = get_queried_object();
+    $postcatid = ( isset( $queried_object->taxonomy ) && $queried_object->taxonomy === 'verhalenatlas_category' && isset( $queried_object->term_id ) )
+        ? (int) $queried_object->term_id
+        : '';
     $context['current_category'] = $postcatid;
 
-    $jaar = $_GET['jaar'] ?? '';
-    $context['selected_jaar'] = $jaar;
+    $selected_filter = isset($_GET['filter']) ? sanitize_text_field($_GET['filter']) : '';
+    $context['selected_filter'] = $selected_filter;
+    $context['verhalenatlas_filters'] = \Timber::get_terms(array(
+        'taxonomy' => 'filter',
+        'hide_empty' => true
+    ));
+    $selected_filter_label = '';
+    if ($selected_filter !== '') {
+        $selected_filter_term = get_term_by('slug', $selected_filter, 'filter');
+        if ($selected_filter_term && !is_wp_error($selected_filter_term)) {
+            $selected_filter_label = $selected_filter_term->name;
+        }
+    }
+    $context['selected_filter_label'] = $selected_filter_label;
+
+    $tax_query = array();
+
+    if ($postcatid) {
+        $tax_query[] = array(
+            'taxonomy' => 'verhalenatlas_category',
+            'field'    => 'id',
+            'terms'    => $postcatid,
+        );
+    }
+
+    if ($selected_filter !== '') {
+        $tax_query[] = array(
+            'taxonomy' => 'filter',
+            'field'    => 'slug',
+            'terms'    => $selected_filter,
+        );
+    }
+
+    if (count($tax_query) > 1) {
+        $tax_query['relation'] = 'AND';
+    }
 
     $args_posts = array(
         'post_type'      => 'verhalenatlas',
-        'tax_query'      => array(
-            array(
-                'taxonomy' => 'verhalenatlas_category',
-                'field'    => 'id',
-                'terms'    => $postcatid,
-            ),
-        ),
         'posts_per_page' => -1
     );
 
-    $args_posts_all = array(
-        'post_type'      => 'verhalenatlas',
-        'tax_query'      => array(
-            array(
-                'taxonomy' => 'verhalenatlas_category',
-                'field'    => 'id',
-                'terms'    => $postcatid,
-            ),
-        ),
-        'posts_per_page' => -1
-    );
-
-    $context['verhalenatlas_jaren'] = Timber::get_posts($args_posts_all);
+    if (!empty($tax_query)) {
+        $args_posts['tax_query'] = $tax_query;
+    }
 }
 
 $context['title'] = $currentPostType;
