@@ -15,11 +15,13 @@
 	.kaart-wrapper {
 		position: relative;
 		display: inline-block;
+		max-width: 100%;
 		.kaart-afbeelding {
 			width: auto;
+			max-width: 100%;
 			height: auto;
 			max-height: 90vh;
-			display: inline-block;
+			display: block;
 			margin: 0 auto;
 		}
 
@@ -165,8 +167,23 @@
 
 @include media-breakpoint-down(md) {
 	.mod-kaart {
+		overflow-x: hidden;
+
 		.container-md {
 			padding: 0;
+		}
+
+		.kaart-holder,
+		.kaart-wrapper {
+			max-width: 100%;
+		}
+
+		.kaart-wrapper {
+			.kaart-afbeelding {
+				width: 100%;
+				max-width: 100%;
+				height: auto;
+			}
 		}
 	}
 }
