@@ -1,4 +1,10 @@
 <header class="header d-flex align-items-center">
+	{% set wcCartUrl = function('function_exists', 'wc_get_cart_url') ? function('wc_get_cart_url') : '' %}
+	{% set cartLinkUrl = (options.header_cart_link and options.header_cart_link.url) ? options.header_cart_link.url : wcCartUrl %}
+	{% set cartLinkTarget = (options.header_cart_link and options.header_cart_link.target) ? options.header_cart_link.target : '' %}
+	{% set cartLinkTitle = (options.header_cart_link and options.header_cart_link.title) ? options.header_cart_link.title : ((lang == 'nl_NL') ? 'Winkelwagen' : 'Cart') %}
+	{% set cartIconToggle = options.header_cart_icon_tonen is same as(false) ? false : true %}
+	{% set cartEnabled = cartIconToggle and cartLinkUrl %}
 	<div class="container-fluid container-lg"> 
 		<div class="row g-2">
 			<div class="col d-flex align-items-center">
@@ -8,16 +14,23 @@
 				</a>
 			</div>
 			<div class="col-auto d-none d-lg-flex align-items-{% if options.thema == 'omi' %}center{% else %}end{% endif %}">
-				{% include "menu.twig" with {'items': menu.get_items, 'hide_winkelwagen_item': options.header_cart_icon_tonen and options.header_cart_link} %}
+				{% include "menu.twig" with {
+					'items': menu.get_items,
+					'hide_winkelwagen_item': cartEnabled,
+					'cart_enabled': cartEnabled,
+					'cart_link_url': cartLinkUrl,
+					'cart_link_target': cartLinkTarget,
+					'cart_link_title': cartLinkTitle
+				} %}
 			</div>
 			<div class="col-auto d-flex d-lg-none align-items-end">
-				{% if options.header_cart_icon_tonen and options.header_cart_link %}
+				{% if cartEnabled %}
 					<a
 						class="header-cart-link d-inline-flex align-items-center justify-content-center me-2"
-						href="{{ options.header_cart_link.url }}"
-						{% if options.header_cart_link.target %}target="{{ options.header_cart_link.target }}"{% endif %}
-						aria-label="{% if options.header_cart_link.title %}{{ options.header_cart_link.title }}{% else %}Winkelwagen{% endif %}"
-						title="{% if options.header_cart_link.title %}{{ options.header_cart_link.title }}{% else %}Winkelwagen{% endif %}"
+						href="{{ cartLinkUrl }}"
+						{% if cartLinkTarget %}target="{{ cartLinkTarget }}"{% endif %}
+						aria-label="{{ cartLinkTitle }}"
+						title="{{ cartLinkTitle }}"
 					>
 						<i class="fas fa-shopping-cart" aria-hidden="true"></i>
 					</a>

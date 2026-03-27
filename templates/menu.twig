@@ -1,5 +1,8 @@
 {% if menu %}
-	{% set cartEnabled = options.header_cart_icon_tonen and options.header_cart_link %}
+	{% set cartEnabled = cart_enabled|default(false) %}
+	{% set cartLinkUrl = cart_link_url|default('') %}
+	{% set cartLinkTarget = cart_link_target|default('') %}
+	{% set cartLinkTitle = cart_link_title|default((lang == 'nl_NL') ? 'Winkelwagen' : 'Cart') %}
 	{% set cartRendered = false %}
 	<ul class="nav">
 	{% for item in items %}
@@ -12,10 +15,10 @@
 			<li class="nav-item nav-item-cart d-flex align-items-center">
 				<a
 					class="nav-link header-cart-link d-inline-flex align-items-center justify-content-center"
-					href="{{ options.header_cart_link.url }}"
-					{% if options.header_cart_link.target %}target="{{ options.header_cart_link.target }}"{% endif %}
-					aria-label="{% if options.header_cart_link.title %}{{ options.header_cart_link.title }}{% else %}Winkelwagen{% endif %}"
-					title="{% if options.header_cart_link.title %}{{ options.header_cart_link.title }}{% else %}Winkelwagen{% endif %}"
+					href="{{ cartLinkUrl }}"
+					{% if cartLinkTarget %}target="{{ cartLinkTarget }}"{% endif %}
+					aria-label="{{ cartLinkTitle }}"
+					title="{{ cartLinkTitle }}"
 				>
 					<i class="fas fa-shopping-cart" aria-hidden="true"></i>
 				</a>
@@ -46,10 +49,10 @@
 		<li class="nav-item nav-item-cart d-flex align-items-center">
 			<a
 				class="nav-link header-cart-link d-inline-flex align-items-center justify-content-center"
-				href="{{ options.header_cart_link.url }}"
-				{% if options.header_cart_link.target %}target="{{ options.header_cart_link.target }}"{% endif %}
-				aria-label="{% if options.header_cart_link.title %}{{ options.header_cart_link.title }}{% else %}Winkelwagen{% endif %}"
-				title="{% if options.header_cart_link.title %}{{ options.header_cart_link.title }}{% else %}Winkelwagen{% endif %}"
+				href="{{ cartLinkUrl }}"
+				{% if cartLinkTarget %}target="{{ cartLinkTarget }}"{% endif %}
+				aria-label="{{ cartLinkTitle }}"
+				title="{{ cartLinkTitle }}"
 			>
 				<i class="fas fa-shopping-cart" aria-hidden="true"></i>
 			</a>
