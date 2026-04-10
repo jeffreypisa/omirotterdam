@@ -1986,6 +1986,14 @@
       "oAP" : "\/templates\/pagebuilder\/paststories.twig",
       "oF" : 0
     },
+    "\/templates\/pagebuilder\/routes.twig" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/templates\/pagebuilder\/routes.twig",
+      "oF" : 0
+    },
     "\/templates\/pagebuilder\/shortcode.twig" : {
       "cB" : 0,
       "ft" : 8192,

@@ -43,7 +43,7 @@
 								<p>
 									{{ pin.popover_tekst }}
 								</p>
-								<a href='#{{ targetId }}' class='btn btn-primary btn-sm kaart-marker-link mt-2 d-inline-block'>{% if pin.popover_link %}{{ pin.popover_link }}{% else %}lees meer{% endif %}</a>
+								<a href='#{{ targetId }}' class='btn btn-primary btn-sm kaart-marker-link mt-2 d-inline-block'>{% if pin.popover_link %}{{ pin.popover_link }}{% else %}{% if lang == 'nl_NL' %}lees meer{% else %}read more{% endif %}{% endif %}</a>
 							</div>
 						 ">
 				{% endif %}
@@ -90,7 +90,7 @@
 								<div class="body-wrapper">
 									{{ pin.tekst }}
 									<br>
-									<a href="#kaart" class="btn btn-primary">Terug naar kaart</a>
+									<a href="#kaart" class="btn btn-primary js-terug-naar-kaart">{% if lang == 'nl_NL' %}Terug naar kaart{% else %}Back to map{% endif %}</a>
 									<br>
 								</div>
 							</div>
@@ -163,7 +163,7 @@
 	
 		// Klikken op "Terug naar kaart"
 		document.addEventListener('click', function (e) {
-			var backLink = e.target.closest('a[href^="#Kaart_"]');
+			var backLink = e.target.closest('.js-terug-naar-kaart');
 			if (backLink) {
 				e.preventDefault();
 				closeAllKaartPopovers();

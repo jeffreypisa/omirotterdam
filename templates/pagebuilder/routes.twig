@@ -1,0 +1,39 @@
+{% if item.achtergrond == 'bg-orange' %}
+	{% set knopkleur = 'btn-light' %}
+{% elseif item.achtergrond == 'bg-greylight' %}
+	{% set knopkleur = 'btn-primary' %}
+{% else %}
+	{% set knopkleur = 'btn-dark' %}
+{% endif %}
+
+<section id="section{{ sectionno }}" class="mod-routes {{ item.achtergrond }} {% if item.achtergrond == 'bg-orange' %}text-white{% endif %}" data-scroll-section>
+	{% if item.titel %}
+		<div class="container anime-fadein">
+			<div class="row">
+				<div class="col-md-10 offset-md-1 text-center">
+					<h2>{{ item.titel }}</h2>
+				</div>
+			</div>
+		</div>
+	{% endif %}
+
+	{% if item.routes %}
+		<div class="container anime-fadein">
+			<div class="row justify-content-md-center">
+				{% for item in item.routes|slice(0,6) %}
+					<div class="col-md-6 col-lg-4">
+						{% include ['tease-verhalenatlas.twig'] %}
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	{% endif %}
+
+	{% if item.link %}
+		<div class="text-center mt-3">
+			<a href="{{ item.link.url }}" target="{{ item.link.target }}" class="btn {{ knopkleur }}">
+				{{ item.link.title }}
+			</a>
+		</div>
+	{% endif %}
+</section>

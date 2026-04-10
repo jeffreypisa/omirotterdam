@@ -38,13 +38,30 @@ function wpa_paststories_permalinks( $post_link, $post ){
 }
 add_filter( 'post_type_link', 'wpa_paststories_permalinks', 1, 2 );
 
-function wpa_verhalenatlas_permalinks( $post_link, $post ) {
-	if ( is_object( $post ) && $post->post_type == 'verhalenatlas' ) {
-		$terms = wp_get_object_terms( $post->ID, 'verhalenatlas_category' );
-		if ( $terms ) {
-			return str_replace( '%verhalenatlas_category%', $terms[0]->slug, $post_link );
-		}
-	}
-	return $post_link;
+function wpa_verhalenatlas_legacy_rewrite() {
+	add_rewrite_rule(
+		'^verhalenatlas/[^/]+/([^/]+)/?$',
+		'index.php?post_type=verhalenatlas&name=$matches[1]',
+		'top'
+	);
 }
-add_filter( 'post_type_link', 'wpa_verhalenatlas_permalinks', 1, 2 );
+add_action( 'init', 'wpa_verhalenatlas_legacy_rewrite' );
+
+function wpa_verhalenatlas_resolve_taxonomy_conflict( $query_vars ) {
+	if ( is_admin() || empty( $query_vars['verhalenatlas_category'] ) ) {
+		return $query_vars;
+	}
+
+	$slug = $query_vars['verhalenatlas_category'];
+	$post = get_page_by_path( $slug, OBJECT, 'verhalenatlas' );
+
+	if ( $post ) {
+		return array(
+			'post_type' => 'verhalenatlas',
+			'name'      => $slug,
+		);
+	}
+
+	return $query_vars;
+}
+add_filter( 'request', 'wpa_verhalenatlas_resolve_taxonomy_conflict' );

@@ -1458,6 +1458,107 @@
                     "min": "",
                     "max": ""
                 },
+                "layout_6801097673a01": {
+                    "key": "layout_6801097673a01",
+                    "name": "routes",
+                    "label": "Routes",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6801097673a02",
+                            "label": "Achtergrond",
+                            "name": "achtergrond",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "bg-transparent": "Wit",
+                                "bg-greylight": "Lichtgrijs",
+                                "bg-orange": "Oranje"
+                            },
+                            "default_value": "bg-transparent",
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_6801097673a03",
+                            "label": "Titel",
+                            "name": "titel",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "De routes",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_6801097673a04",
+                            "label": "Routes",
+                            "name": "routes",
+                            "aria-label": "",
+                            "type": "relationship",
+                            "instructions": "Kies routes die je in deze strook wilt tonen",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "post_type": [
+                                "verhalenatlas"
+                            ],
+                            "post_status": "",
+                            "taxonomy": "",
+                            "filters": [
+                                "search",
+                                "taxonomy"
+                            ],
+                            "return_format": "object",
+                            "min": "",
+                            "max": "",
+                            "elements": ""
+                        },
+                        {
+                            "key": "field_6801097673a05",
+                            "label": "Knop",
+                            "name": "link",
+                            "aria-label": "",
+                            "type": "link",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array"
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
                 "layout_646b7386b358b": {
                     "key": "layout_646b7386b358b",
                     "name": "shortcode",
@@ -1904,5 +2005,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1772464697
+    "modified": 1775745828
 }
