@@ -200,6 +200,7 @@
             "choices": {
                 "bg-white": "Wit",
                 "bg-greylight": "Grijs",
+                "bg-blue": "Blauw",
                 "bg-orange": "Oranje"
             },
             "default_value": false,
@@ -298,6 +299,7 @@
             "choices": {
                 "bg-white": "Wit",
                 "bg-greylight": "Grijs",
+                "bg-blue": "Blauw",
                 "bg-orange": "Oranje"
             },
             "default_value": false,
@@ -396,6 +398,7 @@
             "choices": {
                 "bg-white": "Wit",
                 "bg-greylight": "Grijs",
+                "bg-blue": "Blauw",
                 "bg-orange": "Oranje"
             },
             "default_value": false,

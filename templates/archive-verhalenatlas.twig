@@ -2,37 +2,70 @@
 
 {% block content %}
 <article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
-	<section class="mod-archive bg-greylight" data-scroll-section>
-		<div class="container">
-			{% if is_verhalenatlas_tax %}
-				<h1 class="h2 mb-4 mt-3 text-center">
-					{{ options.verhalenatlas_category_page_title ?: ((lang == 'nl_NL') ? 'Alle verhalen' : 'All stories') }}
-				</h1>
+	<section class="mod-content bg-blue text-white" data-scroll-section>
+		{% if is_verhalenatlas_tax %}
+			<div class="container text-start text-md-center">
+				<div class="row">
+					<div class="col-md-10 offset-md-1">
+					<h1 class="h2 mb-5 mt-3">
+						{{ options.verhalenatlas_category_page_title ?: ((lang == 'nl_NL') ? 'Alle verhalen' : 'All stories') }}
+					</h1>
 
-				<div class="verhalenatlas-category-controls mb-5">
-					{% if verhalenatlas_filters %}
-						<div class="form-group mb-0">
-							<form id="filter-select" class="category-dropdown" action="{{ currenturl }}" method="get">
-								<select class="form-select" name="filter" id="filter" onchange="return this.form.submit()">
-									<option value="" {% if selected_filter == '' %}selected{% endif %}>
-										{% if lang == 'nl_NL' %}Alle filters{% else %}All filters{% endif %}
-									</option>
-									{% for item in verhalenatlas_filters %}
-										<option value="{{ item.slug }}" {% if selected_filter == item.slug %}selected{% endif %}>
-											{{ item.title }}
+					<div class="verhalenatlas-category-controls verhalenatlas-header-controls mb-2">
+						{% if verhalenatlas_archive_page_scroll_link %}
+							<a href="{{ verhalenatlas_archive_page_scroll_link }}" class="btn btn-light">
+								{{ options.verhalenatlas_archive_button_label ?: ((lang == 'nl_NL') ? 'Bekijk de gebieden' : 'View areas') }}
+							</a>
+						{% endif %}
+						{% if verhalenatlas_filters %}
+							<div class="form-group mb-0">
+								<form id="filter-select" class="category-dropdown" action="{{ currenturl }}" method="get">
+									<select class="form-select" name="filter" id="filter" onchange="return this.form.submit()">
+										<option value="" {% if selected_filter == '' %}selected{% endif %}>
+											{% if lang == 'nl_NL' %}Alle filters{% else %}All filters{% endif %}
 										</option>
-									{% endfor %}
-								</select>
-							</form>
-						</div>
-					{% endif %}
-					{% if verhalenatlas_archive_page_scroll_link %}
-						<a href="{{ verhalenatlas_archive_page_scroll_link }}" class="btn btn-light">
-							{{ options.verhalenatlas_archive_button_label ?: ((lang == 'nl_NL') ? 'Bekijk de gebieden' : 'View areas') }}
-						</a>
-					{% endif %}
+										{% for item in verhalenatlas_filters %}
+											<option value="{{ item.slug }}" {% if selected_filter == item.slug %}selected{% endif %}>
+												{{ item.title }}
+											</option>
+										{% endfor %}
+									</select>
+								</form>
+							</div>
+						{% endif %}
+					</div>
+					</div>
 				</div>
+			</div>
+		{% else %}
+			<div class="container text-start text-md-center">
+				<div class="row">
+					<div class="col-md-10 offset-md-1">
+					<h1 class="h2 mb-2 mt-3">
+						{% if lang == 'nl_NL' %}Verhalenatlas{% else %}Story Atlas{% endif %}
+					</h1>
 
+					<div class="verhalenatlas-actions verhalenatlas-header-controls mb-2">
+						{% if verhalenatlas_archive_category_link %}
+							<a href="#verhalenatlas-gebieden" class="btn btn-light me-2 mb-2">
+								{{ options.verhalenatlas_archive_button_label ?: ((lang == 'nl_NL') ? 'Bekijk de gebieden' : 'View areas') }}
+							</a>
+						{% endif %}
+						{% if verhalenatlas_all_verhalen_link %}
+							<a href="{{ verhalenatlas_all_verhalen_link }}" class="btn btn-light mb-2">
+								{{ options.verhalenatlas_all_verhalen_button_label ?: ((lang == 'nl_NL') ? 'Alle verhalen' : 'All stories') }}
+							</a>
+						{% endif %}
+					</div>
+					</div>
+				</div>
+			</div>
+		{% endif %}
+	</section>
+
+	{% if is_verhalenatlas_tax %}
+		<section class="mod-archive bg-greylight" data-scroll-section>
+			<div class="container">
 				<div class="row mt-2 anime-fadein">
 					{% for item in posts %}
 					<div class="col-md-6">
@@ -58,27 +91,18 @@
 						{% endif %}
 					</div>
 				{% endif %}
-			{% else %}
-				<h1 class="h2 mb-4 mt-3 text-center">
-					{% if lang == 'nl_NL' %}Verhalenatlas{% else %}Story Atlas{% endif %}
-				</h1>
-
-				<div class="verhalenatlas-actions mb-4">
-					{% if verhalenatlas_archive_category_link %}
-						<a href="#verhalenatlas-gebieden" class="btn btn-light me-2 mb-2">
-							{{ options.verhalenatlas_archive_button_label ?: ((lang == 'nl_NL') ? 'Bekijk de gebieden' : 'View areas') }}
-						</a>
-					{% endif %}
-					{% if verhalenatlas_all_verhalen_link %}
-						<a href="{{ verhalenatlas_all_verhalen_link }}" class="btn btn-light mb-2">
-							{{ options.verhalenatlas_all_verhalen_button_label ?: ((lang == 'nl_NL') ? 'Alle verhalen' : 'All stories') }}
-						</a>
-					{% endif %}
-				</div>
-
+				{% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+			</div>
+		</section>
+	{% else %}
+		<section class="mod-archive bg-greylight" data-scroll-section>
+			<div class="container">
 				{% if options.verhalenatlas_intro_content or options.verhalenatlas_intro_image %}
-					<div class="row align-items-center verhalenatlas-intro mb-5">
+					<div class="row align-items-center verhalenatlas-intro mb-0">
 						<div class="col-lg-7 mb-4 mb-lg-0">
+							<h2 class="mb-3">
+								{{ options.verhalenatlas_intro_title ?: ((lang == 'nl_NL') ? 'Introductie' : 'Introduction') }}
+							</h2>
 							<div class="content">
 								{{ options.verhalenatlas_intro_content }}
 							</div>
@@ -90,8 +114,12 @@
 						</div>
 					</div>
 				{% endif %}
+			</div>
+		</section>
 
-				<h2 id="verhalenatlas-gebieden" class="h2 mb-4 mt-2">{{ verhalenatlas_grid_title }}</h2>
+		<section id="verhalenatlas-gebieden" class="mod-archive bg-white" data-scroll-section>
+			<div class="container">
+				<h2 class="h2 mb-4 mt-2">{{ verhalenatlas_grid_title }}</h2>
 
 				<div class="row mt-2 anime-fadein verhalenatlas-grid">
 					{% for item in posts %}
@@ -100,10 +128,10 @@
 					</div>
 					{% endfor %}
 				</div>
-			{% endif %}
-			{% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
-		</div>
-	</section>
+				{% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+			</div>
+		</section>
+	{% endif %}
 	{% include 'pagebuilder.twig' %}
 </article>
 {% endblock %}

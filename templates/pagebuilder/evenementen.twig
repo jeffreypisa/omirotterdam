@@ -1,4 +1,4 @@
-{% if item.achtergrond == 'bg-orange' %}
+{% if item.achtergrond == 'bg-orange' or item.achtergrond == 'bg-blue' %}
 	{% set knopkleur = 'btn-light' %}
 {% elseif item.achtergrond == 'bg-greylight' %}
 	{% set knopkleur = 'btn-primary' %}
@@ -6,7 +6,7 @@
 	{% set knopkleur = 'btn-dark' %}
 {% endif %}
 
-<section id="section{{ sectionno }}" class="mod-evenementen {{ item.achtergrond }} {% if item.achtergrond == 'bg-orange' %}text-white{% endif %}" data-scroll-section>
+<section id="section{{ sectionno }}" class="mod-evenementen {{ item.achtergrond }} {% if item.achtergrond == 'bg-orange' or item.achtergrond == 'bg-blue' %}text-white{% endif %}" data-scroll-section>
 	{% if item.titel %}
 		<div class="container anime-fadein">
 			<div class="row">

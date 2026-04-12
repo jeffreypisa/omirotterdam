@@ -47,6 +47,30 @@
 	}
 }
 
+.verhalenatlas-actions,
+.verhalenatlas-category-controls {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+}
+
+.verhalenatlas-header-controls {
+	margin-top: 14px;
+}
+
+.verhalenatlas-category-controls {
+	.form-group,
+	.category-dropdown {
+		margin-bottom: 0;
+	}
+
+	.form-select {
+		min-width: 220px;
+	}
+}
+
 @include media-breakpoint-up(md) {
 	.mod-archive {
 		padding-top: 60px;

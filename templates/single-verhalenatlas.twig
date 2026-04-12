@@ -3,9 +3,22 @@
 {% block content %}
 	{% set contentblokken = post.get_field('stroken')|default([]) %}
 	{% set has_kaart_strook = false %}
+	{% set has_routes_strook = false %}
+	{% set routes_target_id = '' %}
+	{% set section_counter = 0 %}
+	{% set parent_id = post.post_parent|default(0) %}
+	{% set has_parent = parent_id and parent_id > 0 %}
+	{% set parent_link = has_parent ? function('get_permalink', parent_id) : '' %}
+	{% set archive_base_url = (options.verhalenatlas_archive_page_link and options.verhalenatlas_archive_page_link.url) ? options.verhalenatlas_archive_page_link.url : (site.url ~ '/' ~ ((lang == 'nl_NL') ? 'verhalenatlas/' : 'en/verhalenatlas/')) %}
+	{% set verhalenatlas_gebieden_url = function('untrailingslashit', archive_base_url) ~ '/#verhalenatlas-gebieden' %}
 	{% for blok in contentblokken %}
+		{% set section_counter = section_counter + 1 %}
 		{% if blok.acf_fc_layout == 'kaart' %}
 			{% set has_kaart_strook = true %}
+		{% endif %}
+		{% if (not has_routes_strook) and blok.acf_fc_layout == 'routes' and blok.routes %}
+			{% set has_routes_strook = true %}
+			{% set routes_target_id = 'section' ~ section_counter %}
 		{% endif %}
 	{% endfor %}
 
@@ -20,9 +33,20 @@
 							{% if post.subtitel %}
 								<h3 class="mb-3 mb-md-4 weight-400"> {{ post.subtitel }} </h3>
 							{% endif %}
-							{% if has_kaart_strook %}
-								<a class="btn btn-light" href="#kaart">{% if lang == 'nl_NL' %}Bekijk route{% else %}View route{% endif %}</a>
-							{% endif %}
+								{% if has_kaart_strook %}
+									<a class="btn btn-light mb-2 me-md-2" href="#kaart">{% if lang == 'nl_NL' %}Start route{% else %}Begin route{% endif %}</a>
+								{% endif %}
+								{% if has_routes_strook and routes_target_id %}
+									<a class="btn btn-light mb-2 me-md-2" href="#{{ routes_target_id }}">{% if lang == 'nl_NL' %}Bekijk routes{% else %}View routes{% endif %}</a>
+								{% endif %}
+									{% if not has_parent %}
+										<a class="btn btn-light mb-2 me-md-2" href="{{ verhalenatlas_gebieden_url }}">{% if lang == 'nl_NL' %}Alle gebieden{% else %}All areas{% endif %}</a>
+									{% endif %}
+								{% if has_parent and parent_link %}
+									<a class="btn btn-light mb-2" href="{{ parent_link }}">
+										{% if lang == 'nl_NL' %}Terug naar gebied{% else %}Back to area{% endif %}
+									</a>
+								{% endif %}
 						</div>
 					</div>
 				</div>

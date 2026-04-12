@@ -313,6 +313,26 @@
             "delay": 0
         },
         {
+            "key": "field_68010a6d6c10a",
+            "label": "Intro titel",
+            "name": "verhalenatlas_intro_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_680103716c105",
             "label": "Intro afbeelding",
             "name": "verhalenatlas_intro_image",

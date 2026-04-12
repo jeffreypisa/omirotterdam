@@ -1,6 +1,6 @@
 {
     "key": "group_620110883a8ff",
-    "title": "Categorie",
+    "title": "Categorie / Filter",
     "fields": [
         {
             "key": "field_6201112166ac8",
@@ -66,7 +66,7 @@
             {
                 "param": "taxonomy",
                 "operator": "==",
-                "value": "verhalenatlas_category"
+                "value": "filter"
             }
         ]
     ],

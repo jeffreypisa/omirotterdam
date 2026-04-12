@@ -40,6 +40,7 @@
                             "choices": {
                                 "bg-transparent": "Wit",
                                 "bg-greylight": "Lichtgrijs",
+                                "bg-blue": "Blauw",
                                 "bg-orange": "Oranje"
                             },
                             "default_value": false,
@@ -125,6 +126,7 @@
                             "choices": {
                                 "bg-transparent": "Wit",
                                 "bg-greylight": "Lichtgrijs",
+                                "bg-blue": "Blauw",
                                 "bg-orange": "Oranje"
                             },
                             "default_value": "bg-transparent",
@@ -239,6 +241,7 @@
                             "choices": {
                                 "bg-transparent": "Wit",
                                 "bg-greylight": "Lichtgrijs",
+                                "bg-blue": "Blauw",
                                 "bg-orange": "Oranje"
                             },
                             "default_value": "bg-orange",
@@ -427,6 +430,7 @@
                             "choices": {
                                 "bg-transparent": "Wit",
                                 "bg-greylight": "Lichtgrijs",
+                                "bg-blue": "Blauw",
                                 "bg-orange": "Oranje"
                             },
                             "default_value": false,
@@ -556,6 +560,7 @@
                             "choices": {
                                 "bg-transparent": "Wit",
                                 "bg-greylight": "Lichtgrijs",
+                                "bg-blue": "Blauw",
                                 "bg-orange": "Oranje"
                             },
                             "default_value": "bg-orange",
@@ -658,6 +663,7 @@
                             "choices": {
                                 "bg-transparent": "Wit",
                                 "bg-greylight": "Lichtgrijs",
+                                "bg-blue": "Blauw",
                                 "bg-orange": "Oranje"
                             },
                             "default_value": false,
@@ -1264,6 +1270,7 @@
                             "choices": {
                                 "bg-transparent": "Wit",
                                 "bg-greylight": "Lichtgrijs",
+                                "bg-blue": "Blauw",
                                 "bg-orange": "Oranje"
                             },
                             "default_value": "bg-orange",
@@ -1367,6 +1374,7 @@
                             "choices": {
                                 "bg-transparent": "Wit",
                                 "bg-greylight": "Lichtgrijs",
+                                "bg-blue": "Blauw",
                                 "bg-orange": "Oranje"
                             },
                             "default_value": "bg-orange",
@@ -1481,6 +1489,7 @@
                             "choices": {
                                 "bg-transparent": "Wit",
                                 "bg-greylight": "Lichtgrijs",
+                                "bg-blue": "Blauw",
                                 "bg-orange": "Oranje"
                             },
                             "default_value": "bg-transparent",
@@ -1540,6 +1549,85 @@
                             "elements": ""
                         },
                         {
+                            "key": "field_68010routes01",
+                            "label": "Toon knop Alle routes",
+                            "name": "toon_alle_routes_knop",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_68010routes02",
+                            "label": "Route categorie overzicht",
+                            "name": "alle_routes_categorie",
+                            "aria-label": "",
+                            "type": "taxonomy",
+                            "instructions": "Kies de route categorie waar de knop naartoe moet linken.",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_68010routes01",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "taxonomy": "verhalenatlas_category",
+                            "add_term": 0,
+                            "save_terms": 0,
+                            "load_terms": 0,
+                            "return_format": "id",
+                            "field_type": "select",
+                            "allow_null": 1,
+                            "multiple": 0
+                        },
+                        {
+                            "key": "field_68010routes03",
+                            "label": "Label knop Alle routes",
+                            "name": "alle_routes_knop_label",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_68010routes01",
+                                        "operator": "==",
+                                        "value": "1"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "Alle routes",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
                             "key": "field_6801097673a05",
                             "label": "Knop",
                             "name": "link",
@@ -1582,6 +1670,7 @@
                             "choices": {
                                 "bg-transparent": "Wit",
                                 "bg-greylight": "Lichtgrijs",
+                                "bg-blue": "Blauw",
                                 "bg-orange": "Oranje"
                             },
                             "default_value": false,
@@ -1826,6 +1915,7 @@
                             "choices": {
                                 "bg-transparent": "Wit",
                                 "bg-greylight": "Lichtgrijs",
+                                "bg-blue": "Blauw",
                                 "bg-orange": "Oranje"
                             },
                             "default_value": false,

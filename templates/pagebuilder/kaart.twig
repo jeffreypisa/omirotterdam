@@ -179,18 +179,47 @@
 	
 					// Scroll naar kaart
 					setTimeout(function () { // Kleine vertraging zodat alles netjes dicht is
-						kaartElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+						scrollToElementWithHeaderOffset(kaartElement);
 					}, 200);
 				}
 			}
 		});
-	
+
+		function getStickyHeaderOffset() {
+			var header = document.querySelector('header');
+			if (!header) {
+				return 0;
+			}
+
+			var headerStyles = window.getComputedStyle(header);
+			var isStickyHeader = headerStyles.position === 'fixed' || headerStyles.position === 'sticky';
+			if (!isStickyHeader) {
+				return 0;
+			}
+
+			return Math.ceil(header.getBoundingClientRect().height) + 12;
+		}
+
+		function scrollToElementWithHeaderOffset(element) {
+			if (!element) {
+				return;
+			}
+
+			var headerOffset = getStickyHeaderOffset();
+			var targetTop = window.pageYOffset + element.getBoundingClientRect().top - headerOffset;
+
+			window.scrollTo({
+				top: Math.max(0, targetTop),
+				behavior: 'smooth'
+			});
+		}
+
 		// Scroll functie
 		function scrollToAccordionHeader(collapseElement) {
 			var headerId = collapseElement.getAttribute('aria-labelledby');
 			var headerElement = document.getElementById(headerId);
 			if (headerElement) {
-				headerElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+				scrollToElementWithHeaderOffset(headerElement);
 			}
 		}
 	});

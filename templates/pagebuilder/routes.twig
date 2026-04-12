@@ -1,26 +1,34 @@
-{% if item.achtergrond == 'bg-orange' %}
+{% if item.achtergrond == 'bg-orange' or item.achtergrond == 'bg-blue' %}
 	{% set knopkleur = 'btn-light' %}
 {% elseif item.achtergrond == 'bg-greylight' %}
 	{% set knopkleur = 'btn-primary' %}
 {% else %}
 	{% set knopkleur = 'btn-dark' %}
 {% endif %}
+{% set route_strook = item %}
+{% set routes_overview_link = '' %}
+{% if route_strook.alle_routes_categorie %}
+	{% set maybe_routes_link = function('get_term_link', route_strook.alle_routes_categorie, 'verhalenatlas_category') %}
+	{% if maybe_routes_link and not function('is_wp_error', maybe_routes_link) %}
+		{% set routes_overview_link = maybe_routes_link %}
+	{% endif %}
+{% endif %}
 
-<section id="section{{ sectionno }}" class="mod-routes {{ item.achtergrond }} {% if item.achtergrond == 'bg-orange' %}text-white{% endif %}" data-scroll-section>
-	{% if item.titel %}
+<section id="section{{ sectionno }}" class="mod-routes {{ item.achtergrond }} {% if item.achtergrond == 'bg-orange' or item.achtergrond == 'bg-blue' %}text-white{% endif %}" data-scroll-section>
+	{% if route_strook.titel %}
 		<div class="container anime-fadein">
 			<div class="row">
 				<div class="col-md-10 offset-md-1 text-center">
-					<h2>{{ item.titel }}</h2>
+					<h2>{{ route_strook.titel }}</h2>
 				</div>
 			</div>
 		</div>
 	{% endif %}
 
-	{% if item.routes %}
+	{% if route_strook.routes %}
 		<div class="container anime-fadein">
 			<div class="row justify-content-md-center">
-				{% for item in item.routes|slice(0,6) %}
+				{% for item in route_strook.routes|slice(0,6) %}
 					<div class="col-md-6 col-lg-4">
 						{% include ['tease-verhalenatlas.twig'] %}
 					</div>
@@ -29,11 +37,18 @@
 		</div>
 	{% endif %}
 
-	{% if item.link %}
+	{% if route_strook.link or (route_strook.toon_alle_routes_knop and routes_overview_link) %}
 		<div class="text-center mt-3">
-			<a href="{{ item.link.url }}" target="{{ item.link.target }}" class="btn {{ knopkleur }}">
-				{{ item.link.title }}
-			</a>
+			{% if route_strook.link %}
+				<a href="{{ route_strook.link.url }}" {% if route_strook.link.target %}target="{{ route_strook.link.target }}"{% endif %} class="btn {{ knopkleur }} mb-2 me-md-2">
+					{{ route_strook.link.title }}
+				</a>
+			{% endif %}
+			{% if route_strook.toon_alle_routes_knop and routes_overview_link %}
+				<a href="{{ routes_overview_link }}" class="btn {{ knopkleur }} mb-2">
+					{{ route_strook.alle_routes_knop_label ?: ((lang == 'nl_NL') ? 'Alle routes' : 'All routes') }}
+				</a>
+			{% endif %}
 		</div>
 	{% endif %}
 </section>

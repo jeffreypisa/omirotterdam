@@ -62,7 +62,8 @@
 
 	.kaart-accordion {
 		margin-top: 6px;
-
+		max-width: 1000px;
+		margin: 0 auto;
 		.accordion-item {
 			margin-bottom: 6px;
 			.accordion-button {
