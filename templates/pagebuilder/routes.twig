@@ -6,7 +6,12 @@
 	{% set knopkleur = 'btn-dark' %}
 {% endif %}
 {% set route_strook = item %}
-{% set routes_overview_link = verhalenatlas_all_routes_link|default('') %}
+{% set routes_overview_term_id = route_strook.alle_routes_categorie|default(null) %}
+{% set routes_overview_link = routes_overview_term_id ? function('get_term_link', routes_overview_term_id, 'verhalenatlas_category') : verhalenatlas_all_routes_link|default('') %}
+{% if routes_overview_link is same as(false) or function('is_wp_error', routes_overview_link) %}
+	{% set routes_overview_link = verhalenatlas_all_routes_link|default('') %}
+{% endif %}
+{% set routes_overview_label = route_strook.alle_routes_knop_label ?: ((lang == 'nl_NL') ? 'Alle routes' : 'All routes') %}
 
 <section id="section{{ sectionno }}" class="mod-routes {{ item.achtergrond }} {% if item.achtergrond == 'bg-orange' or item.achtergrond == 'bg-blue' %}text-white{% endif %}" data-scroll-section>
 	{% if route_strook.titel %}
@@ -40,7 +45,7 @@
 			{% endif %}
 			{% if route_strook.toon_alle_routes_knop and routes_overview_link %}
 				<a href="{{ routes_overview_link }}" class="btn {{ knopkleur }} mb-2">
-					{% if lang == 'nl_NL' %}Alle routes{% else %}All routes{% endif %}
+					{{ routes_overview_label }}
 				</a>
 			{% endif %}
 		</div>

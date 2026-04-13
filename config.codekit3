@@ -141,6 +141,18 @@
       "oAP" : "\/assets\/css\/main.css.map",
       "oF" : 0
     },
+    "\/assets\/css\/verhalenatlas-fixes.css" : {
+      "aP" : 1,
+      "bl" : 0,
+      "ci" : 0,
+      "co" : 0,
+      "ft" : 16,
+      "ma" : 0,
+      "oA" : 0,
+      "oAP" : "\/assets\/css\/verhalenatlas-fixes-min.css",
+      "oF" : 0,
+      "pg" : 0
+    },
     "\/assets\/favicon\/android-chrome-192x192.png" : {
       "ft" : 32768,
       "iS" : 23591,

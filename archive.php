@@ -200,6 +200,7 @@ if ($currentPostType == 'blog') {
     $is_verhalenatlas_tax = isset( $queried_object->taxonomy ) && $queried_object->taxonomy === 'verhalenatlas_category';
     $archive_category_option_id = $normalize_term_id( get_field( 'verhalenatlas_archive_category', 'option' ) );
     $all_verhalen_category_option_id = $normalize_term_id( get_field( 'verhalenatlas_all_verhalen_category', 'option' ) );
+    $is_nl = ( get_locale() === 'nl_NL' );
     $archive_page_option = get_field( 'verhalenatlas_archive_page_link', 'option' );
 
     $postcatid = ( $is_verhalenatlas_tax && isset( $queried_object->term_id ) )
@@ -234,9 +235,13 @@ if ($currentPostType == 'blog') {
         }
     }
 
+    $configured_grid_title = trim( (string) get_field( 'verhalenatlas_category_page_title', 'option' ) );
+    if ( ! $is_nl && $configured_grid_title === '' ) {
+        $configured_grid_title = trim( (string) get_field( 'verhalenatlas_category_page_title_en', 'option' ) );
+    }
     $context['verhalenatlas_grid_title'] = ( $archive_category_term && ! is_wp_error( $archive_category_term ) )
         ? $archive_category_term->name
-        : ( get_locale() === 'nl_NL' ? 'De gebieden' : 'Areas' );
+        : ( $configured_grid_title !== '' ? $configured_grid_title : ( $is_nl ? 'Alle gebieden' : 'All areas' ) );
     $context['verhalenatlas_archive_category_link'] = ( $archive_category_term && ! is_wp_error( $archive_category_term ) )
         ? get_term_link( $archive_category_term )
         : '';
@@ -250,10 +255,24 @@ if ($currentPostType == 'blog') {
     $context['verhalenatlas_all_verhalen_link'] = ( $all_verhalen_term && ! is_wp_error( $all_verhalen_term ) )
         ? get_term_link( $all_verhalen_term )
         : '';
+    $configured_archive_button_label = trim( (string) get_field( 'verhalenatlas_archive_button_label', 'option' ) );
+    $configured_all_verhalen_button_label = trim( (string) get_field( 'verhalenatlas_all_verhalen_button_label', 'option' ) );
+    if ( ! $is_nl && $configured_archive_button_label === '' ) {
+        $configured_archive_button_label = trim( (string) get_field( 'verhalenatlas_archive_button_label_en', 'option' ) );
+    }
+    if ( ! $is_nl && $configured_all_verhalen_button_label === '' ) {
+        $configured_all_verhalen_button_label = trim( (string) get_field( 'verhalenatlas_all_verhalen_button_label_en', 'option' ) );
+    }
+    $context['verhalenatlas_archive_button_label'] = $configured_archive_button_label !== ''
+        ? $configured_archive_button_label
+        : ( $is_nl ? 'Alle gebieden' : 'All areas' );
+    $context['verhalenatlas_all_verhalen_button_label'] = $configured_all_verhalen_button_label !== ''
+        ? $configured_all_verhalen_button_label
+        : ( $is_nl ? 'Alle verhalen' : 'All stories' );
     $context['verhalenatlas_routes_posts'] = array();
-    $context['verhalenatlas_routes_title'] = ( get_locale() === 'nl_NL' ) ? 'De routes' : 'Routes';
+    $context['verhalenatlas_routes_title'] = $is_nl ? 'De routes' : 'Routes';
     $context['verhalenatlas_routes_overview_link'] = $context['verhalenatlas_all_verhalen_link'];
-    $context['verhalenatlas_routes_overview_label'] = ( get_locale() === 'nl_NL' ) ? 'Alle routes' : 'All routes';
+    $context['verhalenatlas_routes_overview_label'] = $is_nl ? 'Alle routes' : 'All routes';
 
     if ( $is_verhalenatlas_tax && isset( $queried_object->term_id ) ) {
         $context['is_verhalenatlas_all_routes_page'] = ( (int) $queried_object->term_id === (int) $all_verhalen_category_option_id );
@@ -263,7 +282,9 @@ if ($currentPostType == 'blog') {
         }
     }
 
+    $selected_area = isset($_GET['gebied']) ? sanitize_text_field($_GET['gebied']) : '';
     $available_filter_terms = array();
+    $available_area_posts = array();
     if ( $context['is_verhalenatlas_all_routes_page'] && $postcatid ) {
         $route_ids_for_category = get_posts( array(
             'post_type'      => 'verhalenatlas',
@@ -290,6 +311,41 @@ if ($currentPostType == 'blog') {
             if ( is_wp_error( $available_filter_terms ) ) {
                 $available_filter_terms = array();
             }
+
+            // Bouw gebied-filter op uit parent posts van routes in deze categorie.
+            $candidate_parent_ids = array();
+            foreach ( $route_ids_for_category as $route_id ) {
+                $route_parent_id = (int) wp_get_post_parent_id( $route_id );
+                if ( $route_parent_id > 0 ) {
+                    $candidate_parent_ids[ $route_parent_id ] = $route_parent_id;
+                }
+            }
+
+            if ( ! empty( $candidate_parent_ids ) ) {
+                $gebied_term = get_term_by( 'slug', 'gebied', 'verhalenatlas_category' );
+                $filtered_parent_ids = array_values( $candidate_parent_ids );
+
+                // Alleen parents die óók in categorie 'gebied' zitten.
+                if ( $gebied_term && ! is_wp_error( $gebied_term ) ) {
+                    $filtered_parent_ids = array_values( array_filter(
+                        $filtered_parent_ids,
+                        static function ( $parent_id ) use ( $gebied_term ) {
+                            return has_term( (int) $gebied_term->term_id, 'verhalenatlas_category', (int) $parent_id );
+                        }
+                    ) );
+                }
+
+                if ( ! empty( $filtered_parent_ids ) ) {
+                    $available_area_posts = Timber::get_posts( array(
+                        'post_type'      => 'verhalenatlas',
+                        'post_status'    => 'publish',
+                        'post__in'       => $filtered_parent_ids,
+                        'posts_per_page' => -1,
+                        'orderby'        => 'title',
+                        'order'          => 'ASC',
+                    ) );
+                }
+            }
         }
     }
 
@@ -299,12 +355,24 @@ if ($currentPostType == 'blog') {
     $available_filter_slugs = ! empty( $available_filter_terms )
         ? wp_list_pluck( $available_filter_terms, 'slug' )
         : array();
+    $available_area_slugs = ! empty( $available_area_posts )
+        ? array_values( array_filter( array_map(
+            static function ( $area_post ) {
+                return isset( $area_post->slug ) ? (string) $area_post->slug : '';
+            },
+            $available_area_posts
+        ) ) )
+        : array();
 
     if ( $selected_filter !== '' && ! in_array( $selected_filter, $available_filter_slugs, true ) ) {
         $selected_filter = '';
     }
+    if ( $selected_area !== '' && ! in_array( $selected_area, $available_area_slugs, true ) ) {
+        $selected_area = '';
+    }
 
     $context['selected_filter'] = $selected_filter;
+    $context['selected_area'] = $selected_area;
     $context['verhalenatlas_filters'] = ! empty( $available_filter_ids )
         ? \Timber::get_terms( array(
             'taxonomy'   => 'filter',
@@ -314,6 +382,7 @@ if ($currentPostType == 'blog') {
             'hide_empty' => false,
         ) )
         : array();
+    $context['verhalenatlas_area_filters'] = ! empty( $available_area_posts ) ? $available_area_posts : array();
 
     $selected_filter_label = '';
     if ( $selected_filter !== '' ) {
@@ -323,6 +392,19 @@ if ($currentPostType == 'blog') {
         }
     }
     $context['selected_filter_label'] = $selected_filter_label;
+    $selected_area_label = '';
+    $selected_area_parent_id = 0;
+    if ( $selected_area !== '' ) {
+        foreach ( $available_area_posts as $area_post ) {
+            if ( isset( $area_post->slug ) && $area_post->slug === $selected_area ) {
+                $selected_area_parent_id = (int) $area_post->ID;
+                $selected_area_label = $area_post->title;
+                break;
+            }
+        }
+    }
+    $context['selected_area_label'] = $selected_area_label;
+    $context['selected_area_parent_id'] = $selected_area_parent_id;
 
     $tax_query = array();
 
@@ -353,6 +435,10 @@ if ($currentPostType == 'blog') {
 
     if (!empty($tax_query)) {
         $args_posts['tax_query'] = $tax_query;
+    }
+
+    if ( $selected_area_parent_id > 0 ) {
+        $args_posts['post_parent'] = $selected_area_parent_id;
     }
 
     if ( $is_verhalenatlas_tax ) {

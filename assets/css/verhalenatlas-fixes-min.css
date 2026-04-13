@@ -1,0 +1,52 @@
+.mod-archive .verhalenatlas-intro .verhalenatlas-intro-panel {
+	height: 100%;
+}
+
+.mod-archive .verhalenatlas-intro .verhalenatlas-intro-text {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.mod-archive .verhalenatlas-intro .verhalenatlas-intro-image-wrap {
+	display: flex;
+	align-items: stretch;
+}
+
+.mod-archive .verhalenatlas-intro .verhalenatlas-intro-image {
+	height: 100%;
+	min-height: 260px;
+}
+
+.verhalenatlas-actions--dual {
+	flex-wrap: nowrap;
+	justify-content: center;
+}
+
+.verhalenatlas-type-tabs {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 10px;
+	margin: 0 auto 12px;
+}
+
+.verhalenatlas-area-filter-wrap {
+	max-width: 360px;
+	margin: 0;
+}
+
+.verhalenatlas-area-filter .form-select {
+	height: 50px;
+}
+
+@media (max-width: 991.98px) {
+	.verhalenatlas-actions--dual {
+		gap: 10px;
+	}
+
+	.verhalenatlas-actions--dual .btn {
+		margin-right: 0 !important;
+		white-space: nowrap;
+	}
+}

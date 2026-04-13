@@ -1,5 +1,4 @@
 {% if item.kaart %}
-{% set verhalenatlasUrl = site.url ~ '/' ~ ((lang == 'nl_NL') ? 'verhalenatlas/' : 'en/verhalenatlas/') %}
 <section id="kaart" class="mod-kaart {{ item.achtergrond|default('bg-transparent') }}">
 	<div class="kaart-holder container-md text-center">
 
@@ -101,16 +100,6 @@
 		</div>
 	</div>
 
-	<div class="container text-center mt-4">
-		<a class="btn btn-primary" href="{{ verhalenatlasUrl }}">
-			{% if post.post_parent and post.post_parent > 0 %}
-				{% if lang == 'nl_NL' %}Bekijk route{% else %}View route{% endif %}
-			{% else %}
-				{% if lang == 'nl_NL' %}Bekijk verhalenatlas{% else %}View storyatlas{% endif %}
-			{% endif %}
-		</a>
-	</div>
-
 	<!-- Scroll + open accordion script -->
 	<script>
 	document.addEventListener('DOMContentLoaded', function () {
@@ -170,6 +159,7 @@
 			var backLink = e.target.closest('.js-terug-naar-kaart');
 			if (backLink) {
 				e.preventDefault();
+				e.stopPropagation();
 				closeAllKaartPopovers();
 				var targetId = backLink.getAttribute('href');
 				var kaartElement = document.querySelector(targetId);
@@ -177,17 +167,26 @@
 				if (kaartElement) {
 					// Wacht tot alle open accordions echt dicht zijn voordat we scrollen.
 					closeOpenAccordions(function () {
-						scrollToElementWithHeaderOffset(kaartElement);
-						// Extra correctie na layout-update, voorkomt net-niet-bovenaan gedrag.
-						requestAnimationFrame(function () {
-							setTimeout(function () {
-								scrollToElementWithHeaderOffset(kaartElement);
-							}, 80);
-						});
+						scrollToKaartWithRetries(kaartElement);
 					});
 				}
 			}
 		});
+
+		function scrollToKaartWithRetries(element) {
+			if (!element) {
+				return;
+			}
+
+			scrollToElementWithHeaderOffset(element);
+			// Herhaal een paar keer omdat de accordion-animatie de layout nog kan verschuiven.
+			setTimeout(function () {
+				scrollToElementWithHeaderOffset(element);
+			}, 120);
+			setTimeout(function () {
+				scrollToElementWithHeaderOffset(element);
+			}, 260);
+		}
 
 		function closeOpenAccordions(onDone) {
 			var openCollapses = Array.prototype.slice.call(document.querySelectorAll('.accordion-collapse.show'));
