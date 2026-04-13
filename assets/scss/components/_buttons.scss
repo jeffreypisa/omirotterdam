@@ -48,6 +48,26 @@
 			color: #fff !important;
 		}
 	}
+	&.btn-outline-light {
+		background: transparent;
+		color: #fff;
+		border: 2px solid #fff;
+		line-height: 46px;
+		&:hover, &:focus, &:target {
+			background: #fff;
+			color: $dark !important;
+		}
+	}
+	&.btn-outline-dark {
+		background: transparent;
+		color: $dark;
+		border: 2px solid $dark;
+		line-height: 46px;
+		&:hover, &:focus, &:target {
+			background: $dark;
+			color: #fff !important;
+		}
+	}
 	&.btn-dark {
 		background: $dark;
 		color: #fff;

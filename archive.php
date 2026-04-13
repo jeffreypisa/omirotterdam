@@ -13,6 +13,20 @@ $context = Timber::context();
 
 /* Load categories */
 $currentPostType = get_post_type();
+$archive_queried_object = get_queried_object();
+
+// Taxonomy archives can return an empty post type; map them explicitly.
+if ( empty( $currentPostType ) && isset( $archive_queried_object->taxonomy ) ) {
+    $taxonomy_to_post_type = array(
+        'events_category'       => 'events',
+        'paststory_category'    => 'paststories',
+        'verhalenatlas_category'=> 'verhalenatlas',
+    );
+
+    if ( isset( $taxonomy_to_post_type[ $archive_queried_object->taxonomy ] ) ) {
+        $currentPostType = $taxonomy_to_post_type[ $archive_queried_object->taxonomy ];
+    }
+}
 
 $jaar = '';
 
@@ -193,21 +207,10 @@ if ($currentPostType == 'blog') {
         : $archive_category_option_id;
     $context['current_category'] = $postcatid;
     $context['is_verhalenatlas_tax'] = $is_verhalenatlas_tax;
+    $context['is_verhalenatlas_all_routes_page'] = false;
+    $context['verhalenatlas_current_term_link'] = '';
 
     $selected_filter = isset($_GET['filter']) ? sanitize_text_field($_GET['filter']) : '';
-    $context['selected_filter'] = $selected_filter;
-    $context['verhalenatlas_filters'] = \Timber::get_terms(array(
-        'taxonomy' => 'filter',
-        'hide_empty' => true
-    ));
-    $selected_filter_label = '';
-    if ($selected_filter !== '') {
-        $selected_filter_term = get_term_by('slug', $selected_filter, 'filter');
-        if ($selected_filter_term && !is_wp_error($selected_filter_term)) {
-            $selected_filter_label = $selected_filter_term->name;
-        }
-    }
-    $context['selected_filter_label'] = $selected_filter_label;
 
     $archive_category_term = $postcatid ? get_term( $postcatid, 'verhalenatlas_category' ) : null;
     $all_verhalen_term = $all_verhalen_category_option_id ? get_term( $all_verhalen_category_option_id, 'verhalenatlas_category' ) : null;
@@ -250,7 +253,76 @@ if ($currentPostType == 'blog') {
     $context['verhalenatlas_routes_posts'] = array();
     $context['verhalenatlas_routes_title'] = ( get_locale() === 'nl_NL' ) ? 'De routes' : 'Routes';
     $context['verhalenatlas_routes_overview_link'] = $context['verhalenatlas_all_verhalen_link'];
-    $context['verhalenatlas_routes_overview_label'] = ( get_locale() === 'nl_NL' ) ? 'Ga naar route overzicht' : 'Go to routes overview';
+    $context['verhalenatlas_routes_overview_label'] = ( get_locale() === 'nl_NL' ) ? 'Alle routes' : 'All routes';
+
+    if ( $is_verhalenatlas_tax && isset( $queried_object->term_id ) ) {
+        $context['is_verhalenatlas_all_routes_page'] = ( (int) $queried_object->term_id === (int) $all_verhalen_category_option_id );
+        $current_term_link = get_term_link( (int) $queried_object->term_id, 'verhalenatlas_category' );
+        if ( ! is_wp_error( $current_term_link ) ) {
+            $context['verhalenatlas_current_term_link'] = $current_term_link;
+        }
+    }
+
+    $available_filter_terms = array();
+    if ( $context['is_verhalenatlas_all_routes_page'] && $postcatid ) {
+        $route_ids_for_category = get_posts( array(
+            'post_type'      => 'verhalenatlas',
+            'post_status'    => 'publish',
+            'posts_per_page' => -1,
+            'fields'         => 'ids',
+            'no_found_rows'  => true,
+            'tax_query'      => array(
+                array(
+                    'taxonomy' => 'verhalenatlas_category',
+                    'field'    => 'id',
+                    'terms'    => $postcatid,
+                ),
+            ),
+        ) );
+
+        if ( ! empty( $route_ids_for_category ) ) {
+            $available_filter_terms = get_terms( array(
+                'taxonomy'   => 'filter',
+                'hide_empty' => true,
+                'object_ids' => $route_ids_for_category,
+            ) );
+
+            if ( is_wp_error( $available_filter_terms ) ) {
+                $available_filter_terms = array();
+            }
+        }
+    }
+
+    $available_filter_ids = ! empty( $available_filter_terms )
+        ? array_map( 'intval', wp_list_pluck( $available_filter_terms, 'term_id' ) )
+        : array();
+    $available_filter_slugs = ! empty( $available_filter_terms )
+        ? wp_list_pluck( $available_filter_terms, 'slug' )
+        : array();
+
+    if ( $selected_filter !== '' && ! in_array( $selected_filter, $available_filter_slugs, true ) ) {
+        $selected_filter = '';
+    }
+
+    $context['selected_filter'] = $selected_filter;
+    $context['verhalenatlas_filters'] = ! empty( $available_filter_ids )
+        ? \Timber::get_terms( array(
+            'taxonomy'   => 'filter',
+            'include'    => $available_filter_ids,
+            'orderby'    => 'name',
+            'order'      => 'ASC',
+            'hide_empty' => false,
+        ) )
+        : array();
+
+    $selected_filter_label = '';
+    if ( $selected_filter !== '' ) {
+        $selected_filter_term = get_term_by( 'slug', $selected_filter, 'filter' );
+        if ( $selected_filter_term && ! is_wp_error( $selected_filter_term ) ) {
+            $selected_filter_label = $selected_filter_term->name;
+        }
+    }
+    $context['selected_filter_label'] = $selected_filter_label;
 
     $tax_query = array();
 
@@ -288,18 +360,11 @@ if ($currentPostType == 'blog') {
         $show_routes_strook = (bool) get_field( 'verhalenatlas_routes_strook_tonen', $term_context );
         $routes_title = get_field( 'verhalenatlas_routes_strook_titel', $term_context );
         $routes_posts = get_field( 'verhalenatlas_routes_strook_posts', $term_context );
-        $routes_link = get_field( 'verhalenatlas_routes_strook_link', $term_context );
 
         if ( $show_routes_strook && ! empty( $routes_posts ) ) {
             $context['verhalenatlas_routes_posts'] = $routes_posts;
             if ( ! empty( $routes_title ) ) {
                 $context['verhalenatlas_routes_title'] = $routes_title;
-            }
-            if ( is_array( $routes_link ) && ! empty( $routes_link['url'] ) ) {
-                $context['verhalenatlas_routes_overview_link'] = $routes_link['url'];
-                if ( ! empty( $routes_link['title'] ) ) {
-                    $context['verhalenatlas_routes_overview_label'] = $routes_link['title'];
-                }
             }
         }
     }

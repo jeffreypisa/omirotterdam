@@ -6,13 +6,7 @@
 	{% set knopkleur = 'btn-dark' %}
 {% endif %}
 {% set route_strook = item %}
-{% set routes_overview_link = '' %}
-{% if route_strook.alle_routes_categorie %}
-	{% set maybe_routes_link = function('get_term_link', route_strook.alle_routes_categorie, 'verhalenatlas_category') %}
-	{% if maybe_routes_link and not function('is_wp_error', maybe_routes_link) %}
-		{% set routes_overview_link = maybe_routes_link %}
-	{% endif %}
-{% endif %}
+{% set routes_overview_link = verhalenatlas_all_routes_link|default('') %}
 
 <section id="section{{ sectionno }}" class="mod-routes {{ item.achtergrond }} {% if item.achtergrond == 'bg-orange' or item.achtergrond == 'bg-blue' %}text-white{% endif %}" data-scroll-section>
 	{% if route_strook.titel %}
@@ -29,7 +23,7 @@
 		<div class="container anime-fadein">
 			<div class="row justify-content-md-center">
 				{% for item in route_strook.routes|slice(0,6) %}
-					<div class="col-md-6 col-lg-4">
+					<div class="col-md-6">
 						{% include ['tease-verhalenatlas.twig'] %}
 					</div>
 				{% endfor %}
@@ -46,7 +40,7 @@
 			{% endif %}
 			{% if route_strook.toon_alle_routes_knop and routes_overview_link %}
 				<a href="{{ routes_overview_link }}" class="btn {{ knopkleur }} mb-2">
-					{{ route_strook.alle_routes_knop_label ?: ((lang == 'nl_NL') ? 'Alle routes' : 'All routes') }}
+					{% if lang == 'nl_NL' %}Alle routes{% else %}All routes{% endif %}
 				</a>
 			{% endif %}
 		</div>

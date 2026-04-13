@@ -107,6 +107,13 @@ body {
 	}
 }
 
+@include media-breakpoint-down(md) {
+	.text-lg {
+		font-size: 18px;
+	}
+
+}
+
 @include media-breakpoint-down(sm) {
 	body {
 		h1 {

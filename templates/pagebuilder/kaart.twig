@@ -103,7 +103,11 @@
 
 	<div class="container text-center mt-4">
 		<a class="btn btn-primary" href="{{ verhalenatlasUrl }}">
-			{% if lang == 'nl_NL' %}Bekijk verhalenatlas{% else %}View storyatlas{% endif %}
+			{% if post.post_parent and post.post_parent > 0 %}
+				{% if lang == 'nl_NL' %}Bekijk route{% else %}View route{% endif %}
+			{% else %}
+				{% if lang == 'nl_NL' %}Bekijk verhalenatlas{% else %}View storyatlas{% endif %}
+			{% endif %}
 		</a>
 	</div>
 
@@ -171,19 +175,54 @@
 				var kaartElement = document.querySelector(targetId);
 	
 				if (kaartElement) {
-					// Eerst alle open collapses sluiten
-					var openCollapses = document.querySelectorAll('.accordion-collapse.show');
-					openCollapses.forEach(function (openCollapse) {
-						new bootstrap.Collapse(openCollapse, { toggle: false }).hide();
-					});
-	
-					// Scroll naar kaart
-					setTimeout(function () { // Kleine vertraging zodat alles netjes dicht is
+					// Wacht tot alle open accordions echt dicht zijn voordat we scrollen.
+					closeOpenAccordions(function () {
 						scrollToElementWithHeaderOffset(kaartElement);
-					}, 200);
+						// Extra correctie na layout-update, voorkomt net-niet-bovenaan gedrag.
+						requestAnimationFrame(function () {
+							setTimeout(function () {
+								scrollToElementWithHeaderOffset(kaartElement);
+							}, 80);
+						});
+					});
 				}
 			}
 		});
+
+		function closeOpenAccordions(onDone) {
+			var openCollapses = Array.prototype.slice.call(document.querySelectorAll('.accordion-collapse.show'));
+			if (openCollapses.length === 0) {
+				if (typeof onDone === 'function') {
+					onDone();
+				}
+				return;
+			}
+
+			var remaining = openCollapses.length;
+
+			openCollapses.forEach(function (openCollapse) {
+				var handled = false;
+				var finish = function () {
+					if (handled) {
+						return;
+					}
+					handled = true;
+					openCollapse.removeEventListener('hidden.bs.collapse', finish);
+					remaining -= 1;
+					if (remaining === 0 && typeof onDone === 'function') {
+						onDone();
+					}
+				};
+
+				openCollapse.addEventListener('hidden.bs.collapse', finish);
+				new bootstrap.Collapse(openCollapse, { toggle: false }).hide();
+
+				// Fallback als element al dicht is of event niet triggert.
+				if (!openCollapse.classList.contains('show')) {
+					finish();
+				}
+			});
+		}
 
 		function getStickyHeaderOffset() {
 			var header = document.querySelector('header');

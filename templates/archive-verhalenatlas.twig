@@ -4,36 +4,12 @@
 <article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}">
 	<section class="mod-content bg-blue text-white" data-scroll-section>
 		{% if is_verhalenatlas_tax %}
-			<div class="container text-start text-md-center">
+			<div class="container text-start">
 				<div class="row">
-					<div class="col-md-10 offset-md-1">
-					<h1 class="h2 mb-5 mt-3">
-						{{ options.verhalenatlas_category_page_title ?: ((lang == 'nl_NL') ? 'Alle verhalen' : 'All stories') }}
-					</h1>
-
-					<div class="verhalenatlas-category-controls verhalenatlas-header-controls mb-2">
-						{% if verhalenatlas_archive_page_scroll_link %}
-							<a href="{{ verhalenatlas_archive_page_scroll_link }}" class="btn btn-light">
-								{{ options.verhalenatlas_archive_button_label ?: ((lang == 'nl_NL') ? 'Bekijk de gebieden' : 'View areas') }}
-							</a>
-						{% endif %}
-						{% if verhalenatlas_filters %}
-							<div class="form-group mb-0">
-								<form id="filter-select" class="category-dropdown" action="{{ currenturl }}" method="get">
-									<select class="form-select" name="filter" id="filter" onchange="return this.form.submit()">
-										<option value="" {% if selected_filter == '' %}selected{% endif %}>
-											{% if lang == 'nl_NL' %}Alle filters{% else %}All filters{% endif %}
-										</option>
-										{% for item in verhalenatlas_filters %}
-											<option value="{{ item.slug }}" {% if selected_filter == item.slug %}selected{% endif %}>
-												{{ item.title }}
-											</option>
-										{% endfor %}
-									</select>
-								</form>
-							</div>
-						{% endif %}
-					</div>
+					<div class="col-12">
+						<h1 class="h2 mt-3 mb-3 text-center">
+							Verhalenatlas
+						</h1>
 					</div>
 				</div>
 			</div>
@@ -44,16 +20,19 @@
 					<h1 class="h2 mb-2 mt-3">
 						{% if lang == 'nl_NL' %}Verhalenatlas{% else %}Story Atlas{% endif %}
 					</h1>
+					{% if post.subtitel %}
+						<h3 class="mb-3 mb-md-4 weight-400">{{ post.subtitel }}</h3>
+					{% endif %}
 
 					<div class="verhalenatlas-actions verhalenatlas-header-controls mb-2">
 						{% if verhalenatlas_archive_category_link %}
 							<a href="#verhalenatlas-gebieden" class="btn btn-light me-2 mb-2">
-								{{ options.verhalenatlas_archive_button_label ?: ((lang == 'nl_NL') ? 'Bekijk de gebieden' : 'View areas') }}
+								{% if lang == 'nl_NL' %}Bekijk gebieden{% else %}View areas{% endif %}
 							</a>
 						{% endif %}
 						{% if verhalenatlas_all_verhalen_link %}
 							<a href="{{ verhalenatlas_all_verhalen_link }}" class="btn btn-light mb-2">
-								{{ options.verhalenatlas_all_verhalen_button_label ?: ((lang == 'nl_NL') ? 'Alle verhalen' : 'All stories') }}
+								{% if lang == 'nl_NL' %}Bekijk routes{% else %}View routes{% endif %}
 							</a>
 						{% endif %}
 					</div>
@@ -66,13 +45,73 @@
 	{% if is_verhalenatlas_tax %}
 		<section class="mod-archive bg-greylight" data-scroll-section>
 			<div class="container">
-				<div class="row mt-2 anime-fadein">
-					{% for item in posts %}
-					<div class="col-md-6">
-						{% include ['tease-verhalenatlas.twig'] %}
+				<div class="verhalenatlas-toolbar mb-3">
+					<div class="verhalenatlas-category-controls verhalenatlas-header-controls">
+						<div class="verhalenatlas-category-left form-group mb-0">
+							<form id="category-select" class="category-dropdown" action="{{ currenturl }}" method="get">
+								<select class="form-select" name="verhalenatlas_category" id="verhalenatlas-category" onchange="if(this.value){window.location.href=this.value;}">
+									{% for category in categories %}
+										<option value="{{ category.link }}" {% if current_category == category.term_id %}selected{% endif %}>
+											{{ category.title }}
+										</option>
+									{% endfor %}
+								</select>
+							</form>
+						</div>
+						{% if is_verhalenatlas_all_routes_page and verhalenatlas_filters %}
+							<div class="verhalenatlas-category-right">
+								{% set filter_base_link = verhalenatlas_current_term_link ?: (currenturl|split('?')|first) %}
+								<div class="verhalenatlas-filter-dropdown">
+									<form class="category-dropdown" action="{{ currenturl }}" method="get">
+										<select class="form-select" name="filter" onchange="if(this.value==='__all__'){window.location.href='{{ filter_base_link }}';}else{window.location.href='{{ filter_base_link }}?filter='+this.value;}">
+											<option value="__all__" {% if selected_filter == '' %}selected{% endif %}>
+												{% if lang == 'nl_NL' %}Filter{% else %}Filter{% endif %}
+											</option>
+											{% for item in verhalenatlas_filters %}
+												<option value="{{ item.slug }}" {% if selected_filter == item.slug %}selected{% endif %}>
+													{{ item.title }}
+												</option>
+											{% endfor %}
+										</select>
+									</form>
+								</div>
+								{% if posts|length > 0 %}
+									<div class="verhalenatlas-filter-buttons">
+										<a href="{{ filter_base_link }}" class="btn {% if selected_filter == '' %}btn-dark{% else %}btn-outline-dark{% endif %} mb-2">
+											{% if lang == 'nl_NL' %}Alle{% else %}All{% endif %}
+										</a>
+										{% for item in verhalenatlas_filters %}
+											<a href="{{ filter_base_link }}?filter={{ item.slug }}" class="btn {% if selected_filter == item.slug %}btn-dark{% else %}btn-outline-dark{% endif %} mb-2">
+												{{ item.title }}
+											</a>
+										{% endfor %}
+									</div>
+								{% endif %}
+							</div>
+						{% endif %}
 					</div>
-					{% endfor %}
 				</div>
+				{% if posts|length %}
+					<div class="row mt-4 anime-fadein">
+						{% for item in posts %}
+						<div class="col-md-6">
+							{% include ['tease-verhalenatlas.twig'] %}
+						</div>
+						{% endfor %}
+					</div>
+				{% else %}
+					<div class="row mt-4">
+						<div class="col-12 text-center">
+							<p class="lead mb-0">
+								{% if selected_filter %}
+									{% if lang == 'nl_NL' %}Geen routes beschikbaar voor dit filter.{% else %}No routes available for this filter.{% endif %}
+								{% else %}
+									{% if lang == 'nl_NL' %}Geen routes beschikbaar.{% else %}No routes available.{% endif %}
+								{% endif %}
+							</p>
+						</div>
+					</div>
+				{% endif %}
 
 				{% if verhalenatlas_routes_posts %}
 					<div class="verhalenatlas-routes-strook mt-5 pt-2" id="verhalenatlas-routes">

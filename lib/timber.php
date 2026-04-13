@@ -154,6 +154,32 @@ class StarterSite extends Timber\Site {
 		// Get this url
 		
 		$context['currenturl'] = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+		$normalize_term_id = static function ( $value ) {
+			if ( is_numeric( $value ) ) {
+				return (int) $value;
+			}
+			if ( is_object( $value ) && isset( $value->term_id ) ) {
+				return (int) $value->term_id;
+			}
+			if ( is_array( $value ) ) {
+				if ( isset( $value['term_id'] ) ) {
+					return (int) $value['term_id'];
+				}
+				if ( isset( $value['id'] ) ) {
+					return (int) $value['id'];
+				}
+			}
+			return 0;
+		};
+
+		$all_routes_category_id = $normalize_term_id( get_field( 'verhalenatlas_all_verhalen_category', 'option' ) );
+		$all_routes_term = $all_routes_category_id ? get_term( $all_routes_category_id, 'verhalenatlas_category' ) : null;
+
+		$context['verhalenatlas_all_routes_category_id'] = $all_routes_category_id;
+		$context['verhalenatlas_all_routes_link'] = ( $all_routes_term && ! is_wp_error( $all_routes_term ) )
+			? get_term_link( $all_routes_term )
+			: '';
 		
 		
 		return $context;
