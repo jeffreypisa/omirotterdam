@@ -23,12 +23,22 @@
 	justify-content: center;
 }
 
+.verhalenatlas-home-hero h3 {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .verhalenatlas-type-tabs {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	gap: 10px;
 	margin: 0 auto 12px;
+}
+
+.verhalenatlas-type-tabs .btn.is-active {
+	font-weight: 600;
 }
 
 .verhalenatlas-area-filter-wrap {
@@ -42,12 +52,13 @@
 
 @media (max-width: 991.98px) {
 	.verhalenatlas-actions--dual {
+		flex-wrap: wrap;
 		gap: 10px;
 	}
 
 	.verhalenatlas-actions--dual .btn {
 		margin-right: 0 !important;
-		white-space: nowrap;
+		white-space: normal;
 	}
 }
 

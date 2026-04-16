@@ -421,92 +421,12 @@
             "maxlength": ""
         },
         {
-            "key": "field_680104106c108_en",
-            "label": "Titel op categorie overzichtspagina (EN)",
-            "name": "verhalenatlas_category_page_title_en",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "All areas",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_6801033b6c103_en",
-            "label": "Knop label gebieden (EN)",
-            "name": "verhalenatlas_archive_button_label_en",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "All areas",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_680103a66c107_en",
-            "label": "Knop label Alle verhalen (EN)",
-            "name": "verhalenatlas_all_verhalen_button_label_en",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "All stories",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
             "key": "field_68010a6d6c10a_sub",
             "label": "Hero subtitel",
             "name": "verhalenatlas_hero_subtitle",
             "aria-label": "",
             "type": "text",
             "instructions": "Fallback subtitel voor de Verhalenatlas homepage header.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_68010a6d6c10a_sub_en",
-            "label": "Hero subtitel (EN)",
-            "name": "verhalenatlas_hero_subtitle_en",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Fallback subtitel voor de Engelse Verhalenatlas homepage header.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -557,26 +477,6 @@
             "maxlength": ""
         },
         {
-            "key": "field_6801045c6c109_area_btn_label_en",
-            "label": "Knop onder blok Alle gebieden (label EN)",
-            "name": "verhalenatlas_gebieden_button_label_en",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "More areas",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
             "key": "field_6801045c6c109_more_longreads",
             "label": "Knop label Meer longreads",
             "name": "verhalenatlas_more_longreads_label",
@@ -591,26 +491,6 @@
                 "id": ""
             },
             "default_value": "Meer longreads",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_6801045c6c109_more_longreads_en",
-            "label": "Knop label Meer longreads (EN)",
-            "name": "verhalenatlas_more_longreads_label_en",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "More longreads",
             "placeholder": "",
             "prepend": "",
             "append": "",

@@ -47,6 +47,37 @@ function wpa_verhalenatlas_legacy_rewrite() {
 }
 add_action( 'init', 'wpa_verhalenatlas_legacy_rewrite' );
 
+function wpa_verhalenatlas_redirect_old_english_slug() {
+	if ( is_admin() ) {
+		return;
+	}
+
+	$request_uri = isset( $_SERVER['REQUEST_URI'] ) ? (string) $_SERVER['REQUEST_URI'] : '';
+	if ( $request_uri === '' ) {
+		return;
+	}
+
+	$parts = wp_parse_url( $request_uri );
+	$path = isset( $parts['path'] ) ? (string) $parts['path'] : '';
+	if ( strpos( $path, '/en/verhalenatlas' ) !== 0 ) {
+		return;
+	}
+
+	$target_path = preg_replace( '#^/en/verhalenatlas#', '/en/story-atlas', $path, 1 );
+	if ( ! is_string( $target_path ) || $target_path === '' ) {
+		return;
+	}
+
+	$target_url = home_url( $target_path );
+	if ( isset( $parts['query'] ) && $parts['query'] !== '' ) {
+		$target_url .= '?' . $parts['query'];
+	}
+
+	wp_safe_redirect( $target_url, 301 );
+	exit;
+}
+add_action( 'template_redirect', 'wpa_verhalenatlas_redirect_old_english_slug', 1 );
+
 function wpa_verhalenatlas_resolve_taxonomy_conflict( $query_vars ) {
 	if ( is_admin() || empty( $query_vars['verhalenatlas_category'] ) ) {
 		return $query_vars;

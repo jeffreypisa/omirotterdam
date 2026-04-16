@@ -173,7 +173,35 @@ class StarterSite extends Timber\Site {
 			return 0;
 		};
 
-		$all_routes_category_id = $normalize_term_id( get_field( 'verhalenatlas_all_verhalen_category', 'option' ) );
+		$translate_term_id = static function ( $term_id, $taxonomy = 'verhalenatlas_category' ) {
+			$term_id = (int) $term_id;
+			if ( $term_id <= 0 ) {
+				return 0;
+			}
+
+			if ( function_exists( 'pll_get_term' ) ) {
+				$translated_id = (int) pll_get_term( $term_id );
+				if ( $translated_id > 0 ) {
+					return $translated_id;
+				}
+			}
+
+			return $term_id;
+		};
+
+		$get_term_id_by_slug = static function ( $slug, $taxonomy = 'verhalenatlas_category' ) use ( $translate_term_id ) {
+			$term = get_term_by( 'slug', (string) $slug, $taxonomy );
+			if ( ! $term || is_wp_error( $term ) ) {
+				return 0;
+			}
+
+			return $translate_term_id( (int) $term->term_id, $taxonomy );
+		};
+
+		$all_routes_category_id = $translate_term_id( $normalize_term_id( get_field( 'verhalenatlas_all_verhalen_category', 'option' ) ) );
+		if ( ! $all_routes_category_id ) {
+			$all_routes_category_id = $get_term_id_by_slug( 'route' );
+		}
 		$all_routes_term = $all_routes_category_id ? get_term( $all_routes_category_id, 'verhalenatlas_category' ) : null;
 
 		$context['verhalenatlas_all_routes_category_id'] = $all_routes_category_id;

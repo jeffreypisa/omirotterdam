@@ -31,8 +31,36 @@ $normalize_term_id = static function ( $value ) {
     return 0;
 };
 
-$archive_category_option_id = $normalize_term_id( get_field( 'verhalenatlas_archive_category', 'option' ) );
-$all_verhalen_category_option_id = $normalize_term_id( get_field( 'verhalenatlas_all_verhalen_category', 'option' ) );
+$translate_term_id = static function ( $term_id, $taxonomy = 'verhalenatlas_category' ) {
+    $term_id = (int) $term_id;
+    if ( $term_id <= 0 ) {
+        return 0;
+    }
+
+    if ( function_exists( 'pll_get_term' ) ) {
+        $translated_id = (int) pll_get_term( $term_id );
+        if ( $translated_id > 0 ) {
+            return $translated_id;
+        }
+    }
+
+    return $term_id;
+};
+
+$get_term_id_by_slug = static function ( $slug, $taxonomy = 'verhalenatlas_category' ) use ( $translate_term_id ) {
+    $term = get_term_by( 'slug', (string) $slug, $taxonomy );
+    if ( ! $term || is_wp_error( $term ) ) {
+        return 0;
+    }
+
+    return $translate_term_id( (int) $term->term_id, $taxonomy );
+};
+
+$archive_category_option_id = $translate_term_id( $normalize_term_id( get_field( 'verhalenatlas_archive_category', 'option' ) ) );
+$all_verhalen_category_option_id = $translate_term_id( $normalize_term_id( get_field( 'verhalenatlas_all_verhalen_category', 'option' ) ) );
+if ( ! $all_verhalen_category_option_id ) {
+    $all_verhalen_category_option_id = $get_term_id_by_slug( 'route' );
+}
 $is_nl = ( get_locale() === 'nl_NL' );
 $context['current_category'] = $archive_category_option_id;
 $context['is_verhalenatlas_tax'] = false;
@@ -65,12 +93,6 @@ $context['verhalenatlas_all_verhalen_link'] = ( $all_verhalen_term && ! is_wp_er
     : '';
 $configured_archive_button_label = trim( (string) get_field( 'verhalenatlas_archive_button_label', 'option' ) );
 $configured_all_verhalen_button_label = trim( (string) get_field( 'verhalenatlas_all_verhalen_button_label', 'option' ) );
-if ( ! $is_nl && $configured_archive_button_label === '' ) {
-    $configured_archive_button_label = trim( (string) get_field( 'verhalenatlas_archive_button_label_en', 'option' ) );
-}
-if ( ! $is_nl && $configured_all_verhalen_button_label === '' ) {
-    $configured_all_verhalen_button_label = trim( (string) get_field( 'verhalenatlas_all_verhalen_button_label_en', 'option' ) );
-}
 $context['verhalenatlas_archive_button_label'] = $configured_archive_button_label !== ''
     ? $configured_archive_button_label
     : ( $is_nl ? 'Alle gebieden' : 'All areas' );
@@ -82,7 +104,11 @@ $context['verhalenatlas_all_verhalen_button_label'] = $configured_all_verhalen_b
 
 $args_posts = array(
     'post_type'           => 'verhalenatlas',
-    'posts_per_page'      => -1
+    'posts_per_page'      => -1,
+    'orderby'             => array(
+        'menu_order' => 'ASC',
+        'title'      => 'ASC',
+    ),
 );
 
 $tax_query = array();

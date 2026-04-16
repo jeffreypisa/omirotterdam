@@ -36,4 +36,65 @@ function mytheme_admin_bar_render() {
 	$wp_admin_bar->remove_menu('comments');
 }
 add_action( 'wp_before_admin_bar_render', 'mytheme_admin_bar_render' );
-?>
+
+function omi_is_acf_options_screen() {
+	if ( ! is_admin() ) {
+		return false;
+	}
+
+	$page = isset( $_GET['page'] ) ? sanitize_key( wp_unslash( $_GET['page'] ) ) : '';
+	return strpos( $page, 'acf-options' ) === 0;
+}
+
+add_action( 'admin_head', 'omi_theme_options_hide_all_languages_choice' );
+function omi_theme_options_hide_all_languages_choice() {
+	if ( ! omi_is_acf_options_screen() || ! function_exists( 'pll_current_language' ) ) {
+		return;
+	}
+	?>
+	<style>
+		a[href*="lang=all"],
+		option[value="all"],
+		option[value="pll_all"],
+		.pll-switcher .lang-item-all {
+			display: none !important;
+		}
+
+		body.omi-options-lang-required #wpbody-content .acf-form,
+		body.omi-options-lang-required #wpbody-content form#post {
+			display: none !important;
+		}
+	</style>
+	<?php
+}
+
+add_action( 'admin_footer', 'omi_theme_options_require_specific_language' );
+function omi_theme_options_require_specific_language() {
+	if ( ! omi_is_acf_options_screen() || ! function_exists( 'pll_current_language' ) ) {
+		return;
+	}
+	?>
+	<script>
+	(function () {
+		var params = new URLSearchParams(window.location.search);
+		var lang = params.get('lang');
+		var needsLanguage = !lang || lang === 'all' || lang === 'pll_all';
+
+		if (!needsLanguage) {
+			return;
+		}
+
+		document.body.classList.add('omi-options-lang-required');
+
+		var heading = document.querySelector('.wrap h1, #wpbody-content h1');
+		if (heading && !document.getElementById('omi-lang-required-notice')) {
+			var notice = document.createElement('div');
+			notice.id = 'omi-lang-required-notice';
+			notice.className = 'notice notice-warning';
+			notice.innerHTML = '<p><strong>Kies eerst een taal (NL of EN)</strong> om Thema Opties te bewerken. De optie "Alle talen" wordt hier niet gebruikt.</p>';
+			heading.parentNode.insertBefore(notice, heading.nextSibling);
+		}
+	})();
+	</script>
+	<?php
+}
