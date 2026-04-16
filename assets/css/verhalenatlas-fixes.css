@@ -50,3 +50,35 @@
 		white-space: nowrap;
 	}
 }
+
+@media (max-width: 767.98px) {
+	.verhalenatlas-area-filter-wrap {
+		display: inline-block;
+		width: auto !important;
+		max-width: none !important;
+	}
+
+	.verhalenatlas-area-filter {
+		display: inline-block;
+		width: auto !important;
+	}
+
+	.verhalenatlas-area-filter .form-select {
+		width: auto !important;
+		min-width: 0 !important;
+		max-width: 100%;
+		display: inline-block !important;
+	}
+
+	.verhalenatlas-category-controls .form-group,
+	.verhalenatlas-category-controls .category-dropdown {
+		width: auto !important;
+	}
+
+	.verhalenatlas-category-controls .form-select {
+		width: fit-content !important;
+		max-width: 100%;
+		min-width: 0 !important;
+		display: inline-block !important;
+	}
+}

@@ -188,6 +188,20 @@
 				height: auto;
 			}
 		}
+
+		@media (orientation: landscape) {
+			.kaart-wrapper {
+				width: auto;
+				display: inline-block;
+			}
+
+			.kaart-afbeelding {
+				width: auto;
+				max-width: 100%;
+				height: auto;
+				max-height: 80vh;
+			}
+		}
 	}
 }
 
