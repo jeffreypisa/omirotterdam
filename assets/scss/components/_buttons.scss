@@ -120,3 +120,22 @@
 		}
 	}
 }
+
+@include media-breakpoint-down(md) {
+	.btn {
+		line-height: 42px;
+		padding: 0 20px;
+		font-size: 15px;
+
+		&.btn-sm {
+			line-height: 36px;
+			padding: 0 16px;
+			font-size: 14px;
+		}
+
+		&.btn-outline-light,
+		&.btn-outline-dark {
+			line-height: 38px;
+		}
+	}
+}

@@ -197,6 +197,13 @@
 }
 
 @include media-breakpoint-down(md) {
+	.verhalenatlas-toolbar {
+		.btn {
+			height: 42px;
+			line-height: 1.1;
+		}
+	}
+
 	.verhalenatlas-area-filter-wrap {
 		display: inline-block;
 		width: auto;

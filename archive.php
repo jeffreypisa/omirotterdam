@@ -452,10 +452,9 @@ if ($currentPostType == 'blog') {
     $args_posts = array(
         'post_type'      => 'verhalenatlas',
         'posts_per_page' => -1,
-        'orderby'        => array(
-            'menu_order' => 'ASC',
-            'title'      => 'ASC',
-        ),
+        // Volg expliciet de handmatige WP Admin-volgorde (menu_order).
+        'orderby'        => 'menu_order',
+        'order'          => 'ASC',
     );
 
     if (!empty($tax_query)) {

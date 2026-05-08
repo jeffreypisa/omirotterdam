@@ -35,6 +35,46 @@
 	}
 }
 
+.mod-content .altfont,
+.mod-colofon {
+	text-align: left;
+
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		text-align: left;
+		line-height: 1.25;
+		margin-top: 1.6rem;
+		margin-bottom: 0.8rem;
+	}
+
+	h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); }
+	h3 { font-size: clamp(1.35rem, 2.8vw, 1.8rem); }
+	h4 { font-size: clamp(1.15rem, 2.2vw, 1.45rem); }
+
+	blockquote {
+		margin: 1.4rem 0;
+		padding: 0.9rem 1.1rem;
+		border-left: 4px solid $orange;
+		background: rgba(255, 108, 47, 0.08);
+		font-style: italic;
+	}
+}
+
+figure.omi-audio-caption.wp-caption {
+	max-width: 100%;
+	margin: 1.2rem 0;
+
+	.wp-caption-text {
+		margin-top: 0.5rem;
+		font-size: 0.95rem;
+		line-height: 1.35;
+		color: inherit;
+	}
+}
+
 @include media-breakpoint-up(lg) {
 	.mod-content {
 	}

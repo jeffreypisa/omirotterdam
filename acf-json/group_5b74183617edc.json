@@ -618,7 +618,7 @@
                                     "label": "Tekst",
                                     "name": "tekst",
                                     "aria-label": "",
-                                    "type": "text",
+                                    "type": "wysiwyg",
                                     "instructions": "",
                                     "required": 0,
                                     "conditional_logic": 0,
@@ -628,10 +628,10 @@
                                         "id": ""
                                     },
                                     "default_value": "",
-                                    "maxlength": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
+                                    "tabs": "all",
+                                    "toolbar": "full",
+                                    "media_upload": 1,
+                                    "delay": 0,
                                     "parent_repeater": "field_64c0dd38d981c"
                                 }
                             ]
@@ -2095,5 +2095,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1775745828
+    "modified": 1776781938
 }

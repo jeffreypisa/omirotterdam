@@ -9,7 +9,7 @@
 								{{ colofon.label }}:
 							</div>
 							<div class="col">
-								{{ colofon.tekst }}
+								{{ function('apply_filters', 'the_content', colofon.tekst) }}
 							</div>
 						</div>
 					{% endfor %}
