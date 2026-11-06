@@ -7,7 +7,7 @@
       "uuidString" : "DAB3A1D1-B069-47CF-B5B7-C2F91B29D8B3"
     }
   ],
-  "creatorBuild" : "34903",
+  "creatorBuild" : "36870",
   "files" : {
     "\/.nova\/Configuration.json" : {
       "ft" : 524288,
@@ -123,7 +123,6 @@
     },
     "\/assets\/css\/main.css" : {
       "aP" : 1,
-      "bl" : 0,
       "ci" : 0,
       "co" : 0,
       "ft" : 16,
@@ -143,7 +142,6 @@
     },
     "\/assets\/css\/verhalenatlas-fixes-min.css" : {
       "aP" : 1,
-      "bl" : 0,
       "ci" : 0,
       "co" : 0,
       "ft" : 16,
@@ -155,7 +153,6 @@
     },
     "\/assets\/css\/verhalenatlas-fixes.css" : {
       "aP" : 1,
-      "bl" : 0,
       "ci" : 0,
       "co" : 0,
       "ft" : 16,
@@ -405,7 +402,6 @@
     },
     "\/assets\/fonts\/fontawesome.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -482,7 +478,6 @@
     },
     "\/assets\/fonts\/light.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -527,7 +522,6 @@
     },
     "\/assets\/fonts\/solid.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -812,7 +806,6 @@
     },
     "\/assets\/scss\/components\/_archief.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -825,7 +818,6 @@
     },
     "\/assets\/scss\/components\/_bannertext.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -838,7 +830,6 @@
     },
     "\/assets\/scss\/components\/_bgcolorchange.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -851,7 +842,6 @@
     },
     "\/assets\/scss\/components\/_btn-menu.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -864,7 +854,6 @@
     },
     "\/assets\/scss\/components\/_buttons.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -877,7 +866,6 @@
     },
     "\/assets\/scss\/components\/_colors.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -890,7 +878,6 @@
     },
     "\/assets\/scss\/components\/_content.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -903,7 +890,6 @@
     },
     "\/assets\/scss\/components\/_dropdown.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -916,7 +902,6 @@
     },
     "\/assets\/scss\/components\/_embed.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -929,7 +914,6 @@
     },
     "\/assets\/scss\/components\/_footer.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -942,7 +926,6 @@
     },
     "\/assets\/scss\/components\/_form.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -955,7 +938,6 @@
     },
     "\/assets\/scss\/components\/_header.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -968,7 +950,6 @@
     },
     "\/assets\/scss\/components\/_helpers.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -981,7 +962,6 @@
     },
     "\/assets\/scss\/components\/_image.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -994,7 +974,6 @@
     },
     "\/assets\/scss\/components\/_logos.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -1007,7 +986,6 @@
     },
     "\/assets\/scss\/components\/_mobilemenu.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -1020,7 +998,6 @@
     },
     "\/assets\/scss\/components\/_section.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -1033,7 +1010,6 @@
     },
     "\/assets\/scss\/components\/_single.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -1046,7 +1022,6 @@
     },
     "\/assets\/scss\/components\/_socialmedia.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -1059,7 +1034,6 @@
     },
     "\/assets\/scss\/components\/_tease.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -1072,7 +1046,6 @@
     },
     "\/assets\/scss\/components\/_type.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -1085,7 +1058,6 @@
     },
     "\/assets\/scss\/main.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -1098,7 +1070,6 @@
     },
     "\/assets\/scss\/pagebuilder\/_banner.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -1111,7 +1082,6 @@
     },
     "\/assets\/scss\/pagebuilder\/_blocklinks.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -1124,7 +1094,6 @@
     },
     "\/assets\/scss\/pagebuilder\/_categories.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -1137,7 +1106,6 @@
     },
     "\/assets\/scss\/pagebuilder\/_content.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -1150,7 +1118,6 @@
     },
     "\/assets\/scss\/pagebuilder\/_cta.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -1163,7 +1130,6 @@
     },
     "\/assets\/scss\/pagebuilder\/_evenementen.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -1176,7 +1142,6 @@
     },
     "\/assets\/scss\/pagebuilder\/_kaart.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -1189,7 +1154,6 @@
     },
     "\/assets\/scss\/pagebuilder\/_overons.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -1202,7 +1166,6 @@
     },
     "\/assets\/scss\/pagebuilder\/_projecten.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -1215,7 +1178,6 @@
     },
     "\/assets\/scss\/pagebuilder\/_quote.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -1228,7 +1190,6 @@
     },
     "\/assets\/scss\/pagebuilder\/_shortcode.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -1241,7 +1202,6 @@
     },
     "\/assets\/scss\/pagebuilder\/_slider.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -1254,7 +1214,6 @@
     },
     "\/assets\/scss\/plugins\/_fontawesome.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -1267,7 +1226,6 @@
     },
     "\/assets\/scss\/plugins\/_mec.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -1280,7 +1238,6 @@
     },
     "\/assets\/scss\/plugins\/_slick.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -1293,7 +1250,6 @@
     },
     "\/assets\/scss\/plugins\/_woocommerce.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -1306,7 +1262,6 @@
     },
     "\/assets\/scss\/settings\/_body.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -1319,7 +1274,6 @@
     },
     "\/assets\/scss\/settings\/_buttons.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -1332,7 +1286,6 @@
     },
     "\/assets\/scss\/settings\/_colors.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -1345,7 +1298,6 @@
     },
     "\/assets\/scss\/settings\/_components.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -1358,7 +1310,6 @@
     },
     "\/assets\/scss\/settings\/_effects.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -1371,7 +1322,6 @@
     },
     "\/assets\/scss\/settings\/_form.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -1384,7 +1334,6 @@
     },
     "\/assets\/scss\/settings\/_grid.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -1397,7 +1346,6 @@
     },
     "\/assets\/scss\/settings\/_images.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -1410,7 +1358,6 @@
     },
     "\/assets\/scss\/settings\/_links.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -1423,7 +1370,6 @@
     },
     "\/assets\/scss\/settings\/_nav.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -1436,7 +1382,6 @@
     },
     "\/assets\/scss\/settings\/_options.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -1449,7 +1394,6 @@
     },
     "\/assets\/scss\/settings\/_type.scss" : {
       "aP" : 1,
-      "bl" : 0,
       "co" : 0,
       "ec" : 1,
       "ft" : 4,
@@ -1628,7 +1572,7 @@
     },
     "\/package-lock.json" : {
       "ft" : 524288,
-      "oA" : 1,
+      "oA" : 2,
       "oAP" : "\/package-lock-min.json",
       "oF" : 0,
       "oO" : 1,
@@ -1636,7 +1580,7 @@
     },
     "\/package.json" : {
       "ft" : 524288,
-      "oA" : 1,
+      "oA" : 2,
       "oAP" : "\/package-min.json",
       "oF" : 0,
       "oO" : 1,
@@ -1770,7 +1714,6 @@
     },
     "\/style-min.css" : {
       "aP" : 1,
-      "bl" : 0,
       "ci" : 0,
       "co" : 0,
       "ft" : 16,
@@ -1782,7 +1725,6 @@
     },
     "\/style.css" : {
       "aP" : 1,
-      "bl" : 0,
       "ci" : 0,
       "co" : 0,
       "ft" : 16,
@@ -2564,10 +2506,6 @@
     },
     "babelRetainLines" : 0,
     "babelUseBuiltInsType" : 0,
-    "bowerAbbreviatedPath" : "bower_components",
-    "bowerForceLatestOnConflict" : 1,
-    "bowerTargetDependencyListType" : 1,
-    "bowerUseExactVersion" : 0,
     "browserRefreshDelay" : 0,
     "browserslistString" : ">0.2%, last 2 versions, Firefox ESR, not dead",
     "buildEnvironment" : 1,
@@ -3301,7 +3239,6 @@
       "cssoStyle" : 0,
       "purgeCSSStyle" : 0,
       "shouldRunAutoprefixer" : 1,
-      "shouldRunBless" : 0,
       "sourceMapStyle" : 0
     },
     "languageDefaultsGIF" : {
@@ -3390,7 +3327,6 @@
       "purgeCSSStyle" : 0,
       "rewriteURLStyle" : 0,
       "shouldRunAutoprefixer" : 0,
-      "shouldRunBless" : 0,
       "sourceMapStyle" : 0,
       "strictImports" : 0,
       "strictUnits" : 0
@@ -3462,7 +3398,6 @@
       "outputStyle" : 3,
       "purgeCSSStyle" : 0,
       "shouldRunAutoprefixer" : 1,
-      "shouldRunBless" : 0,
       "sourceMapStyle" : 1
     },
     "languageDefaultsSLIM" : {
@@ -3494,7 +3429,6 @@
       "purgeCSSStyle" : 0,
       "resolveRelativeURLS" : 0,
       "shouldRunAutoprefixer" : 0,
-      "shouldRunBless" : 0,
       "sourceMapStyle" : 0
     },
     "languageDefaultsSVG" : {
@@ -3504,7 +3438,9 @@
       "autoOutputPathReplace1" : "",
       "autoOutputPathReplace2" : "",
       "autoOutputPathStyle" : 0,
-      "pluginMask" : 52780316221407
+      "pluginMask" : 52780316221407,
+      "prettyPrinted" : 0,
+      "useMultipass" : 0
     },
     "languageDefaultsTS" : {
       "autoOutputAction" : 0,
@@ -3513,12 +3449,13 @@
       "autoOutputPathReplace1" : "",
       "autoOutputPathReplace2" : "",
       "autoOutputPathStyle" : 0,
+      "bundleFormat" : 4,
       "createDeclarationFile" : 0,
       "jsxMode" : 0,
       "minifierStyle" : 0,
       "moduleDetectionType" : 0,
-      "moduleResolutionType" : 0,
-      "moduleType" : 2,
+      "moduleResolutionType" : 5,
+      "moduleType" : 5,
       "removeComments" : 0,
       "sourceMapStyle" : 0,
       "targetECMAVersion" : 2018
@@ -3526,6 +3463,16 @@
     "languageDefaultsUserDefined" : [
 
     ],
+    "languageDefaultsWEBP" : {
+      "autoOutputAction" : 0,
+      "autoOutputPathFilenamePattern" : "*.webp",
+      "autoOutputPathRelativePath" : "",
+      "autoOutputPathReplace1" : "",
+      "autoOutputPathReplace2" : "",
+      "autoOutputPathStyle" : 0,
+      "optimizationPresetUUID" : "lpckwebp-default",
+      "rgbQuality" : 75
+    },
     "npmAbbreviatedPath" : "",
     "npmCreatePackageLock" : 1,
     "npmInstallOptionalDependencies" : 0,
@@ -3580,15 +3527,12 @@
     "susyVersion" : 3,
     "tsAllowArbitraryExtensions" : 0,
     "tsAllowImportingTSExtensions" : 0,
-    "tsAllowSyntheticDefaultImports" : 0,
     "tsAllowUMDGlobalAccess" : 0,
     "tsAllowUnreachableCode" : 0,
     "tsAllowUnusedLabels" : 0,
-    "tsAlwaysStrict" : 0,
-    "tsDownlevelIteration" : 0,
+    "tsConfigFileHandlingType" : 0,
     "tsEmitBOM" : 0,
     "tsEmitDecoratorMetadata" : 0,
-    "tsESModuleInterop" : 0,
     "tsExactOptionalPropertyTypes" : 0,
     "tsExperimentalDecorators" : 0,
     "tsForceConsistentCasingInFileNames" : 0,
@@ -3596,6 +3540,7 @@
     "tsIsolatedModules" : 0,
     "tsJSXFactory" : "React.createElement",
     "tsJSXFragmentFactory" : "Fragment",
+    "tsLibString" : "",
     "tsNoEmitHelpers" : 0,
     "tsNoFallthroughCasesInSwitch" : 0,
     "tsNoImplicitAny" : 0,
@@ -3606,6 +3551,7 @@
     "tsNoPropertyAccessFromIndexSignature" : 0,
     "tsNoResolve" : 0,
     "tsNoUncheckedIndexAccess" : 0,
+    "tsNoUncheckedSideEffectImports" : 0,
     "tsNoUnusedLocals" : 0,
     "tsNoUnusedParameters" : 0,
     "tsPreserveConstEnums" : 0,
@@ -3618,6 +3564,7 @@
     "tsStrictNullChecks" : 0,
     "tsStrictPropertyInitialization" : 0,
     "tsStripInternal" : 0,
+    "tsTypesString" : "*",
     "tsUseDefineForClassFields" : 0,
     "tsUseUnknownInCatchVariables" : 0,
     "tsVerbatimModuleSyntax" : 0,

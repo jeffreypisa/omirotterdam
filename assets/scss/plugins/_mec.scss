@@ -169,6 +169,24 @@
 
 // algemeen
 
+.mec-single-event .mec-book-first .mec-booking-calendar-wrapper .mec-select-date-label,
+.mec-booking .mec-event-tickets-list .mec-ticket-style-row .mec-event-ticket-name,
+.mec-ticket-name-description-wrapper h4 .mec-ticket-attendee-counter, .mec-ticket-name-description-wrapper h4 .mec-ticket-name {
+	font-size: 18px !important;
+}
+
+.mec-single-event .mec-events-meta-group-booking input[type=text] {
+	padding: 3px 15px 0;
+}
+
+.mec-booking-form-container .omi-booking-datetime {
+	color: $dark;
+}
+
+.mec-single-event .mec-events-meta-group-booking select {
+	height: auto !important;
+}
+
 .mec-container {
 	width: auto !important;
 	max-width: auto !important;
